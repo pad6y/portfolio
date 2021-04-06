@@ -3,7 +3,13 @@
     <div
       class="grid grid-cols-2 gap-10 items-center p-16 pb-24 border-2 rounded-lg shadow-lg"
     >
-      <div class="font-serif text-7xl md:text-9xl text-gold">Pad6y</div>
+      <div class="font-serif text-7xl md:text-9xl text-gold">
+        Pad6y
+        <div class="border-b-4 border-black pt-6"></div>
+        <div class="text-4xl md:text-6xl text-gray-500 flex justify-end">
+          portfolio
+        </div>
+      </div>
 
       <div class="flex justify-center">
         <div v-if="canLogin" class="hidden px-6 py-4 sm:block">
@@ -36,13 +42,12 @@
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="absolute right-10">
-    <div class="font-serif text-gray-400 text-xs">
-      Laravel v{{ laravelVersion }} (PHP v{{ phpVersion }})
+    <div class="flex justify-end mt-4 mr-4">
+      <div class="font-serif text-gray-400 text-xs">
+        Laravel v{{ laravelVersion }} (PHP v{{ phpVersion }})
+      </div>
     </div>
-    <!-- </div> -->
   </div>
 </template>
 
