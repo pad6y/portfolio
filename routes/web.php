@@ -4,7 +4,6 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Storage;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,4 +34,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     })->name('newsfeed');
 });
 
-Route::middleware('auth:sanctum')->post('/newsfeed/create', [App\Http\Controllers\PostController::class, 'store'])->name('newsfeed.store');
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/newsfeed/create', function () {
+        return Inertia::render('Newsfeed/create');
+    })->name('newsfeedCreate');
+
+    Route::post('/newsfeed/create', [App\Http\Controllers\PostController::class, 'store'])->name('newsfeed.store');
+});

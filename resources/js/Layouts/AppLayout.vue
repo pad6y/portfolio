@@ -25,6 +25,13 @@
                 >
                   Dashboard
                 </jet-nav-link>
+
+                <jet-nav-link
+                  :href="route('newsfeed')"
+                  :active="route().current('newsfeed')"
+                >
+                  Newsfeed
+                </jet-nav-link>
               </div>
             </div>
 
@@ -245,6 +252,13 @@
               :active="route().current('dashboard')"
             >
               Dashboard
+            </jet-responsive-nav-link>
+
+            <jet-responsive-nav-link
+              :href="route('newsfeed')"
+              :active="route().current('dashboard')"
+            >
+              Newsfeed
             </jet-responsive-nav-link>
           </div>
 

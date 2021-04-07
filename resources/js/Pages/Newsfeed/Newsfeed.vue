@@ -26,7 +26,7 @@
       </div>
 
       <inertia-link
-        :href="route('login')"
+        :href="route('newsfeedCreate')"
         class="border-2 rounded-md px-4 py-2 font-serif text-lg shadow-md text-gray-700 text-center hover:bg-gold-dark"
       >
         Add News Article
