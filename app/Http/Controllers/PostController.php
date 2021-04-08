@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,6 +17,7 @@ class PostController extends Controller
     public function index()
     {
         //
+        return Post::orderBy('created_at', "DESC")->get();
     }
 
     /**

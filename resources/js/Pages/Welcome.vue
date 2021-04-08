@@ -67,10 +67,5 @@ export default {
     laravelVersion: String,
     phpVersion: String,
   },
-  data() {
-    return {
-      images: [""],
-    };
-  },
 };
 </script>

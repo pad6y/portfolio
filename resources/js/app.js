@@ -17,7 +17,11 @@ createApp({
             initialPage: JSON.parse(el.dataset.page),
             resolveComponent: (name) =>
                 import(`./Pages/${name}`).then(({ default: page }) => {
-                    if (page.layout === undefined) {
+                    if (
+                        page.layout === undefined &&
+                        !name.startsWith("Welcome") &&
+                        !name.startsWith("Auth/")
+                    ) {
                         page.layout = Layout;
                     }
                     return page;

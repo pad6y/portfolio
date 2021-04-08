@@ -35,9 +35,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 });
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/newsfeed/create', function () {
-        return Inertia::render('Newsfeed/create');
-    })->name('newsfeedCreate');
+    Route::get('/newsfeed/posts', [App\Http\Controllers\PostController::class, 'index'])->name('newsfeed.index');
 
     Route::post('/newsfeed/create', [App\Http\Controllers\PostController::class, 'store'])->name('newsfeed.store');
 });
