@@ -5,7 +5,10 @@
     <div
       class="grid grid-cols-1 items-center p-10 pb-6 border-2 rounded-lg shadow-lg"
     >
-      <newsfeed-item />
+      <div v-for="(post, index) in posts" :key="index">
+        <newsfeed-item :post="post" />
+      </div>
+
       <inertia-link
         :href="route('newsfeed.store')"
         class="border-2 rounded-md px-4 py-2 font-serif text-lg shadow-md text-gray-700 text-center hover:bg-gold-dark"
@@ -23,5 +26,6 @@ import NewsfeedItem from "./NewsfeedItem";
 
 export default {
   components: { NewsfeedItem },
+  props: ["posts"],
 };
 </script>
