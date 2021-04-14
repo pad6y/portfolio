@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto max-w-6xl py-80 px-6">
+  <div class="container mx-auto max-w-6xl py-12 px-6">
     <div
       class="grid grid-cols-2 gap-10 items-center p-16 pb-24 border-2 rounded-lg shadow-lg"
     >
@@ -16,7 +16,7 @@
           <inertia-link
             v-if="$page.props.user"
             href="/dashboard"
-            class="border-2 rounded-md px-4 py-2 font-serif text-lg shadow-lg text-gray-700 hover:bg-gold-dark hover:ring-yellow-200 hover:ring-opacity-50"
+            class="border-2 rounded-md px-4 py-2 font-serif text-lg shadow-lg text-gray-700 bg-gold-text hover:bg-gold-md hover:ring-yellow-200 hover:ring-opacity-50"
           >
             Dashboard
           </inertia-link>
@@ -25,7 +25,7 @@
             <div class="grid gap-5">
               <inertia-link
                 :href="route('login')"
-                class="border-2 rounded-md px-4 py-2 font-serif text-lg shadow-md text-gray-700 text-center hover:bg-gold-dark"
+                class="border-2 rounded-md px-4 py-2 font-serif text-lg shadow-md text-gray-700 text-center bg-gold-text hover:bg-gold-md"
               >
                 Log in
               </inertia-link>
@@ -33,7 +33,7 @@
               <inertia-link
                 v-if="canRegister"
                 :href="route('register')"
-                class="border-2 rounded-md px-4 py-2 font-serif text-lg shadow-md text-gray-700 hover:bg-gold-dark"
+                class="border-2 rounded-md px-4 py-2 font-serif text-lg shadow-md text-gray-700 bg-gold-yext hover:bg-gold-md"
               >
                 Register
               </inertia-link>

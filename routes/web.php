@@ -1,9 +1,11 @@
 <?php
 
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,20 +24,19 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-});
+})->name('landing');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    Route::get('/newsfeed', function () {
-        return Inertia::render('NewsfeedLayout');
-    })->name('newsfeed');
+    Route::get('/newsfeed', [PostController::class, 'index'])->name('newsfeed.index');
+    // Route::get('/newsfeed', function () {
+    //     return Inertia::render('NewsfeedLayout');
+    // })->name('newsfeed');
 });
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/newsfeed/posts', [App\Http\Controllers\PostController::class, 'index'])->name('newsfeed.index');
+    // Route::get('/newsfeed/posts', [App\Http\Controllers\PostController::class, 'index'])->name('newsfeed.index');
 
     Route::post('/newsfeed/create', [App\Http\Controllers\PostController::class, 'store'])->name('newsfeed.store');
 });

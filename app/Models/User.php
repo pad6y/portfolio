@@ -41,6 +41,14 @@ class User extends Authenticatable
         'two_factor_secret',
     ];
 
+
+    /**
+     * The relationship that should always be loaded.
+     *
+     * @var array
+     */
+    protected $with = ['posts'];
+
     /**
      * The attributes that should be cast to native types.
      *
@@ -58,4 +66,9 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }

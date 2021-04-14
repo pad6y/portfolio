@@ -1,22 +1,29 @@
 <template>
-  <div class="font-serif text-gray-600 border-b mb-12">
-    <div class="grid grid-cols-2 font-bold">
+  <div class="grid grid-cols-2 font-serif border-b pt-4 pb-4">
+    <div>
       <div class="text-gold">{{ post.title }}</div>
-      <div class="flex justify-end text-gold mr-2">
-        {{ post.user.name }}
+      <div class="ml-4 pt-2 text-gray-600">{{ post.body }}</div>
+    </div>
+
+    <div class="grid justify-items-end text-gold">
+      {{ post.user.name }}
+      <div class="text-xs text-gray-400">
+        Published:
+        {{ moment(post.created_at, "YYYYMMDD").fromNow() }}
       </div>
     </div>
-
-    <div class="flex justify-end text-xs text-gray-400">
-      Published: {{ post.created_at }}
-    </div>
-
-    <div class="pt-6 pb-2">{{ post.body }}</div>
   </div>
 </template>
 
 <script>
+var moment = require("moment");
+
 export default {
   props: ["post"],
+  data() {
+    return {
+      moment: moment,
+    };
+  },
 };
 </script>

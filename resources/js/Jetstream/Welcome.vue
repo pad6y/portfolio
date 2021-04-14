@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="p-6 sm:px-20 bg-gray-200 border-b border-gray-200">
+    <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
       <div class="mt-8 font-serif text-2xl underline">
         Will refine this into main admin dashboard!
       </div>

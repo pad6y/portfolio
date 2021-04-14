@@ -3,7 +3,7 @@
     <div class="font-serif text-3xl text-gray-500 pb-3">NEWSFEED</div>
 
     <div
-      class="grid grid-cols-1 items-center p-10 pb-6 border-2 rounded-lg shadow-lg"
+      class="grid grid-cols-1 items-center p-8 pb-6 border-2 rounded-lg shadow-lg"
     >
       <div v-for="(post, index) in posts" :key="index">
         <newsfeed-item :post="post" />
@@ -11,7 +11,7 @@
 
       <inertia-link
         :href="route('newsfeed.store')"
-        class="border-2 rounded-md px-4 py-2 font-serif text-lg shadow-md text-gray-700 text-center hover:bg-gold-dark"
+        class="flex justify-self-center border-2 rounded-md px-4 py-2 font-serif text-lg shadow-md text-gray-700 text-center bg-gold-text hover:bg-gold-dark"
       >
         Add News Article
       </inertia-link>

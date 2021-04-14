@@ -19,6 +19,7 @@ module.exports = {
                     lite: "#F0E68C",
                     md: "#FFD700",
                     dark: "#DAA520",
+                    text: "#D4AF37",
                 },
             },
             textColor: {

@@ -16,8 +16,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
-        return Post::with('user')->orderBy('created_at', "DESC")->get();
+        $posts = Post::with('user')->orderBy("created_at", "DESC")->get();
+
+        return Inertia::render('NewsfeedLayout', ['posts' => $posts]);
     }
 
     /**
@@ -52,7 +53,7 @@ class PostController extends Controller
 
         // auth()->user()->posts()->create($newMessage);
 
-        return redirect()->route('newsfeed');
+        return redirect()->route('newsfeed.index');
     }
 
     /**

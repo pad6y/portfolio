@@ -1,19 +1,20 @@
 <template>
   <div class="py-12">
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="max-w-full mx-auto sm:px-6 lg:px-8">
       <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-        <welcome />
+        <admin-user-index :users="users" :posts="posts" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Welcome from "@/Jetstream/Welcome";
+import AdminUserIndex from "@/Pages/Admin/Users/Show.vue";
 
 export default {
   components: {
-    Welcome,
+    AdminUserIndex,
   },
+  props: ["users", "posts"],
 };
 </script>
