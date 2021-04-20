@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,7 +29,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Newsfeed/create');
     }
 
     /**
@@ -39,19 +40,22 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $newMessage = new Post;
-        $newMessage->user_id = Auth::id();
-        $newMessage->title = $request->title;
-        $newMessage->body = $request->body;
+        // $newMessage = new Post;
+        // $newMessage->user_id = Auth::id();
+        // $newMessage->title = $request->title;
+        // $newMessage->body = $request->body;
+        // $newMessage->post_image = $request->post_image;
+        // // if (request('post_image')) {
 
-        if (request('post_image')) {
-
-            $newMessage['post_image'] = request('post_image')->store('images');
-        }
-        $newMessage->save();
-
-        // auth()->user()->posts()->create($newMessage);
+        // //     $newMessage['post_image'] = request('post_image')->store('images');
+        // // }
+        // $newMessage->save();
+        Post::create([
+            'user_id' => Auth::id(),
+            'title' => $request->input('title'),
+            'body' => $request->input('body'),
+            'post_image' => $request->file('post_image') ? $request->file('post_image')->store('images', 'public') : null
+        ]);
 
         return redirect()->route('newsfeed.index');
     }

@@ -10,8 +10,8 @@
       </div>
 
       <inertia-link
-        :href="route('newsfeed.store')"
-        class="flex justify-self-center border-2 rounded-md px-4 py-2 font-serif text-lg shadow-md text-gray-700 text-center bg-gold-text hover:bg-gold-dark"
+        :href="route('newsfeed.create')"
+        class="flex justify-self-center border-2 rounded-md mt-6 px-4 py-2 font-serif text-lg shadow-md text-gray-700 text-center bg-gold-text hover:bg-gold-dark"
       >
         Add News Article
       </inertia-link>

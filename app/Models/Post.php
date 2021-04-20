@@ -16,13 +16,29 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'created_at' => 'datetime:d-M-Y',
+    ];
+
+
+    // protected $appends = [
+    //     'post_image_url',
+    // ];
+
     public function getPostImageAttribute($value)
     {
+        if ($value !== null) {
 
-        if (strpos($value, 'https://') !== FALSE || strpos($value, 'http://') !== FALSE) {
-            return $value;
+            if (strpos($value, 'https://') !== FALSE || strpos($value, 'http://') !== FALSE) {
+                return $value;
+            }
+
+            return asset('storage/' . $value);
         }
-
-        return asset('storage/' . $value);
     }
 }

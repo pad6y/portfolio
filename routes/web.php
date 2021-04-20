@@ -38,5 +38,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 Route::middleware('auth:sanctum')->group(function () {
     // Route::get('/newsfeed/posts', [App\Http\Controllers\PostController::class, 'index'])->name('newsfeed.index');
 
+    Route::get('/newsfeed/create', [App\Http\Controllers\PostController::class, 'create'])->name('newsfeed.create');
     Route::post('/newsfeed/create', [App\Http\Controllers\PostController::class, 'store'])->name('newsfeed.store');
 });
