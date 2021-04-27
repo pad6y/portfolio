@@ -1,6 +1,14 @@
 <template>
-  <div class="flex justify-center items-center min-h-screen">
-    <form id="create-post" @submit.prevent="submit()" class="w-1/3">
+  <div class="flex justify-center font-serif mt-24">
+    <jet-validation-errors class="mb-4" />
+  </div>
+
+  <div class="flex justify-center items-center min-h-full mt-8 mb-24">
+    <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
+      {{ status }}
+    </div>
+
+    <form id="create-post" @submit.prevent="submit()" class="w-5/6 sm:w-1/3">
       <div>
         <label
           for="title"
@@ -37,8 +45,8 @@
       <div class="flex justify-center mt-6">
         <label
           for="post_image"
-          class="font-serif font-medium text-sm text-gray-700 border-2 border-yellow-300 rounded-md shadow-sm h-10 bg-gold-lite flex justify-center items-center cursor-pointer w-1/2"
-          >Add an image</label
+          class="font-serif font-semibold text-xs uppercase tracking-widest text-gray-700 border-2 border-yellow-300 rounded-md shadow-sm h-10 bg-gold-lite flex justify-center items-center cursor-pointer w-2/3 hover:bg-gold-md"
+          >add image</label
         >
         <input
           @change="setImage"
@@ -48,9 +56,9 @@
         />
       </div>
 
-      <div class="flex items-center justify-end mt-4">
+      <div class="flex justify-center mt-4">
         <jet-button
-          class="ml-4"
+          class="font-serif text-gray-700 border-2 border-yellow-300 rounded-md shadow-sm h-10 bg-gold-lite flex justify-center items-center cursor-pointer w-2/3"
           :class="{ 'opacity-25': form.processing }"
           :disabled="form.processing"
         >
@@ -63,10 +71,15 @@
 
 <script>
 import JetButton from "@/Jetstream/Button";
+import JetValidationErrors from "@/Jetstream/ValidationErrors";
 
 export default {
+  props: {
+    status: String,
+  },
   components: {
     JetButton,
+    JetValidationErrors,
   },
   data() {
     return {

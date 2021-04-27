@@ -1,20 +1,22 @@
 <template>
   <div class="container mx-auto max-w-6xl py-6 px-6 pb-20">
-    <div class="font-serif text-3xl text-gray-500 pb-3">NEWSFEED</div>
+    <div class="relative font-serif text-3xl text-gray-500 pb-3">NEWSFEED</div>
 
     <div
-      class="grid grid-cols-1 items-center p-8 pb-6 border-2 rounded-lg shadow-lg"
+      class="grid grid-cols-1 items-center p-8 pb-6 border-2 rounded-lg shadow-lg py-4"
     >
       <div v-for="(post, index) in posts" :key="index">
         <newsfeed-item :post="post" />
       </div>
 
-      <inertia-link
-        :href="route('newsfeed.create')"
-        class="flex justify-self-center border-2 rounded-md mt-6 px-4 py-2 font-serif text-lg shadow-md text-gray-700 text-center bg-gold-text hover:bg-gold-dark"
-      >
-        Add News Article
-      </inertia-link>
+      <div class="flex justify-center">
+        <inertia-link
+          :href="route('newsfeed.create')"
+          class="border-2 rounded-md mt-6 px-4 py-2 font-serif text-lg shadow-md text-gray-700 text-center bg-gold-text hover:bg-gold-dark fixed bottom-0"
+        >
+          Add News Article
+        </inertia-link>
+      </div>
     </div>
   </div>
 </template>

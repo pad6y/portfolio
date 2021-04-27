@@ -40,16 +40,12 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        // $newMessage = new Post;
-        // $newMessage->user_id = Auth::id();
-        // $newMessage->title = $request->title;
-        // $newMessage->body = $request->body;
-        // $newMessage->post_image = $request->post_image;
-        // // if (request('post_image')) {
+        $request->validate([
+            'title' => 'required|min:8|max:255',
+            'body' => 'required|min:8|max:255',
+            'post_image' => ['nullable', 'image']
+        ]);
 
-        // //     $newMessage['post_image'] = request('post_image')->store('images');
-        // // }
-        // $newMessage->save();
         Post::create([
             'user_id' => Auth::id(),
             'title' => $request->input('title'),
@@ -66,9 +62,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        //
+        //can do it this way but inertia unnecesary
+        // $user = User::find($post->user_id);
+        return Inertia::render('Newsfeed/Article', ['post' => $post]);
     }
 
     /**
@@ -100,8 +98,10 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        return back();
     }
 }
