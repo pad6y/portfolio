@@ -12,5 +12,9 @@ Route::middleware('auth:sanctum')->group(function () {
   Route::post('/newsfeed/create', [App\Http\Controllers\PostController::class, 'store'])->name('newsfeed.store');
   Route::get('/newsfeed/{post}', [App\Http\Controllers\PostController::class, 'show'])->name('newsfeed.show');
 
-  Route::delete('/newsfeed/{post}/delete', [App\Http\Controllers\PostController::class, 'destroy'])->name('newsfeed.destroy');
+  Route::put('/newsfeed/{post}/update', [App\Http\Controllers\PostController::class, 'update'])->name('newsfeed.update');
+  Route::get('/newsfeed/{post}/edit', [App\Http\Controllers\PostController::class, 'edit'])->name('newsfeed.edit');
+
+
+  Route::delete('/newsfeed/{id}/delete', [App\Http\Controllers\PostController::class, 'destroy'])->name('newsfeed.destroy');
 });

@@ -10,8 +10,8 @@
       {{ status }}
     </div>
 
-    <form id="create-post" @submit.prevent="submit" class="w-5/6 sm:w-1/3">
-      <div class="flex justify-center text-4xl text-gold mb-4">Create Post</div>
+    <form @submit.prevent="submitUpdate" class="w-5/6 sm:w-1/3">
+      <div class="flex justify-center text-4xl text-gold mb-4">Edit Post</div>
 
       <div>
         <label for="title" class="block font-medium">Article Title</label>
@@ -19,8 +19,8 @@
           id="title"
           type="text"
           placeholder="Enter post title"
-          class="mt-1 block w-full border-2 border-yellow-300 rounded-md shadow-sm focus:border-yellow-300 focus:ring-transparent"
-          v-model="form.title"
+          class="mt-1 block w-full border-2 border-yellow-300 rounded-md shadow-md focus:border-yellow-300 focus:ring-transparent"
+          v-model="postUpdateForm.title"
           required
         />
       </div>
@@ -31,9 +31,17 @@
         <textarea
           id="body"
           placeholder="Enter article content"
-          class="mt-1 block w-full border-2 border-yellow-300 rounded-md shadow-sm focus:border-yellow-300 focus:ring-transparent"
-          v-model="form.body"
+          class="mt-1 block w-full border-2 border-yellow-300 rounded-md shadow-md focus:border-yellow-300 focus:ring-transparent"
+          v-model="postUpdateForm.body"
           required
+        />
+      </div>
+
+      <div class="flex justify-center">
+        <img
+          :src="post.post_image"
+          alt="image unavailable"
+          class="h-52 w-auto mt-8 rounded-md border-2 border-yellow-300 shadow-md"
         />
       </div>
 
@@ -41,10 +49,11 @@
         <label
           for="post_image"
           class="font-serif font-semibold text-xs uppercase tracking-widest text-gray-700 border-2 border-yellow-300 rounded-md shadow-sm h-10 bg-gold-lite flex justify-center items-center cursor-pointer w-2/3 hover:bg-gold-md"
-          >add image</label
+          >edit image</label
         >
         <input
           @change="setImage"
+          name="post_image"
           id="post_image"
           type="file"
           class="mt-2 mb-2 hidden"
@@ -54,10 +63,10 @@
       <div class="flex justify-center mt-4">
         <jet-button
           class="font-serif text-gray-700 border-2 border-yellow-300 rounded-md shadow-sm h-10 bg-gold-lite flex justify-center items-center cursor-pointer w-2/3"
-          :class="{ 'opacity-25': form.processing }"
-          :disabled="form.processing"
+          :class="{ 'opacity-25': postUpdateForm.processing }"
+          :disabled="postUpdateForm.processing"
         >
-          Post
+          Update Post
         </jet-button>
       </div>
     </form>
@@ -70,6 +79,7 @@ import JetValidationErrors from "@/Jetstream/ValidationErrors";
 
 export default {
   props: {
+    post: Object,
     status: String,
   },
   components: {
@@ -78,40 +88,35 @@ export default {
   },
   data() {
     return {
-      // form: {
-      //   title: "",
-      //   body: "",
-      //   post_image: "",
-      // },
-      form: this.$inertia.form({
-        title: this.title,
-        body: this.body,
-        post_image: this.post_image,
+      postUpdateForm: this.$inertia.form({
+        title: this.post.title,
+        body: this.post.body,
+        post_image: "",
+        _method: "PUT",
       }),
     };
   },
 
   methods: {
-    submit() {
-      this.form.post(this.route("newsfeed.store"), {
-        preserveScroll: true,
-        onSuccess: () => {
-          // Toast.fire({
-          //     icon: 'success',
-          //     title: 'Your post has successfully been published!',
-          // }),
-          this.form.body = null;
-        },
-      });
-      //   let data = new FormData();
-      //   data.append("title", this.form.title);
-      //   data.append("body", this.form.body);
-      //   data.append("post_image", this.form.post_image);
-      //   // console.log(data);
-      //   this.$inertia.post(route("newsfeed.store"), data);
+    submitUpdate() {
+      this.postUpdateForm.post(
+        this.route("newsfeed.update", this.post.id),
+        // this.postUpdateForm,
+        {
+          preserveScroll: true,
+          // onSuccess: () => {
+          //   Toast.fire({
+          //     icon: "success",
+          //     title: "Successfully accepted request!",
+          //   });
+          //   this.loading = false;
+          // },
+        }
+      );
     },
     setImage(e) {
-      this.form.post_image = e.target.files[0];
+      this.postUpdateForm.post_image =
+        e.target.files[0] || this.post.post_image;
     },
     // },
     // submit() {

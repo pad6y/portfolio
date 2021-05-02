@@ -24,25 +24,37 @@
         <span class="text-gray-600">By: </span> {{ post.user.name }}
 
         <div class="relative">
-          <danger-button
-            :type="button"
-            class="focus:outline-none"
-            @click="openMenu = !openMenu"
-          >
-            Options
-          </danger-button>
+          <div class="flex justify-items-center text-gray-600">
+            <button
+              type="button"
+              class="focus:outline-none"
+              @click="openMenu = !openMenu"
+            >
+              Options
+            </button>
+            <icons :name="'options'" class="" />
+          </div>
+
           <div
             v-if="openMenu"
-            class="bg-gray-300 text-sm absolute w-48 right-0 text-gray-700 shadow-lg rounded-md px-4 py-2 hover:bg-gray-700 hover:text-gray-300 transition duration-150 ease-in-out"
+            class="bg-gray-300 text-sm absolute w-48 right-0 text-gray-700 shadow-lg rounded-md px-4 py-2 transition duration-150 ease-in-out"
           >
             <form @submit.prevent="deletePost">
               <button
                 type="submit"
-                class="flex justify-between items-center w-full focus:outline-none"
+                class="flex justify-between items-center w-full p-2 rounded-md focus:outline-none hover:bg-red-900 hover:text-gray-300"
               >
                 Delete Post
               </button>
             </form>
+
+            <button
+              class="flex justify-between items-center w-full p-2 rounded-md focus:outline-none hover:bg-yellow-500"
+            >
+              <inertia-link :href="route('newsfeed.edit', post.id)">
+                Edit Post
+              </inertia-link>
+            </button>
           </div>
         </div>
       </div>
@@ -57,9 +69,12 @@
 <script>
 // var moment = require("moment");
 import DangerButton from "@/Jetstream/DangerButton";
+import Icons from "@/components/Icons";
+
 export default {
   components: {
     DangerButton,
+    Icons,
   },
   props: ["post"],
   // data() {
@@ -78,7 +93,7 @@ export default {
   methods: {
     deletePost() {
       this.openMenu = false;
-      this.deleteForm.delete(this.route("newsfeed.destroy", this.post), {
+      this.deleteForm.delete(this.route("newsfeed.destroy", this.post.id), {
         preserveScroll: true,
         // onSuccess:()=> {
         // Toast.fire({

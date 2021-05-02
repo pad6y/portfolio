@@ -6,7 +6,9 @@ use App\Models\Post;
 use App\Models\User;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class PostController extends Controller
 {
@@ -50,7 +52,7 @@ class PostController extends Controller
             'user_id' => Auth::id(),
             'title' => $request->input('title'),
             'body' => $request->input('body'),
-            'post_image' => $request->file('post_image') ? $request->file('post_image')->store('images', 'public') : null
+            'post_image' => $request->file('post_image') ? $request->file('post_image')->store('images/post', 'public') : null
         ]);
 
         return redirect()->route('newsfeed.index');
@@ -72,24 +74,39 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+        return Inertia::render('Newsfeed/edit', ['post' => $post]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        $request->validate([
+            'title' => 'required|min:8|max:255',
+            'body' => 'required',
+            'post_image' => ['nullable', 'image']
+        ]);
+
+        $post->update([
+            'user_id' => $post->user_id,
+            'title' => $request->input('title'),
+            'body' => $request->input('body'),
+            'post_image' => $request->file('post_image') ? $request->file('post_image')->store('images/post', 'public') : $post->post_image
+        ]);
+
+        // $this->authorize('update', $post);
+
+        return redirect()->route('newsfeed.index');
     }
 
     /**
@@ -98,9 +115,23 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy($id)
     {
+
+        //retrieve post
+        $post = Post::findOrFail($id);
+
+        //retrieve image with out attributes
+        $image = DB::table('posts')->where('id', $id)->first();
+        $file = $image->post_image;
+
+        //identify image location and delete 
+        $filename = public_path() . '/storage/' . $file;
+        File::delete($filename);
+
+        //delete the post
         $post->delete();
+
 
         return back();
     }
