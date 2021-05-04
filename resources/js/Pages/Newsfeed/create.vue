@@ -1,14 +1,14 @@
 <template>
-  <div class="flex justify-center font-serif mt-24">
+  <!-- <div class="flex justify-center font-serif mt-24">
     <jet-validation-errors class="mb-4" />
-  </div>
+  </div> -->
 
   <div
     class="flex justify-center items-center min-h-full mt-8 mb-24 font-serif text-gray-700"
   >
-    <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
+    <!-- <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
       {{ status }}
-    </div>
+    </div> -->
 
     <form id="create-post" @submit.prevent="submit" class="w-5/6 sm:w-1/3">
       <div class="flex justify-center text-4xl text-gold mb-4">Create Post</div>
@@ -37,12 +37,22 @@
         />
       </div>
 
+      <div v-if="src" class="flex justify-center">
+        <img
+          :src="src"
+          alt="image unavailable"
+          class="h-52 w-auto mt-8 rounded-md border-2 border-yellow-300 shadow-md"
+        />
+      </div>
+
       <div class="flex justify-center mt-6">
         <label
           for="post_image"
           class="font-serif font-semibold text-xs uppercase tracking-widest text-gray-700 border-2 border-yellow-300 rounded-md shadow-sm h-10 bg-gold-lite flex justify-center items-center cursor-pointer w-2/3 hover:bg-gold-md"
-          >add image</label
         >
+          add image
+        </label>
+
         <input
           @change="setImage"
           id="post_image"
@@ -66,28 +76,21 @@
 
 <script>
 import JetButton from "@/Jetstream/Button";
-import JetValidationErrors from "@/Jetstream/ValidationErrors";
+// import JetValidationErrors from "@/Jetstream/ValidationErrors";
 
 export default {
-  props: {
-    status: String,
-  },
   components: {
     JetButton,
-    JetValidationErrors,
+    // JetValidationErrors,
   },
   data() {
     return {
-      // form: {
-      //   title: "",
-      //   body: "",
-      //   post_image: "",
-      // },
       form: this.$inertia.form({
         title: this.title,
         body: this.body,
         post_image: this.post_image,
       }),
+      src: null,
     };
   },
 
@@ -96,11 +99,11 @@ export default {
       this.form.post(this.route("newsfeed.store"), {
         preserveScroll: true,
         onSuccess: () => {
-          // Toast.fire({
-          //     icon: 'success',
-          //     title: 'Your post has successfully been published!',
-          // }),
-          this.form.body = null;
+          Toast.fire({
+            icon: "success",
+            title: "You have successfully been posted!",
+          }),
+            (this.form.body = null);
         },
       });
       //   let data = new FormData();
@@ -112,18 +115,14 @@ export default {
     },
     setImage(e) {
       this.form.post_image = e.target.files[0];
+
+      let reader = new FileReader();
+
+      reader.readAsDataURL(e.target.files[0]);
+      reader.onload = (e) => {
+        this.src = e.target.result;
+      };
     },
-    // },
-    // submit() {
-    //   this.form
-    //     .transform((data) => ({
-    //       ...data,
-    //       remember: this.form.remember ? "on" : "",
-    //     }))
-    //     .post(this.route("newsfeed.store"), {
-    //       onFinish: () => this.form.reset("password"),
-    //     });
-    // },
   },
 };
 </script>

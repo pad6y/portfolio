@@ -91,6 +91,21 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+
+        //retrieve post
+        $post = Post::findOrFail($post->id);
+
+        if ($post->post_image != null) {
+            //retrieve image with out attributes
+            $image = DB::table('posts')->where('id', $post->id)->first();
+            $file = $image->post_image;
+
+            //identify image location and delete 
+            $filename = public_path() . '/storage/' . $file;
+            File::delete($filename);
+        }
+
+
         $request->validate([
             'title' => 'required|min:8|max:255',
             'body' => 'required',

@@ -9,6 +9,18 @@ import {
 import { InertiaProgress } from "@inertiajs/progress";
 import Layout from "./Layouts/AppLayout";
 
+window.Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 2500,
+    timerProgressBar: false,
+    didOpen: (toast) => {
+        toast.addEventListener("mouseenter", Swal.stopTimer);
+        toast.addEventListener("mouseleave", Swal.resumeTimer);
+    },
+});
+
 const el = document.getElementById("app");
 
 createApp({

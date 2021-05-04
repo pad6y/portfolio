@@ -37,9 +37,9 @@
         />
       </div>
 
-      <div class="flex justify-center">
+      <div v-if="src" class="flex justify-center">
         <img
-          :src="post.post_image"
+          :src="src"
           alt="image unavailable"
           class="h-52 w-auto mt-8 rounded-md border-2 border-yellow-300 shadow-md"
         />
@@ -94,6 +94,7 @@ export default {
         post_image: "",
         _method: "PUT",
       }),
+      src: this.post.post_image,
     };
   },
 
@@ -104,31 +105,26 @@ export default {
         // this.postUpdateForm,
         {
           preserveScroll: true,
-          // onSuccess: () => {
-          //   Toast.fire({
-          //     icon: "success",
-          //     title: "Successfully accepted request!",
-          //   });
-          //   this.loading = false;
-          // },
+          onSuccess: () => {
+            Toast.fire({
+              icon: "success",
+              title: "Successfully updated!",
+            });
+            this.loading = false;
+          },
         }
       );
     },
     setImage(e) {
-      this.postUpdateForm.post_image =
-        e.target.files[0] || this.post.post_image;
+      this.postUpdateForm.post_image = e.target.files[0];
+
+      let reader = new FileReader();
+
+      reader.readAsDataURL(e.target.files[0]);
+      reader.onload = (e) => {
+        this.src = e.target.result;
+      };
     },
-    // },
-    // submit() {
-    //   this.form
-    //     .transform((data) => ({
-    //       ...data,
-    //       remember: this.form.remember ? "on" : "",
-    //     }))
-    //     .post(this.route("newsfeed.store"), {
-    //       onFinish: () => this.form.reset("password"),
-    //     });
-    // },
   },
 };
 </script>

@@ -6,7 +6,7 @@
           {{ post.title }}
         </inertia-link>
       </div>
-      <div class="text-xs sm:text-sm ml-2 pt-2 text-gray-600">
+      <div class="text-xs sm:text-sm md:ml-2 pt-2 text-gray-600">
         {{ post.body }}
         <div v-if="post.post_image" class="grid justify-items-end">
           <img
@@ -15,7 +15,6 @@
             class="hidden sm:grid h-28 sm:w-28 object-fill rounded-md"
           />
         </div>
-        <div v-else></div>
       </div>
     </div>
 
@@ -95,12 +94,12 @@ export default {
       this.openMenu = false;
       this.deleteForm.delete(this.route("newsfeed.destroy", this.post.id), {
         preserveScroll: true,
-        // onSuccess:()=> {
-        // Toast.fire({
-        //   icon: 'success',
-        //   title: 'Post has been deleted successfully'
-        // })
-        // }
+        onSuccess: () => {
+          Toast.fire({
+            icon: "success",
+            title: "Post has been deleted successfully",
+          });
+        },
       });
     },
   },

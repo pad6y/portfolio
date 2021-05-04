@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto max-w-6xl py-6 px-6 pb-52">
+  <div class="container mx-auto max-w-6xl pr-2 py-6 md:px-6 md:pb-52">
     <div class="relative font-serif text-3xl text-gray-500 pb-3">NEWSFEED</div>
 
     <div class="flex justify-end">
@@ -12,7 +12,7 @@
     </div>
 
     <div
-      class="grid grid-cols-1 items-center p-8 pb-6 border-2 rounded-lg shadow-lg py-4"
+      class="grid grid-cols-1 p-8 md:border-2 md:rounded-lg md:shadow-lg py-4"
     >
       <div v-for="(post, index) in posts" :key="index">
         <newsfeed-item :post="post" />
