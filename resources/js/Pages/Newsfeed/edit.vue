@@ -1,15 +1,11 @@
 <template>
-  <div class="flex justify-center font-serif mt-24">
+  <!-- <div class="flex justify-center font-serif mt-24">
     <jet-validation-errors class="mb-4" />
-  </div>
+  </div> -->
 
   <div
     class="flex justify-center items-center min-h-full mt-8 mb-24 font-serif text-gray-700"
   >
-    <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
-      {{ status }}
-    </div>
-
     <form @submit.prevent="submitUpdate" class="w-5/6 sm:w-1/3">
       <div class="flex justify-center text-4xl text-gold mb-4">Edit Post</div>
 
@@ -23,6 +19,7 @@
           v-model="postUpdateForm.title"
           required
         />
+        <jet-input-error :message="postUpdateForm.errors.title" class="mt-2" />
       </div>
 
       <div class="mt-4">
@@ -35,6 +32,7 @@
           v-model="postUpdateForm.body"
           required
         />
+        <jet-input-error :message="postUpdateForm.errors.body" class="mt-2" />
       </div>
 
       <div v-if="src" class="flex justify-center">
@@ -44,6 +42,10 @@
           class="h-52 w-auto mt-8 rounded-md border-2 border-yellow-300 shadow-md"
         />
       </div>
+      <jet-input-error
+        :message="postUpdateForm.errors.post_image"
+        class="flex justify-center mt-2"
+      />
 
       <div class="flex justify-center mt-6">
         <label
@@ -75,16 +77,17 @@
 
 <script>
 import JetButton from "@/Jetstream/Button";
-import JetValidationErrors from "@/Jetstream/ValidationErrors";
+import JetInputError from "@/Jetstream/InputError";
+// import JetValidationErrors from "@/Jetstream/ValidationErrors";
 
 export default {
   props: {
     post: Object,
-    status: String,
   },
   components: {
     JetButton,
-    JetValidationErrors,
+    JetInputError,
+    // JetValidationErrors,
   },
   data() {
     return {

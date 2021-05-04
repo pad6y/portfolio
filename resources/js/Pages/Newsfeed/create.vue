@@ -6,10 +6,6 @@
   <div
     class="flex justify-center items-center min-h-full mt-8 mb-24 font-serif text-gray-700"
   >
-    <!-- <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
-      {{ status }}
-    </div> -->
-
     <form id="create-post" @submit.prevent="submit" class="w-5/6 sm:w-1/3">
       <div class="flex justify-center text-4xl text-gold mb-4">Create Post</div>
 
@@ -23,6 +19,7 @@
           v-model="form.title"
           required
         />
+        <jet-input-error :message="form.errors.title" class="mt-2" />
       </div>
 
       <div class="mt-4">
@@ -35,6 +32,7 @@
           v-model="form.body"
           required
         />
+        <jet-input-error :message="form.errors.body" class="mt-2" />
       </div>
 
       <div v-if="src" class="flex justify-center">
@@ -44,6 +42,10 @@
           class="h-52 w-auto mt-8 rounded-md border-2 border-yellow-300 shadow-md"
         />
       </div>
+      <jet-input-error
+        :message="form.errors.post_image"
+        class="flex justify-center mt-2"
+      />
 
       <div class="flex justify-center mt-6">
         <label
@@ -76,11 +78,13 @@
 
 <script>
 import JetButton from "@/Jetstream/Button";
+import JetInputError from "@/Jetstream/InputError";
 // import JetValidationErrors from "@/Jetstream/ValidationErrors";
 
 export default {
   components: {
     JetButton,
+    JetInputError,
     // JetValidationErrors,
   },
   data() {
