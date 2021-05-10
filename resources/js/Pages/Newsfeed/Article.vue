@@ -2,9 +2,9 @@
   <div class="max-h-full flex justify-center items-center font-serif text-md">
     <div class="bg-gray-200 mt-16 mb-24 w-full md:w-4/5 shadow-md">
       <div class="grid justify-items-end text-gray-700 mt-2 mr-2 mb-2">
-        By {{ user.name }}
+        By {{ username }}
       </div>
-      <div class="text-gold text-lg ml-2 mb-4">
+      <div class="text-gold text-lg ml-4 mb-4">
         {{ post.title }}
       </div>
 
@@ -15,7 +15,7 @@
 
         <div
           v-if="post.post_image"
-          class="md:col-span-3 md:grid md:justify-items-end rounded"
+          class="md:col-span-3 md:grid md:justify-items-end rounded md:ml-6"
         >
           <img
             :src="post.post_image"
@@ -35,6 +35,6 @@
 
 <script>
 export default {
-  props: ["post", "user"],
+  props: ["post", "username"],
 };
 </script>

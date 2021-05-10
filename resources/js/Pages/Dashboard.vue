@@ -15,6 +15,6 @@ export default {
   components: {
     AdminUserIndex,
   },
-  props: ["users", "posts"],
+  props: ["users"],
 };
 </script>

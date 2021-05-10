@@ -14,9 +14,9 @@
     <div
       class="grid grid-cols-1 p-8 md:border-2 md:rounded-lg md:shadow-lg py-4"
     >
-      <div v-for="(post, index) in posts" :key="index">
-        <newsfeed-item :post="post" />
-      </div>
+      <infinite-scroll @loadMore="loadMorePosts">
+        <newsfeed-item :posts="allPosts.data" />
+      </infinite-scroll>
 
       <div class="flex justify-center">
         <inertia-link
@@ -34,9 +34,31 @@
 
 <script>
 import NewsfeedItem from "./NewsfeedItem";
+import InfiniteScroll from "@/Components/InfiniteScroll";
 
 export default {
-  components: { NewsfeedItem },
+  components: {
+    InfiniteScroll,
+    NewsfeedItem,
+  },
   props: ["posts"],
+  data() {
+    return {
+      allPosts: this.posts,
+    };
+  },
+  methods: {
+    loadMorePosts() {
+      if (!this.allPosts.next_page_url) {
+        return;
+      }
+      return axios.get(this.allPosts.next_page_url).then((resp) => {
+        this.allPosts = {
+          ...resp.data,
+          data: [...this.allPosts.data, ...resp.data.data],
+        };
+      });
+    },
+  },
 };
 </script>

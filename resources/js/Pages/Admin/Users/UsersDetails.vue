@@ -8,7 +8,7 @@
         </inertia-link> </span
       ><br />
       Email:
-      <span class="ml-2 text-gray-600 font-normal">{{ user.email }}</span
+      <span class="md:ml-2 text-gray-600 font-normal">{{ user.email }}</span
       ><br />
       Role:
       <span class="ml-2 text-gray-600 font-normal">Role</span><br />
@@ -16,11 +16,8 @@
 
     <div class="text-black font-bold">
       Posts :
-      <div v-for="(post, index) in posts" :key="index">
-        <div
-          v-if="user.id === post.user_id"
-          class="text-gray-600 font-normal ml-12"
-        >
+      <div v-for="(post, index) in user.posts" :key="index">
+        <div class="text-gray-600 font-normal ml-12">
           <inertia-link
             :href="route('newsfeed.show', post.id)"
             class="text-indigo-700 hover:text-green-700 underline"
@@ -35,6 +32,6 @@
 
 <script>
 export default {
-  props: ["user", "posts"],
+  props: ["user"],
 };
 </script>

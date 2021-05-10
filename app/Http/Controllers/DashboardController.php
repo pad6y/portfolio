@@ -16,9 +16,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy("id", "asc")->get();
-        $posts = Post::all();
-        return Inertia::render('Dashboard', ['users' => $users, 'posts' => $posts]);
+        $users = User::orderBy("id", "asc")->paginate(10);
+
+        return Inertia::render('Dashboard', ['users' => $users]);
     }
 
     /**

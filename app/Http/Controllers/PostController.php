@@ -17,9 +17,12 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::with('user')->orderBy("created_at", "DESC")->get();
+        $posts = Post::with('user')->orderBy("created_at", "DESC")->paginate(20);
+        if ($request->wantsJson()) {
+            return $posts;
+        }
 
         return Inertia::render('NewsfeedLayout', ['posts' => $posts]);
     }
@@ -67,8 +70,9 @@ class PostController extends Controller
     public function show(Post $post)
     {
         //can do it this way but inertia unnecesary
-        // $user = User::find($post->user_id);
-        return Inertia::render('Newsfeed/Article', ['post' => $post]);
+        $user = User::find($post->user_id);
+        $username = $user->name;
+        return Inertia::render('Newsfeed/Article', ['post' => $post, 'username' => $username]);
     }
 
     /**

@@ -13,7 +13,7 @@ import Newsfeed from "@/Pages/Newsfeed/Newsfeed";
 
 export default {
   components: { Newsfeed },
-  props: { posts: Array },
+  props: ["posts"],
   // data: function () {
   //   return {
   //     posts: [],
