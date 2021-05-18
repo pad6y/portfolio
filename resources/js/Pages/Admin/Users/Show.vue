@@ -9,20 +9,42 @@
         Current registered users and their posts:
       </h2>
 
-      <div v-for="(user, index) in users.data" :key="index">
-        <users-details :user="user" :posts="users.data.posts"></users-details>
-      </div>
+      <infinite-scroll @loadMore="loadMoreUsers">
+        <div v-for="(user, index) in allUsers.data" :key="index">
+          <users-details :user="user"></users-details>
+        </div>
+      </infinite-scroll>
     </div>
   </div>
 </template>
 
 <script>
 import UsersDetails from "./UsersDetails";
+import InfiniteScroll from "@/Components/InfiniteScroll";
 
 export default {
   components: {
     UsersDetails,
+    InfiniteScroll,
   },
   props: ["users"],
+  data() {
+    return {
+      allUsers: this.users,
+    };
+  },
+  methods: {
+    loadMoreUsers() {
+      if (!this.allUsers.next_page_url) {
+        return;
+      }
+      return axios.get(this.allUsers.next_page_url).then((resp) => {
+        this.allUsers = {
+          ...resp.data,
+          data: [...this.allUsers.data, ...resp.data.data],
+        };
+      });
+    },
+  },
 };
 </script>

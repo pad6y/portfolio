@@ -15,7 +15,9 @@
       class="grid grid-cols-1 p-8 md:border-2 md:rounded-lg md:shadow-lg py-4"
     >
       <infinite-scroll @loadMore="loadMorePosts">
-        <newsfeed-item :posts="allPosts.data" />
+        <div v-for="(post, index) in allPosts.data" :key="index">
+          <newsfeed-item :post="post" :pagination="pagination" />
+        </div>
       </infinite-scroll>
 
       <div class="flex justify-center">
@@ -46,6 +48,11 @@ export default {
     return {
       allPosts: this.posts,
     };
+  },
+  computed: {
+    pagination() {
+      return (this.allPosts = this.posts);
+    },
   },
   methods: {
     loadMorePosts() {

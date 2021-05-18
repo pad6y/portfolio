@@ -14,9 +14,12 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $users = User::orderBy("id", "asc")->paginate(10);
+        if ($request->wantsJson()) {
+            return $users;
+        }
 
         return Inertia::render('Dashboard', ['users' => $users]);
     }

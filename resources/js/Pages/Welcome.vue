@@ -18,7 +18,7 @@
         <div v-if="canLogin" class="px-6 mt-6 xl:ml-20 xl:mt-10 py-4 sm:block">
           <inertia-link
             v-if="$page.props.user"
-            href="/dashboard"
+            :href="route('dashboard')"
             class="border-2 rounded-md px-4 py-2 font-serif text-lg shadow-lg text-gray-700 bg-gold-text hover:bg-gold-md hover:ring-yellow-200 hover:ring-opacity-50"
           >
             Dashboard
