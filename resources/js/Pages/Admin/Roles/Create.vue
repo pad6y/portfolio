@@ -78,7 +78,16 @@ export default {
   },
   methods: {
     submit() {
-      this.form.post(this.route("AdminControlPanel.roles.store"));
+      this.form.post(this.route("AdminControlPanel.roles.store"), {
+        preserveScroll: true,
+        onSuccess: () => {
+          Toast.fire({
+            icon: "success",
+            title: "You have successfully created role!",
+          }),
+            (this.form.body = null);
+        },
+      });
     },
   },
 };

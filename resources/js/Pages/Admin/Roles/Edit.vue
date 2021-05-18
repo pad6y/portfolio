@@ -83,7 +83,16 @@ export default {
     submit() {
       this.form.patch(
         this.route("AdminControlPanel.roles.update", this.role.id),
-        this.form
+        {
+          preserveScroll: true,
+          onSuccess: () => {
+            Toast.fire({
+              icon: "success",
+              title: "You have successfully updated role!",
+            }),
+              this.form;
+          },
+        }
       );
     },
   },

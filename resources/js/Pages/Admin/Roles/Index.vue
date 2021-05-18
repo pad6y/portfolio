@@ -11,11 +11,11 @@
       </div>
     </template>
 
-    <div class="text-center my-4" v-if="$page.props.success">
+    <!-- <div class="text-center my-4" v-if="$page.props.success">
       <span class="text-xl bg-blue-700 text-gray-50 p-2 rounded-md shadow-md">
         {{ $page.props.success }}
       </span>
-    </div>
+    </div> -->
 
     <div class="px-6 py-2 text-xs sm:text-sm">
       <table class="table-auto w-full">
@@ -64,6 +64,11 @@ import JetDangerButton from "@/Jetstream/DangerButton";
 
 export default {
   props: ["roles"],
+  data() {
+    return {
+      // flashMsg: this.$page.props.success,
+    };
+  },
   components: {
     AdminLayout,
     BlueButton,
@@ -72,8 +77,24 @@ export default {
   },
   methods: {
     submit(id) {
-      this.$inertia.delete(this.route("AdminControlPanel.roles.destroy", id));
+      this.$inertia.delete(this.route("AdminControlPanel.roles.destroy", id), {
+        preserveScroll: true,
+        onSuccess: () => {
+          Toast.fire({
+            icon: "success",
+            title: "You have successfully deleted role!",
+          });
+        },
+      });
     },
+    // Msg() {
+    //   if (this.flashMsg) {
+    //     setTimeout(function () {
+    //       this.flashMsg === null;
+    //     }, 5000);
+    //     return this.flashMsg;
+    //   }
+    // },
   },
 };
 </script>

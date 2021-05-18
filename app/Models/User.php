@@ -48,7 +48,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $with = ['posts'];
+    protected $with = ['posts', 'roles'];
 
     /**
      * The attributes that should be cast to native types.
@@ -58,6 +58,7 @@ class User extends Authenticatable
     protected $casts = [
         'created_at' => 'datetime:d-M-Y',
     ];
+
 
 
     /**

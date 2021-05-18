@@ -44,7 +44,9 @@ class RoleController extends Controller
 
         Role::create($request->only(['name']));
 
-        return redirect(route('AdminControlPanel.roles.index'))->withSuccess('Role created successfully!');
+        return redirect(route('AdminControlPanel.roles.index'));
+
+        //->withSuccess('Role created successfully!');
     }
 
     /**
@@ -86,7 +88,9 @@ class RoleController extends Controller
 
         $role->update($request->only(['name']));
 
-        return redirect(route('AdminControlPanel.roles.index'))->withSuccess('Role updated successfully!');
+        return redirect(route('AdminControlPanel.roles.index'));
+
+        //->withSuccess('Role updated successfully!');
     }
 
     /**
@@ -99,6 +103,8 @@ class RoleController extends Controller
     {
         $role->delete();
 
-        return redirect(route('AdminControlPanel.roles.index'))->withSuccess('Role deleted successfully!');
+        return redirect(route('AdminControlPanel.roles.index'));
+
+        //->withSuccess('Role deleted successfully!');
     }
 }
