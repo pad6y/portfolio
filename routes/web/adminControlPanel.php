@@ -9,11 +9,11 @@ Route::name('AdminControlPanel.')->group(function () {
 
   Route::get('/controlpanel', [AdminControlPanelController::class, 'index'])->name('index');
 
-  Route::resource('roles', RoleController::class)->except('edit');
+  Route::resource('roles', RoleController::class)->except(['edit']);
 
   Route::resource('admins', AdminController::class)->parameters([
     'admins' => 'user'
-  ])->only('index', 'show', 'update');
+  ])->only(['index', 'show', 'update']);
 
   // Route::prefix('admins')->name('admins.')->group(function () {
   //   Route::get('/', [AdminController::class, 'index'])->name('index');

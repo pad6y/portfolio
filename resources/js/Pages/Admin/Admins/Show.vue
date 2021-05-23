@@ -3,23 +3,31 @@
     <template #header>
       <div class="flex justify-between items-center">
         <h2 class="font-semibold text-xl text-gray-700 leading-tight">
-          Admins Edit
+          Admins Role Update
         </h2>
       </div>
     </template>
 
-    <div class="flex flex-col mx-auto w-1/2 px-6 py-2 text-xs sm:text-sm">
+    <div
+      class="flex flex-col mx-auto h-auto w-2/3 md:w-1/2 px-6 py-2 text-xs sm:text-sm"
+    >
       <div>
-        <h2 class="text-center text-xl font-semibold capitalize underline">
-          {{ admin.name }}
+        <h2
+          class="text-center text-lg md:text-xl font-semibold capitalize underline text-gray-700"
+        >
+          Current Role: {{ admin.name }}
         </h2>
         <form @submit.prevent="submit">
           <div class="flex flex-col mt-2">
-            <jet-label for="name" value="Name" class="text-xl"></jet-label>
+            <jet-label
+              for="name"
+              value="Name"
+              class="text-lg md:text-xl"
+            ></jet-label>
             <jet-input
               id="name"
               type="text"
-              class="mt-1 block w-full disabled:opacity-50"
+              class="mt-1 md:block w-full disabled:opacity-50"
               v-model="form.name"
               autofocus
               disabled
@@ -31,7 +39,11 @@
           </div>
 
           <div class="flex flex-col mt-2">
-            <jet-label for="email" value="E-mail" class="text-xl"></jet-label>
+            <jet-label
+              for="email"
+              value="E-mail"
+              class="text-lg md:text-xl"
+            ></jet-label>
             <jet-input
               id="email"
               type="email"
@@ -50,7 +62,7 @@
             <jet-label
               for="created_at"
               value="Joined"
-              class="text-xl"
+              class="text-lg md:text-xl"
             ></jet-label>
             <jet-input
               id="created_at"
@@ -68,8 +80,12 @@
 
           <div class="flex flex-col mt-2">
             <div class="inline-block relative">
-              <jet-label for="role" value="Role" class="text-xl"></jet-label>
-              <select
+              <jet-label
+                for="role"
+                value="Role"
+                class="text-lg md:text-xl"
+              ></jet-label>
+              <!-- <select
                 class="block capitalize border-yellow-300 focus:border-yellow-400 focus:ring focus:ring-yellow-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 w-full"
                 v-model="form.roles[0][0].name"
                 tabindex="1"
@@ -82,11 +98,19 @@
                 >
                   {{ option.name }}
                 </option>
-              </select>
+              </select> -->
+              <multiselect
+                v-model="form.roles[0][0]"
+                :options="allRoles"
+                label="name"
+                track-by="id"
+                :tabindex="1"
+                placeholder="Select a new role"
+              ></multiselect>
             </div>
           </div>
 
-          <div class="flex items-center justify-center mt-8">
+          <div class="flex items-center justify-center mt-12">
             <green-button
               type="submit"
               class="text-sm ml-4"
@@ -113,6 +137,7 @@ import JetDangerButton from "@/Jetstream/DangerButton";
 import JetInput from "@/Jetstream/Input";
 import JetInputError from "@/Jetstream/InputError";
 import JetLabel from "@/Jetstream/Label";
+import Multiselect from "@suadelabs/vue3-multiselect";
 
 export default {
   props: ["admin", "allRoles"],
@@ -123,9 +148,11 @@ export default {
     JetInput,
     JetInputError,
     JetLabel,
+    Multiselect,
   },
   data() {
     return {
+      selected: null,
       form: this.$inertia.form({
         name: this.admin.name,
         email: this.admin.email,
@@ -141,6 +168,7 @@ export default {
   },
   methods: {
     submit() {
+      console.log(this.form.roles[0][0].name);
       this.form.patch(
         this.route("AdminControlPanel.admins.update", this.admin.id),
         {
@@ -158,3 +186,16 @@ export default {
   },
 };
 </script>
+
+<style>
+.multiselect__tag {
+  background: #d4af37 !important;
+}
+.multiselect__option--highlight {
+  background: #d4af37;
+}
+
+.multiselect__option--highlight::after {
+  background: #d4af37;
+}
+</style>

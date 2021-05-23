@@ -3,7 +3,7 @@
     <div class="text-black font-bold">
       Name :
       <span class="ml-2 font-normal text-indigo-700 underline">
-        <inertia-link :href="route('user.show', user.id)">
+        <inertia-link :href="route('users.show', user.id)">
           {{ user.name }}
         </inertia-link> </span
       ><br />

@@ -32,11 +32,17 @@
           >Roles</inertia-link
         >
         <inertia-link
-          href="#"
-          class="text-right capitalize border-t w-full px-6 py-2 hover:bg-gold-lite"
+          :href="route('users.index')"
+          class="text-right capitalize border-t w-full px-6 py-2"
+          :class="
+            route().current('users.*')
+              ? 'text-gray-50 bg-gray-500'
+              : 'hover:text-gray-50 hover:bg-gray-500'
+          "
           >Users</inertia-link
         >
       </div>
+
       <inertia-link
         :href="route('newsfeed.index')"
         class="flex justify-between items-center border-t px-6 py-2 capitalize hover:bg-gold-dark hover:text-gray-50"

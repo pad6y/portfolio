@@ -53,12 +53,11 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/web/adminControlPanel.php'));
 
             Route::prefix('admin')
-                ->middleware(['web', 'auth:sanctum'])
+                ->middleware(['web', 'auth:sanctum', 'verified'])
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web/user.php'));
 
-            Route::prefix('admin')
-                ->middleware('web')
+            Route::middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web/web.php'));
         });
