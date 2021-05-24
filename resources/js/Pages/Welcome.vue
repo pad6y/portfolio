@@ -1,6 +1,6 @@
 <template>
   <div class="w-screen">
-    <div class="grid sm:grid-cols-2 gap-20 items-center p-16 pb-14">
+    <div class="grid sm:grid-cols-2 md:gap-20 items-center md:p-16 md:pb-14">
       <div
         class="grid grid-cols-1 justify-items-center sm:justify-items-end font-serif text-gold"
       >
@@ -47,7 +47,7 @@
     </div>
 
     <!-- content -->
-    <div class="grid grid-cols-5 mx-28 min-h-full">
+    <div class="grid grid-cols-5 md:mx-28 min-h-full">
       <div class="col-span-3 bg-gradient-to-t from-gold-text to-white">
         <content-one></content-one>
       </div>
@@ -57,13 +57,13 @@
     </div>
 
     <div
-      class="flex justify-center items-center mx-28 h-28 bg-gradient-to-t from-gray-400 to-gold-text"
+      class="flex justify-center items-center md:mx-28 md:h-28 bg-gradient-to-t from-gray-400 to-gold-text"
     >
       Contact Form
     </div>
 
     <div
-      class="flex justify-center items-end mx-28 h-44 bg-gradient-to-t from-white to-gray-400"
+      class="flex justify-center items-end md:mx-28 md:h-44 bg-gradient-to-t from-white to-gray-400"
     >
       Icons
     </div>
