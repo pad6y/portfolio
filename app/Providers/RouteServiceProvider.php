@@ -48,7 +48,7 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/web/newsfeed.php'));
 
             Route::prefix('admin')
-                ->middleware(['web', 'auth:sanctum', 'verified'])
+                ->middleware(['web', 'auth:sanctum', 'verified', 'can:accessAdmins'])
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web/adminControlPanel.php'));
 
