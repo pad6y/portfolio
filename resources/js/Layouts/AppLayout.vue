@@ -20,6 +20,7 @@
                 <jet-nav-link
                   :href="route('AdminControlPanel.index')"
                   :active="route().current('AdminControlPanel.index')"
+                  v-if="$page.props.auth.can.accessAdmins"
                 >
                   Admin <br />
                   Control Panel
@@ -28,9 +29,10 @@
                 <jet-nav-link
                   :href="route('dashboard')"
                   :active="route().current('dashboard')"
+                  v-if="$page.props.auth.can.accessAdmins"
                 >
                   Admin <br />
-                  Dashboard
+                  Users Overview
                 </jet-nav-link>
 
                 <jet-nav-link
@@ -151,13 +153,13 @@
           class="sm:hidden"
         >
           <div class="pt-2 pb-3 space-y-1">
-            <jet-nav-link
+            <jet-responsive-nav-link
               :href="route('AdminControlPanel.index')"
               :active="route().current('AdminControlPanel.index')"
             >
               Admin <br />
               Control Panel
-            </jet-nav-link>
+            </jet-responsive-nav-link>
 
             <jet-responsive-nav-link
               :href="route('dashboard')"

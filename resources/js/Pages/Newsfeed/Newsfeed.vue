@@ -1,33 +1,11 @@
 <template>
-  <div class="container mx-auto max-w-6xl pr-2 py-6 md:px-6 md:pb-52">
-    <div class="relative font-serif text-3xl text-gray-500 pb-3">NEWSFEED</div>
-
-    <div class="flex justify-end">
-      <inertia-link
-        :href="route('newsfeed.create')"
-        class="border-2 rounded-md mt-6 px-4 py-2 font-serif text-lg shadow-md text-gray-700 text-center bg-gold-text hover:bg-gold-dark"
-      >
-        Add News Article
-      </inertia-link>
-    </div>
-
-    <div
-      class="grid grid-cols-1 p-8 md:border-2 md:rounded-lg md:shadow-lg py-4"
-    >
+  <div class="mx-auto max-w-6xl sm:pr-2 sm:py-6 md:px-6 md:pb-52">
+    <div class="flex flex-col p-2 sm:p-8 sm:py-4">
       <infinite-scroll @loadMore="loadMorePosts">
         <div v-for="(post, index) in allPosts.data" :key="index">
           <newsfeed-item :post="post" :pagination="pagination" />
         </div>
       </infinite-scroll>
-
-      <div class="flex justify-center">
-        <inertia-link
-          :href="route('newsfeed.create')"
-          class="border-2 rounded-md mt-6 px-4 py-2 font-serif text-lg shadow-md text-gray-700 text-center bg-gold-text hover:bg-gold-dark"
-        >
-          Add News Article
-        </inertia-link>
-      </div>
     </div>
   </div>
 </template>

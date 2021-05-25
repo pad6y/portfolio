@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Inertia\Inertia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class AdminControlPanelController extends Controller
 {
@@ -14,6 +15,7 @@ class AdminControlPanelController extends Controller
      */
     public function index()
     {
+
         return Inertia::render('Admin/controlPanel');
     }
 

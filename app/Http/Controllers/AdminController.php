@@ -6,6 +6,7 @@ use App\Models\Role;
 use App\Models\User;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class AdminController extends Controller
 {
@@ -16,10 +17,13 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $admins = User::where('is_admin', 1)->get();
-        return Inertia::render('Admin/Admins/Index', [
-            'admins' => $admins,
-        ]);
+        if (Gate::allows('accessAdmins')) {
+            $admins = User::where('is_admin', 1)->get();
+            return Inertia::render('Admin/Admins/Index', [
+                'admins' => $admins,
+            ]);
+        }
+        return back();
     }
 
     /**
@@ -51,10 +55,13 @@ class AdminController extends Controller
      */
     public function show(User $user)
     {
-        return Inertia::render('Admin/Admins/Show', [
-            'admin' => $user,
-            'allRoles' => Role::all()
-        ]);
+        if (Gate::allows('manageAdmins')) {
+            return Inertia::render('Admin/Admins/Show', [
+                'admin' => $user,
+                'allRoles' => Role::all()
+            ]);
+        }
+        return back();
     }
 
     /**
@@ -77,15 +84,18 @@ class AdminController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $role = Role::where('name', $request->roles[0][0]['name'])->first();
+        if (Gate::allows('manageAdmins')) {
+            $role = Role::where('name', $request->roles[0][0]['name'])->first();
 
-        if ($role->name != 'user' && $user->is_admin = 1) {
-            $user->roles()->sync($role);
-        } elseif ($role->name = 'user' && $user->is_admin = 1) {
-            $user->roles()->sync($role);
-            $user->update(['is_admin' => 0]);
+            if ($role->name != 'user' && $user->is_admin = 1) {
+                $user->roles()->sync($role);
+            } elseif ($role->name = 'user' && $user->is_admin = 1) {
+                $user->roles()->sync($role);
+                $user->update(['is_admin' => 0]);
+            }
+            return redirect()->route('AdminControlPanel.admins.index');
         }
-        return redirect()->route('AdminControlPanel.admins.index');
+        return back();
     }
 
     /**

@@ -9,9 +9,11 @@
     </template>
 
     <div class="px-6 py-2">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, sit a enim
-      perspiciatis eos repellendus saepe itaque, facere ut veritatis similique
-      praesentium, voluptatem sed vero doloribus rem eum nulla quo!
+      Here is a simple auth roles control panel. Only super-admin and admins
+      have the compacity to alter users roles, create roles and delete roles.
+      Moderators can see admins and their roles but cannot create edit or
+      delete. Developers roles can only see admins and their roles. This page
+      should not be visible to normal users or accessed by them.
     </div>
   </admin-layout>
 </template>
@@ -19,7 +21,6 @@
 <script>
 import AdminLayout from "@/Layouts/AdminLayout";
 export default {
-  inheritAttrs: false,
   components: { AdminLayout },
 };
 </script>

@@ -21,7 +21,12 @@
             <th class="text-left">Name</th>
             <th class="text-left pl-3">Role</th>
             <th class="text-left">Created</th>
-            <th class="text-right pr-3">Actions</th>
+            <th
+              class="text-right pr-3"
+              v-if="$page.props.auth.can.manageAdmins"
+            >
+              Actions
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -36,7 +41,7 @@
               {{ admin.roles[0].name }}
             </td>
             <td class="text-left py-3">{{ admin.created_at }}</td>
-            <td class="py-3">
+            <td class="py-3" v-if="$page.props.auth.can.manageAdmins">
               <div class="flex justify-end pr-2">
                 <green-button
                   :href="route('AdminControlPanel.admins.show', admin.id)"

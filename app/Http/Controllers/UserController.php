@@ -6,6 +6,7 @@ use App\Models\Role;
 use App\Models\User;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class UserController extends Controller
 {
@@ -16,9 +17,12 @@ class UserController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Admin/Users/Index', [
-            'users' => User::where('is_admin', 0)->get()
-        ]);
+        if (Gate::allows('accessUsers')) {
+            return Inertia::render('Admin/Users/Index', [
+                'users' => User::where('is_admin', 0)->get()
+            ]);
+        }
+        return back();
     }
 
     /**
@@ -50,10 +54,13 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return Inertia::render('Admin/Users/UserProfile', [
-            'user' => $user,
-            'allRoles' => Role::all()
-        ]);
+        if (Gate::allows('manageUsers')) {
+            return Inertia::render('Admin/Users/UserProfile', [
+                'user' => $user,
+                'allRoles' => Role::all()
+            ]);
+        }
+        return back();
     }
 
     /**
@@ -76,13 +83,16 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $role = Role::where('name', $request->roles[0][0]['name'])->first();
+        if (Gate::allows('manageUsers')) {
+            $role = Role::where('name', $request->roles[0][0]['name'])->first();
 
-        if ($user->is_admin != 1 && $role->name != 'user') {
-            $user->roles()->sync($role);
-            $user->update(['is_admin' => 1]);
+            if ($user->is_admin != 1 && $role->name != 'user') {
+                $user->roles()->sync($role);
+                $user->update(['is_admin' => 1]);
+            }
+            return redirect()->route('users.index');
         }
-        return redirect()->route('users.index');
+        return back();
     }
 
     /**

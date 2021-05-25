@@ -1,39 +1,43 @@
 <template>
-  <div class="grid grid-cols-10 font-serif pt-8 pb-4">
-    <div class="col-span-4">
-      <div class="text-gold">
+  <div class="grid grid-cols-10 font-serif text-gray-600 pt-8 pb-4">
+    <div class="col-span-10 sm:col-span-4">
+      <div class="text-gold md:ml-10 hover:underline">
         <inertia-link :href="route('newsfeed.show', post.id)">
           {{ post.title }}
         </inertia-link>
       </div>
-      <div class="text-xs sm:text-sm md:ml-2 pt-2 text-gray-600">
+      <div class="text-xs sm:text-sm md:ml-12 pt-2 text-gray-600">
         {{ post.body }}
       </div>
     </div>
 
-    <div class="col-span-4 mt-4 mr-4">
-      <div v-if="post.post_image" class="grid justify-items-end">
+    <div class="col-span-10 sm:col-span-4 sm:mx-4 sm:ml-10 pt-4 sm:pt-0">
+      <div v-if="post.post_image" class="grid justify-items-start">
         <img
           :src="post.post_image"
           :alt="'image unavailable'"
-          class="hidden sm:grid h-28 w-auto object-fill rounded-md"
+          class="h-14 sm:grid sm:h-28 w-auto object-fill rounded-md shadow-md"
         />
       </div>
     </div>
 
-    <div class="col-span-2">
-      <div class="grid justify-items-end text-gold">
+    <div class="col-span-10 sm:col-span-2 border-l-2">
+      <div
+        class="grid justify-items-end sm:justify-items-start text-xs sm:text-base text-gold sm:ml-5"
+      >
         <div class="mb-4">
-          <span class="text-gray-600">By: </span> {{ post.user.name }}
+          <span class="text-gray-600">Author: </span> {{ post.user.name }}
         </div>
 
         <div class="relative">
-          <div class="flex justify-items-center text-gray-600">
-            <button type="button" class="focus:outline-none" @click="toggle">
-              Options
-            </button>
-            <icons :name="'options'" />
-          </div>
+          <button
+            type="button"
+            class="flex flex-row focus:outline-none text-gray-600"
+            @click="openMenu = !openMenu"
+            v-if="$page.props.auth.can.manageAdmins"
+          >
+            Options<icons :name="'options'"></icons>
+          </button>
 
           <div
             v-if="openMenu"
@@ -109,12 +113,6 @@ export default {
           // window.location.reload();
         },
       });
-    },
-    toggle() {
-      this.openMenu = !this.openMenu;
-    },
-    closeMenu() {
-      this.openMenu = !this.openMenu;
     },
   },
 };

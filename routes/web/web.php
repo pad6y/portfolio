@@ -29,7 +29,7 @@ Route::get('/', function () {
 //     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 // });
 
-Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+Route::middleware(['auth:sanctum', 'verified', 'can:accessAdmins'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
 

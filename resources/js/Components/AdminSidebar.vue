@@ -29,6 +29,7 @@
               ? 'text-gray-50 bg-gray-500'
               : 'hover:text-gray-50 hover:bg-gray-500'
           "
+          v-if="$page.props.auth.can.accessRoles"
           >Roles</inertia-link
         >
         <inertia-link
@@ -39,16 +40,10 @@
               ? 'text-gray-50 bg-gray-500'
               : 'hover:text-gray-50 hover:bg-gray-500'
           "
+          v-if="$page.props.auth.can.accessUsers"
           >Users</inertia-link
         >
       </div>
-
-      <inertia-link
-        :href="route('newsfeed.index')"
-        class="flex justify-between items-center border-t px-6 py-2 capitalize hover:bg-gold-dark hover:text-gray-50"
-      >
-        Newsfeed
-      </inertia-link>
     </div>
   </div>
 </template>
