@@ -25,7 +25,7 @@
 <script>
 import Newsfeed from "@/Pages/Newsfeed/Newsfeed";
 import GoldButton from "@/Components/GoldButton";
-import Icons from "@/components/Icons";
+import Icons from "@/Components/Icons";
 
 export default {
   components: {

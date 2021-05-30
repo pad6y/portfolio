@@ -74,7 +74,7 @@
 <script>
 // var moment = require("moment");
 import DangerButton from "@/Jetstream/DangerButton";
-import Icons from "@/components/Icons";
+import Icons from "@/Components/Icons";
 
 export default {
   components: {

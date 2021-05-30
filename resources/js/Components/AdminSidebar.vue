@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import Icons from "@/components/Icons";
+import Icons from "@/Components/Icons";
 export default {
   components: {
     Icons,

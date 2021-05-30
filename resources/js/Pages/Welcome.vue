@@ -1,8 +1,8 @@
 <template>
-  <div class="w-screen">
+  <div class="w-screen font-serif">
     <div class="grid sm:grid-cols-2 md:gap-20 items-center md:p-16 md:pb-14">
       <div
-        class="grid grid-cols-1 justify-items-center sm:justify-items-end font-serif text-gold"
+        class="grid grid-cols-1 justify-items-center sm:justify-items-end text-gold"
       >
         <div
           class="min-w-min border-b-4 border-black pt-6 pb-6 text-6xl md:text-7xl"
@@ -47,25 +47,53 @@
     </div>
 
     <!-- content -->
-    <div class="grid grid-cols-5 md:mx-28 min-h-full">
-      <div class="col-span-3 bg-gradient-to-t from-gold-text to-white">
+    <div class="flex flex-col justify-center md:mx-28 min-h-full">
+      <div class="bg-gradient-to-t p-4 from-gold-text to-white">
+        <!-- intro to page and about myself -->
         <content-one></content-one>
-      </div>
-      <div class="col-span-2 bg-gradient-to-t from-gold-text to-white">
-        right
+
+        <!-- displaying tech svg's -->
+        <tech-stack></tech-stack>
+
+        <!-- project cards -->
+        <div
+          class="flex justify-center text-4xl text-gray-500 mb-10 md:pt-12 md:pb-24"
+        >
+          Projects
+        </div>
       </div>
     </div>
 
+    <!-- contact form -->
     <div
-      class="flex justify-center items-center md:mx-28 md:h-28 bg-gradient-to-t from-gray-400 to-gold-text"
+      class="flex justify-center items-center md:mx-28 bg-gradient-to-t from-gray-400 to-gold-text"
     >
-      Contact Form
+      <contact-section />
     </div>
 
+    <!-- icons -->
     <div
-      class="flex justify-center items-end md:mx-28 md:h-44 bg-gradient-to-t from-white to-gray-400"
+      class="flex justify-center items-end space-x-4 pt-10 md:mx-28 md:h-44 bg-gradient-to-t from-white to-gray-400"
     >
-      Icons
+      <div class="h-6 w-6">
+        <a href="https://www.linkedin.com/in/patrick-wong-77b0aa212/">
+          <icons :name="'linkedIn'"></icons>
+        </a>
+      </div>
+
+      <div class="h-6 w-6">
+        <a
+          href="mailto:pad6ywong@gmail.com?subject=Contacting you from your portfolio page!"
+        >
+          <icons :name="'email'"></icons>
+        </a>
+      </div>
+
+      <div class="h-6 w-6">
+        <a href="https://github.com/pad6y">
+          <icons :name="'github'"></icons>
+        </a>
+      </div>
     </div>
     <!-- <div class="flex justify-end mt-4 mr-4">
       <div class="font-serif text-gray-400 text-xs">
@@ -78,7 +106,7 @@
     <div
       class="flex justify-center font-serif text-xs text-gray-600 mt-12 mb-6"
     >
-      © {{ new Date().getFullYear() }} by Padby.com All rights reserved.
+      © {{ new Date().getFullYear() }} by Pad6y.com All rights reserved.
     </div>
   </div>
 </template>
@@ -87,9 +115,16 @@
 
 <script>
 import contentOne from "@/Pages/Landing/contentOne";
+import techStack from "@/Pages/Landing/techStack";
+import contactSection from "@/Pages/Landing/contactSection";
+import Icons from "@/Components/Icons";
+
 export default {
   components: {
     contentOne,
+    contactSection,
+    Icons,
+    techStack,
   },
   props: {
     canLogin: Boolean,

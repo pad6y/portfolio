@@ -4,7 +4,7 @@
   </div> -->
 
   <div
-    class="flex justify-center items-center min-h-full mt-8 mb-24 font-serif text-gray-700"
+    class="flex justify-center items-center min-h-full mt-8 mb-24 font-serif text-gray-700 bg-white"
   >
     <form id="create-post" @submit.prevent="submit" class="w-5/6 sm:w-1/3">
       <div class="flex justify-center text-4xl text-gold mb-4">Create Post</div>

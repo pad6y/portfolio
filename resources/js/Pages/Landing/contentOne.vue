@@ -1,5 +1,5 @@
 <template>
-  <div class="ml-4 font-serif text-lg text-gray-600 pt-6">
+  <div class="md:px-60 md:py-24 text-lg text-gray-600 pt-6">
     Hi, I'm Paddy
     <div class="mt-4">
       I'm am currently at the beginning of my journey into web development. Over
