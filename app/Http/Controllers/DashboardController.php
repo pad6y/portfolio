@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\User;
 use Inertia\Inertia;
+use App\Mail\contactEmail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class DashboardController extends Controller
 {
@@ -88,5 +90,13 @@ class DashboardController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function sendEmail()
+    {
+
+        Mail::to('saihowong81@hotmail.com')->send(new contactEmail());
+
+        return back();
     }
 }

@@ -11,7 +11,9 @@
       <span class="md:ml-2 text-gray-600 font-normal">{{ user.email }}</span
       ><br />
       Role:
-      <span class="ml-2 text-gray-600 font-normal">{{ userRole }}</span
+      <span class="ml-2 text-gray-600 font-normal">{{
+        user.roles[0].name
+      }}</span
       ><br />
     </div>
 
@@ -39,18 +41,18 @@
 <script>
 export default {
   props: ["user"],
-  data() {
-    return {
-      role: "",
-    };
-  },
-  computed: {
-    userRole() {
-      if (this.user.is_admin) {
-        return (this.role = "admin");
-      }
-      return (this.role = "user");
-    },
-  },
+  // data() {
+  //   return {
+  //     role: "",
+  //   };
+  // },
+  // computed: {
+  //   userRole() {
+  //     if (this.user.is_admin) {
+  //       return (this.role = "admin");
+  //     }
+  //     return (this.role = "user");
+  //   },
+  // },
 };
 </script>

@@ -99,15 +99,27 @@
                   {{ option.name }}
                 </option>
               </select> -->
-              <multiselect
-                v-model="form.roles[0][0]"
-                :options="allRoles"
-                label="name"
-                track-by="id"
-                :tabindex="1"
-                placeholder="Select a new role"
-                class=""
-              ></multiselect>
+              <div v-if="$page.props.auth.can.manageUsers">
+                <multiselect
+                  v-model="form.roles[0][0]"
+                  :options="allRoles"
+                  label="name"
+                  track-by="id"
+                  :tabindex="1"
+                  placeholder="Select a new role"
+                  class=""
+                ></multiselect>
+              </div>
+              <div v-else>
+                <jet-input
+                  id="created_at"
+                  type="text"
+                  class="mt-1 block w-full disabled:opacity-50"
+                  v-model="form.roles[0][0].name"
+                  autofocus
+                  disabled
+                ></jet-input>
+              </div>
             </div>
           </div>
 
@@ -117,6 +129,7 @@
               class="text-sm ml-4"
               :class="{ 'opacity-25': form.processing }"
               :disabled="form.processing"
+              v-if="$page.props.auth.can.manageUsers"
               >Update</green-button
             >
             <jet-danger-button :href="route('users.index')" class="text-sm ml-4"

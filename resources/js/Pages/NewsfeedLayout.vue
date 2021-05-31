@@ -28,6 +28,7 @@ import GoldButton from "@/Components/GoldButton";
 import Icons from "@/Components/Icons";
 
 export default {
+  inheritAttrs: false,
   components: {
     Newsfeed,
     GoldButton,

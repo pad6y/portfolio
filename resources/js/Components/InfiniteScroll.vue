@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  inheritAttrs: false,
   emits: ["loadMore"],
   mounted() {
     window.addEventListener(

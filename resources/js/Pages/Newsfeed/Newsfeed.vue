@@ -17,6 +17,7 @@ import NewsfeedItem from "./NewsfeedItem";
 import InfiniteScroll from "@/Components/InfiniteScroll";
 
 export default {
+  inheritAttrs: false,
   components: {
     InfiniteScroll,
     NewsfeedItem,

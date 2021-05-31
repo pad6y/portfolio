@@ -54,7 +54,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        if (Gate::allows('manageUsers')) {
+        if (Gate::allows('accessUsers')) {
             return Inertia::render('Admin/Users/UserProfile', [
                 'user' => $user,
                 'allRoles' => Role::all()

@@ -19,6 +19,7 @@ import UsersDetails from "./UsersDetails";
 import InfiniteScroll from "@/Components/InfiniteScroll";
 
 export default {
+  inheritAttrs: false,
   components: {
     UsersDetails,
     InfiniteScroll,

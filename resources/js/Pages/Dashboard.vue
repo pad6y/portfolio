@@ -15,6 +15,7 @@
 import AdminUserIndex from "@/Pages/Admin/Users/Show.vue";
 
 export default {
+  inheritAttrs: false,
   components: {
     AdminUserIndex,
   },
