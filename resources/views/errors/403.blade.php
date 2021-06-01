@@ -9,6 +9,7 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+        
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
@@ -16,14 +17,36 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body class="font-sans antialiased">
+    <body class="antialiased">
         <div class="flex flex-col justify-center items-center my-auto min-h-screen">
             <h1 class="text-2xl">
                 Oops....This page does not exist... click
                 <a href="{{ url('/') }}" class="text-blue-500 hover:text-blue-800">here</a>
                 to go back to the site!
             </h1>
-            <img src="https://images.unsplash.com/photo-1594322436404-5a0526db4d13?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8NDA0JTIwZXJyb3J8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="error" class="mt-5">
+            <img src="{{ asset('storage/images/romson-preechawit-Vy2cHqm0mCs-unsplash.jpg') }}" alt="error" class="mt-5">
         </div>
     </body>
 </html>
+
+<style>
+    
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+    html, body {
+        height: 100%;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        color: #B0BEC5;
+        display: table;
+        font-weight: 100;
+        font-family: 'Orbitron';
+    }
+    
+    img {
+        height: 80vh;
+    }
+</style>

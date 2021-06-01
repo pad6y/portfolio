@@ -1,6 +1,6 @@
 <template>
   <div class="max-h-full flex justify-center items-center font-serif text-md">
-    <div class="bg-gray-200 mt-16 mb-24 w-full md:w-4/5 shadow-md">
+    <div class="bg-gray-200 mt-16 mb-24 w-full md:max-w-6xl shadow-md">
       <div class="grid justify-items-end text-gray-700 mt-2 mr-2 mb-2">
         By {{ username }}
       </div>

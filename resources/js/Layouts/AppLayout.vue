@@ -231,8 +231,10 @@
 
       <!-- copyright trademark -->
       <footer>
-        <div class="font-serif text-xs text-gray-600 flex justify-center pb-8">
-          © {{ new Date().getFullYear() }} by Padby.com All rights reserved.
+        <div
+          class="font-serif text-xs text-gray-600 flex justify-center mt-12 pb-6"
+        >
+          © {{ new Date().getFullYear() }} by Pad6y.com All rights reserved.
         </div>
       </footer>
     </div>

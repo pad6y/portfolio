@@ -19,6 +19,23 @@
 <body>
    <h1>Hi {{ $name }} is reaching out to you.</h1>
    <h2>Email: {{ $email }}</h2></br>
-   <h2>Message : {{ $body }}</h2>
+   <h2>Message : </h2>
+   <h2>{{ $body }}</h2>
 </body>
 </html>
+
+<style>
+    
+   @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+   html, body {
+       height: 100%;
+   }
+
+   body {
+       margin: 10;
+       padding: 0;
+       width: 100%;
+       font-weight: 100;
+       font-family: 'Orbitron';
+   }
+</style>

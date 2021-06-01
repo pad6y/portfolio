@@ -85,7 +85,7 @@ export default {
         onSuccess: () => {
           Toast.fire({
             icon: "success",
-            title: "You have successfully sent email!",
+            title: "You have successfully submitted the contact form!",
           }),
             (this.form.name = null);
           this.form.email = null;

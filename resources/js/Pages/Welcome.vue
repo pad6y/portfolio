@@ -47,7 +47,7 @@
     </div>
 
     <!-- content -->
-    <div class="flex flex-col justify-center md:mx-28 min-h-full">
+    <div class="flex flex-col justify-center lg:mx-28 min-h-full">
       <div class="bg-gradient-to-t p-4 from-gold-text to-white">
         <!-- intro to page and about myself -->
         <content-one></content-one>
@@ -57,10 +57,14 @@
 
         <!-- project cards -->
         <div
-          class="flex justify-center text-4xl text-gray-500 mb-10 md:pt-12 md:pb-24"
+          class="flex justify-center text-4xl text-gray-500 mb-10 md:pt-12 md:pb-10"
         >
           Projects
         </div>
+        <project-card
+          :projects="projects"
+          class="flex justify-center"
+        ></project-card>
       </div>
     </div>
 
@@ -71,7 +75,7 @@
       <contact-section />
     </div>
 
-    <!-- icons -->
+    <!-- social media, github and email icons -->
     <div
       class="flex justify-center items-end space-x-4 pt-10 md:mx-28 md:h-44 bg-gradient-to-t from-white to-gray-400"
     >
@@ -101,11 +105,9 @@
       </div>
     </div> -->
 
-    <!-- copyright trademark -->
+    <!-- copyright trademark welcome page specific -->
 
-    <div
-      class="flex justify-center font-serif text-xs text-gray-600 mt-12 mb-6"
-    >
+    <div class="flex justify-center text-xs text-gray-600 mt-12 mb-6">
       © {{ new Date().getFullYear() }} by Pad6y.com All rights reserved.
     </div>
   </div>
@@ -116,6 +118,7 @@
 <script>
 import contentOne from "@/Pages/Landing/contentOne";
 import techStack from "@/Pages/Landing/techStack";
+import projectCard from "@/Pages/Landing/dynamicProjectCard";
 import contactSection from "@/Pages/Landing/contactSection";
 import Icons from "@/Components/Icons";
 
@@ -125,12 +128,14 @@ export default {
     contactSection,
     Icons,
     techStack,
+    projectCard,
   },
   props: {
     canLogin: Boolean,
     canRegister: Boolean,
     laravelVersion: String,
     phpVersion: String,
+    projects: Array,
   },
 };
 </script>
