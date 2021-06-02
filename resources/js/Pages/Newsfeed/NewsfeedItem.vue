@@ -11,12 +11,14 @@
       </div>
     </div>
 
-    <div class="col-span-10 sm:col-span-4 sm:mx-4 sm:ml-10 pt-4 sm:pt-0">
-      <div v-if="post.post_image" class="grid justify-items-start">
+    <div
+      class="flex items-center col-span-10 sm:col-span-4 sm:mx-4 sm:ml-10 pt-4 sm:pt-0"
+    >
+      <div v-if="post.post_image">
         <img
           :src="post.post_image"
           :alt="'image unavailable'"
-          class="h-14 sm:grid sm:h-28 w-auto object-fill rounded-md shadow-md"
+          class="h-auto sm:grid w-auto object-fill rounded-md shadow-md"
         />
       </div>
     </div>

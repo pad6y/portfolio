@@ -11,7 +11,7 @@
         class="flex flex-col w-full bg-gradient-to-t from-white to-gray-500 rounded-md shadow-md mb-4 overflow-hidden transition duration-500 ease-in-out transform hover:scale-110 hover:bg-white"
       >
         <div
-          class="flex justify-center mx-auto w-full uppercase text-lg font-semibold py-4"
+          class="flex justify-center mx-auto w-full min-h-48 uppercase text-lg font-semibold py-4"
         >
           {{ project.project_name }}
         </div>
@@ -22,20 +22,25 @@
             {{ project.project_type }}
           </div>
 
-          <div class="pb-4">
+          <div class="pb-4 h-2/3">
             <span class="font-semibold">Description: </span
             >{{ project.description }}
           </div>
 
+          <a
+            :href="project.url_link"
+            class="flex justify-center uppercase font-bold hover:text-blue-700"
+            >Git repo</a
+          >
+
           <div class="flex justify-center p-2" v-if="project.url_link != null">
             <blue-button :href="project.url_link">Click Here</blue-button>
-            <a :href="project.url_link">Git repo</a>
           </div>
           <div
             v-else
-            class="flex justify-center justify-items-end w-full font-semibold text-red-800 px-2 py-4"
+            class="flex justify-center justify-items-end w-full font-semibold text-red-800 mb-6 px-2 py-2"
           >
-            Link currently unavailable!
+            Currently not deployed!
           </div>
         </div>
       </div>

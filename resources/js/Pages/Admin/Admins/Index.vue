@@ -14,11 +14,11 @@
       </span>
     </div> -->
 
-    <div class="px-6 py-2 text-xs sm:text-sm">
+    <div class="px-0 md:px-6 py-2 text-xs sm:text-sm">
       <table class="table-auto w-full">
         <thead>
           <tr>
-            <th class="text-left">Name</th>
+            <th class="text-left pl-3">Name</th>
             <th class="text-left pl-3">Role</th>
             <th class="text-left">Created</th>
             <th
@@ -36,7 +36,7 @@
             class="text-center hover:bg-gold-dark hover:text-gray-50"
             :class="{ 'bg-gray-200': index % 2 === 0 }"
           >
-            <td class="text-left capitalize py-3">{{ admin.name }}</td>
+            <td class="text-left capitalize py-3 pl-3">{{ admin.name }}</td>
             <td class="text-left capitalize py-3 pl-3">
               {{ admin.roles[0].name }}
             </td>

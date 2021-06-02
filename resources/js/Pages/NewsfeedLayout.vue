@@ -17,6 +17,10 @@
 
   <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
     <div class="bg-white overflow-hidden shadow-xl">
+      <div class="ml-14 my-4">
+        Find the lastest updates and announcements about this site and other
+        demo sites!
+      </div>
       <newsfeed :posts="posts" />
     </div>
   </div>

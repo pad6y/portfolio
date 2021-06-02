@@ -12,13 +12,13 @@
       </span>
     </div> -->
 
-    <div class="px-6 py-2 text-xs sm:text-sm">
+    <div class="md:px-6 py-2 text-xs sm:text-sm">
       <table class="table-auto w-full">
         <thead>
           <tr>
             <th class="text-left pl-3">Name</th>
-            <th class="text-left">Email</th>
-            <th class="text-left">Created</th>
+            <th class="hidden sm:flex text-left">Email</th>
+            <th class="hidden sm:flex text-left">Created</th>
             <th class="text-right pr-3" v-if="$page.props.auth.can.manageUsers">
               Actions
             </th>
@@ -32,9 +32,11 @@
             :class="{ 'bg-gray-300': index % 2 === 0 }"
           >
             <td class="text-left capitalize py-3 pl-3">{{ user.name }}</td>
-            <td class="text-left capitalize py-3">{{ user.email }}</td>
-            <td class="text-left py-3">{{ user.created_at }}</td>
-            <td class="py-3" v-if="$page.props.auth.can.manageUsers">
+            <td class="hidden sm:flex text-left capitalize py-3">
+              {{ user.email }}
+            </td>
+            <td class="hidden sm:flex text-left py-3">{{ user.created_at }}</td>
+            <td class="md:py-3" v-if="$page.props.auth.can.manageUsers">
               <div class="flex justify-end pr-2">
                 <green-button
                   :href="route('users.show', user.id)"

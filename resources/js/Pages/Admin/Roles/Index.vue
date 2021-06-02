@@ -18,7 +18,7 @@
       </span>
     </div> -->
 
-    <div class="px-6 py-2 text-xs sm:text-sm">
+    <div class="px-0 md:px-6 py-2 text-xs sm:text-sm">
       <table class="table-auto w-full">
         <thead>
           <tr>
@@ -33,17 +33,17 @@
           <tr
             v-for="(role, index) in roles"
             :key="index"
-            class="text-center hover:bg-gold-dark hover:text-gray-50"
+            class="text-center hover:bg-gold-lite hover:text-gray-500"
             :class="{ 'bg-gray-300': index % 2 === 0 }"
           >
             <td class="text-left capitalize py-3 pl-3">{{ role.name }}</td>
             <td class="text-left py-3 pl-3">{{ role.created_at }}</td>
-            <td class="py-3" v-if="$page.props.auth.can.manageRoles">
+            <td class="md:py-3" v-if="$page.props.auth.can.manageRoles">
               <div class="flex justify-end pr-2">
-                <green-button
+                <gold-button
                   :href="route('AdminControlPanel.roles.show', role.id)"
                   class="sm:text-sm shadow-md"
-                  >Edit</green-button
+                  >Edit</gold-button
                 >
                 <form @submit.prevent="submit(role.id)">
                   <jet-danger-button type="submit" class="sm:text-sm ml-1"
@@ -62,7 +62,7 @@
 <script>
 import AdminLayout from "@/Layouts/AdminLayout";
 import BlueButton from "@/Components/BlueButton";
-import GreenButton from "@/Components/GreenButton";
+import GoldButton from "@/Components/GoldButton";
 import JetDangerButton from "@/Jetstream/DangerButton";
 
 export default {
@@ -75,7 +75,7 @@ export default {
   components: {
     AdminLayout,
     BlueButton,
-    GreenButton,
+    GoldButton,
     JetDangerButton,
   },
   methods: {
