@@ -22,23 +22,23 @@
             {{ project.project_type }}
           </div>
 
-          <div class="pb-4 h-2/3">
+          <div class="pb-4 h-auto">
             <span class="font-semibold">Description: </span
-            >{{ project.description }}
+            >{{ getReduceBody(project.description) }}
           </div>
 
           <a
+            v-if="project.url_link != null"
             :href="project.url_link"
             class="flex justify-center uppercase font-bold hover:text-blue-700"
             >Git repo</a
           >
 
-          <div class="flex justify-center p-2" v-if="project.url_link != null">
-            <blue-button :href="project.url_link">Click Here</blue-button>
+          <div class="flex justify-center p-2">
+            <blue-button :href="project.url_link">More Info</blue-button>
           </div>
           <div
-            v-else
-            class="flex justify-center justify-items-end w-full font-semibold text-red-800 mb-6 px-2 py-2"
+            class="flex justify-center items-end w-full font-semibold text-red-800 mb-6 px-2 py-2"
           >
             Currently not deployed!
           </div>
@@ -55,6 +55,15 @@ export default {
   props: ["projects"],
   components: {
     blueButton,
+  },
+  methods: {
+    getReduceBody(data) {
+      let strData = data;
+
+      if (strData != null) {
+        return strData.substring(0, 40) + "...";
+      }
+    },
   },
 };
 </script>

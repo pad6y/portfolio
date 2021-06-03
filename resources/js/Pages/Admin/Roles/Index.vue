@@ -33,17 +33,17 @@
           <tr
             v-for="(role, index) in roles"
             :key="index"
-            class="text-center hover:bg-gold-lite hover:text-gray-500"
+            class="text-center shadow transition duration-500 ease-in-out transform hover:scale-105"
             :class="{ 'bg-gray-300': index % 2 === 0 }"
           >
             <td class="text-left capitalize py-3 pl-3">{{ role.name }}</td>
             <td class="text-left py-3 pl-3">{{ role.created_at }}</td>
             <td class="md:py-3" v-if="$page.props.auth.can.manageRoles">
               <div class="flex justify-end pr-2">
-                <gold-button
+                <green-button
                   :href="route('AdminControlPanel.roles.show', role.id)"
                   class="sm:text-sm shadow-md"
-                  >Edit</gold-button
+                  >Edit</green-button
                 >
                 <form @submit.prevent="submit(role.id)">
                   <jet-danger-button type="submit" class="sm:text-sm ml-1"
@@ -62,7 +62,7 @@
 <script>
 import AdminLayout from "@/Layouts/AdminLayout";
 import BlueButton from "@/Components/BlueButton";
-import GoldButton from "@/Components/GoldButton";
+import GreenButton from "@/Components/GreenButton";
 import JetDangerButton from "@/Jetstream/DangerButton";
 
 export default {
@@ -75,7 +75,7 @@ export default {
   components: {
     AdminLayout,
     BlueButton,
-    GoldButton,
+    GreenButton,
     JetDangerButton,
   },
   methods: {

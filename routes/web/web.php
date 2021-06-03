@@ -1,7 +1,7 @@
 <?php
 
 use Inertia\Inertia;
-use App\Models\Projects;
+use App\Models\Project;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\DashboardController;
@@ -23,7 +23,7 @@ Route::get('/', function () {
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
-        'projects' => Projects::get()
+        'projects' => Project::get()
     ]);
 })->name('landing');
 

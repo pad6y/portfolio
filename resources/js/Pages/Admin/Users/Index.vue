@@ -17,8 +17,8 @@
         <thead>
           <tr>
             <th class="text-left pl-3">Name</th>
-            <th class="hidden sm:flex text-left">Email</th>
-            <th class="hidden sm:flex text-left">Created</th>
+            <th class="hidden sm:table-cell text-left">Email</th>
+            <th class="hidden sm:table-cell text-left">Created</th>
             <th class="text-right pr-3" v-if="$page.props.auth.can.manageUsers">
               Actions
             </th>
@@ -28,14 +28,16 @@
           <tr
             v-for="(user, index) in users"
             :key="index"
-            class="text-center hover:bg-gold-dark hover:text-gray-50"
+            class="text-center shadow transition duration-500 ease-in-out transform hover:scale-105"
             :class="{ 'bg-gray-300': index % 2 === 0 }"
           >
             <td class="text-left capitalize py-3 pl-3">{{ user.name }}</td>
-            <td class="hidden sm:flex text-left capitalize py-3">
+            <td class="hidden sm:table-cell text-left capitalize py-3">
               {{ user.email }}
             </td>
-            <td class="hidden sm:flex text-left py-3">{{ user.created_at }}</td>
+            <td class="hidden sm:table-cell text-left py-3">
+              {{ user.created_at }}
+            </td>
             <td class="md:py-3" v-if="$page.props.auth.can.manageUsers">
               <div class="flex justify-end pr-2">
                 <green-button
