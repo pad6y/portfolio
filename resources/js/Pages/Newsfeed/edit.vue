@@ -4,13 +4,15 @@
   </div> -->
 
   <div
-    class="flex justify-center items-center min-h-full mt-8 mb-24 font-serif text-gray-700"
+    class="flex justify-center items-center md:mx-auto w-full md:w-1/3 p-4 md:p-24 mt-8 mb-24 font-serif text-gray-700 md:rounded-xl bg-white shadow-md"
   >
-    <form @submit.prevent="submitUpdate" class="w-5/6 sm:w-1/3">
-      <div class="flex justify-center text-4xl text-gold mb-4">Edit Post</div>
+    <form @submit.prevent="submitUpdate" class="w-full">
+      <div class="flex justify-center text-4xl text-gold pb-10 tracking-widest">
+        Edit Post
+      </div>
 
       <div>
-        <label for="title" class="block font-medium">Article Title</label>
+        <label for="title" class="text-lg">Article Title</label>
         <input
           id="title"
           type="text"
@@ -23,7 +25,7 @@
       </div>
 
       <div class="mt-4">
-        <label for="body" class="block font-medium"> Article Content</label>
+        <label for="body" class="text-lg"> Article Content</label>
 
         <textarea
           id="body"

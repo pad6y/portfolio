@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Inertia\Inertia;
 use App\Models\Project;
 use Illuminate\Http\Request;
-use Inertia\Inertia;
+use Illuminate\Support\Facades\Gate;
 
 class ProjectController extends Controller
 {
@@ -15,9 +16,13 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Admin/Projects/Index', [
-            'projects' => Project::get()
-        ]);
+        if (Gate::allows('accessProjects')) {
+
+            return Inertia::render('Admin/Projects/Index', [
+                'projects' => Project::get()
+            ]);
+        }
+        return back();
     }
 
     /**
@@ -27,7 +32,10 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Admin/Projects/Create');
+        if (Gate::allows('manageProjects')) {
+            return Inertia::render('Admin/Projects/Create');
+        }
+        return back();
     }
 
     /**
@@ -38,23 +46,26 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'project_name' => 'required|min:4|max:25',
-            'project_type' => 'required|min:8|max:25',
-            'description' => 'required|min:8|max:255',
-            'url_link' => 'url',
+        if (Gate::allows('manageProjects')) {
+            $request->validate([
+                'project_name' => 'required|min:4|max:25',
+                'project_type' => 'required|min:8|max:25',
+                'description' => 'required|min:8|max:255',
+                'url_link' => 'url',
 
-        ]);
+            ]);
 
-        Project::create([
-            'project_name' => $request->input('project_name'),
-            'project_type' => $request->input('project_type'),
-            'description' => $request->input('description'),
-            'url_link' => $request->input('url_link'),
+            Project::create([
+                'project_name' => $request->input('project_name'),
+                'project_type' => $request->input('project_type'),
+                'description' => $request->input('description'),
+                'url_link' => $request->input('url_link'),
 
-        ]);
+            ]);
 
-        return redirect()->route('projects.index');
+            return redirect()->route('projects.index');
+        }
+        return back();
     }
 
     /**
@@ -65,7 +76,10 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        return Inertia::render('Admin/Projects/Edit', ['project' => $project]);
+        if (Gate::allows('accessProjects')) {
+            return Inertia::render('Admin/Projects/Edit', ['project' => $project]);
+        }
+        return back();
     }
 
     /**

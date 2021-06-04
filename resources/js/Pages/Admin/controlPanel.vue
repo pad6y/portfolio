@@ -1,11 +1,13 @@
 <template>
   <admin-layout>
     <template #header>
-      <h2
-        class="flex justify-center font-semibold text-xl text-gray-700 leading-tight"
-      >
-        Control Panel
-      </h2>
+      <div class="flex justify-center">
+        <h2
+          class="font-semibold text-2xl text-gray-700 leading-tight tracking-widest"
+        >
+          Control Panel
+        </h2>
+      </div>
     </template>
 
     <div class="px-6 py-2">
