@@ -3,7 +3,9 @@
     class="flex justify-center items-center min-h-full w-full md:w-2/3 m-4 md:mt-8 md:mb-24 font-serif text-gray-700 bg-transparent"
   >
     <form id="form" @submit.prevent="submit" class="w-11/12 md:w-4/6">
-      <div class="flex justify-center text-4xl text-gray-500 mb-4">
+      <div
+        class="flex justify-center tracking-widest uppercase text-4xl text-gray-600 mb-6"
+      >
         Contact Me
       </div>
 

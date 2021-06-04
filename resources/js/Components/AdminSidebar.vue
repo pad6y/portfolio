@@ -52,7 +52,7 @@
               ? 'text-gray-50 bg-gray-500'
               : 'hover:text-gray-50 hover:bg-gray-500'
           "
-          v-if="$page.props.auth.can.manageAdmins"
+          v-if="$page.props.auth.can.accessUsers"
           >Projects</inertia-link
         >
       </div>

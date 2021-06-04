@@ -42,7 +42,7 @@ class ProjectController extends Controller
             'project_name' => 'required|min:4|max:25',
             'project_type' => 'required|min:8|max:25',
             'description' => 'required|min:8|max:255',
-            'url_link' => 'required|url',
+            'url_link' => 'url',
 
         ]);
 
@@ -65,7 +65,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        //
+        return Inertia::render('Admin/Projects/Edit', ['project' => $project]);
     }
 
     /**
@@ -88,7 +88,23 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        //
+        $request->validate([
+            'project_name' => 'required|min:4|max:25',
+            'project_type' => 'required|min:8|max:25',
+            'description' => 'required|min:8|max:255',
+            'url_link' => 'url',
+
+        ]);
+
+        $project->update([
+            'project_name' => $request->input('project_name'),
+            'project_type' => $request->input('project_type'),
+            'description' => $request->input('description'),
+            'url_link' => $request->input('url_link'),
+
+        ]);
+
+        return redirect()->route('projects.index');
     }
 
     /**

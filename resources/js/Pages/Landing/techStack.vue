@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex justify-center text-4xl text-gray-500 mt-10 mb-4 md:px-60 md:pt-24"
+    class="flex justify-center text-4xl tracking-widest uppercase text-gray-600 mt-10 mb-4 md:px-60 md:pt-24"
   >
     Tech Stack
   </div>

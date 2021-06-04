@@ -60,7 +60,7 @@
             <td class="py-3" v-if="$page.props.auth.can.manageAdmins">
               <div class="flex justify-end pr-2">
                 <green-button
-                  :href="route('AdminControlPanel.admins.show', project.id)"
+                  :href="route('projects.show', project.id)"
                   class="sm:text-sm shadow-md"
                   >Edit
                 </green-button>

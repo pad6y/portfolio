@@ -19,9 +19,9 @@
           <inertia-link
             v-if="$page.props.user"
             :href="route('newsfeed.index')"
-            class="border-2 rounded-md px-4 py-2 font-serif text-lg shadow-lg text-gray-700 bg-gold-text hover:bg-gold-md hover:ring-yellow-200 hover:ring-opacity-50"
+            class="border-2 rounded-md px-4 py-2 font-serif tracking-widest uppercase text-lg shadow-lg text-gray-700 bg-gold-text hover:bg-gold-md hover:ring-yellow-200 hover:ring-opacity-50"
           >
-            Newsfeed
+            Enter
           </inertia-link>
 
           <template v-else>
@@ -57,7 +57,7 @@
 
         <!-- project cards -->
         <div
-          class="flex justify-center text-4xl text-gray-500 mb-10 md:pt-12 md:pb-10"
+          class="flex justify-center tracking-widest uppercase text-4xl text-gray-600 mb-10 md:pt-12 md:pb-10"
         >
           Projects
         </div>
