@@ -16,11 +16,13 @@
       <!-- Scripts -->
       <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
-<body>
-   <h1>Hi {{ $name }} is reaching out to you.</h1>
-   <h2>Email: {{ $email }}</h2></br>
-   <h2>Message : </h2>
-   <h2>{{ $body }}</h2>
+<body class="antialiased">
+    <div class="flex flex-col justify-center">
+        <h1>Hi {{ $name }} is reaching out to you.</h1>
+        <h2>Email: {{ $email }}</h2></br>
+        <h2>Message : </h2>
+        <h2>{{ $body }}</h2>
+    </div>
 </body>
 </html>
 

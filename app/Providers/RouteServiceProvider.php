@@ -62,6 +62,11 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web/project.php'));
 
+            Route::prefix('eCommerce')
+                ->middleware(['web', 'auth:sanctum', 'verified'])
+                ->namespace($this->namespace)
+                ->group(base_path('routes/web/eCommerce.php'));
+
             Route::middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web/web.php'));

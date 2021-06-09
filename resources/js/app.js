@@ -32,6 +32,7 @@ createApp({
                     if (
                         page.layout === undefined &&
                         !name.startsWith("Welcome") &&
+                        !name.startsWith("eCommerce/") &&
                         !name.startsWith("Auth/")
                     ) {
                         page.layout = Layout;

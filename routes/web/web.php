@@ -46,3 +46,13 @@ Route::group(['middleware' => config('fortify.middleware', ['web'])], function (
             $limiter ? 'throttle:' . $limiter : null,
         ]));
 });
+
+// Route::get('/mailable', function () {
+//     // $user = [
+//     //     'name' => 'Patrick',
+//     //     'email' => '123@admin.com',
+//     //     'body' => 'Hello pain in the...'
+//     // ];
+
+//     return new App\Mail\contactEmail();
+// });
