@@ -1,8 +1,15 @@
 <template>
   <div class="">
-    <div class="flex items-center bg-gray-700 h-10 text-gray-100 pl-2">
-      contact and info section
+    <div
+      class="grid grid-cols-3 gap-2 w-full bg-gray-700 text-gray-100 uppercase"
+    >
+      <div class="col-span-1">
+        <div class="flex justify-center">Help & Info</div>
+      </div>
+      <div class="flex justify-center">About Us</div>
+      <div class="flex justify-center">More..</div>
     </div>
+
     <footer>
       <div
         class="

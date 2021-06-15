@@ -18,8 +18,30 @@
           </div>
         </inertia-link>
       </div>
-      <div class="hidden md:flex text-gray-500 ml-4 sm:ml-20 mt-1 w-2/3">
-        Search
+
+      <!-- Search bar -->
+
+      <div class="flex text-gray-500 ml-4 sm:ml-20 mt-1 w-2/3">
+        <input
+          id="search"
+          type="text"
+          placeholder="Search Products"
+          class="
+            block
+            w-full
+            h-8
+            pl-10
+            border-2 border-yellow-300
+            rounded-full
+            shadow-md
+            focus:border-yellow-300
+            focus:ring-transparent
+          "
+          required
+        />
+        <i class="absolute active:hidden p-1 ml-2"
+          ><icons :name="'search'"></icons
+        ></i>
       </div>
       <div class="text-gray-500 mr-2 sm:mr-4 md:ml-36 mt-1">
         <icons :name="'account'"></icons>
@@ -29,8 +51,43 @@
       </div>
     </div>
 
-    <div class="flex items-center bg-gray-700 h-10 text-gray-100 pl-2">
-      product query menu
+    <!-- SUB Nav Bar -->
+
+    <div
+      class="
+        flex
+        justify-center
+        items-center
+        bg-gray-700
+        h-10
+        uppercase
+        text-xs
+        sm:text-lg
+        text-gray-100
+      "
+    >
+      <inertia-link
+        :href="route('eCommerce.index')"
+        class="p-4 md:p-2"
+        :class="
+          route().current('eCommerce.index')
+            ? 'text-gray-50 bg-gray-500'
+            : 'hover:text-gray-50 hover:bg-gray-500'
+        "
+        >All Products</inertia-link
+      >
+      <div class="p-2 hover:bg-gray-500">Mens</div>
+      <div class="p-2 hover:bg-gray-500">Womens</div>
+      <inertia-link
+        :href="route('eCommerce.adminPanel')"
+        class="p-4 md:p-2"
+        :class="
+          route().current('eCommerce.adminPanel')
+            ? 'text-gray-50 bg-gray-500'
+            : 'hover:text-gray-50 hover:bg-gray-500'
+        "
+        >Admin Panel</inertia-link
+      >
     </div>
   </div>
 </template>

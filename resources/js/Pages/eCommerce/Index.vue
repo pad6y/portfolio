@@ -1,9 +1,7 @@
 <template>
-  <div class="">
-    <e-com-layout>
-      <product-card></product-card>
-    </e-com-layout>
-  </div>
+  <e-com-layout>
+    <product-card></product-card>
+  </e-com-layout>
 </template>
 
 <script>

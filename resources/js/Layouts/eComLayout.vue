@@ -1,7 +1,7 @@
 <template>
   <div class="max-w-7xl mx-auto">
     <menu-bar></menu-bar>
-    <div class="h-auto p-4 md:p-12 bg-gold-text">
+    <div class="bg-gold-text py-2">
       <slot></slot>
     </div>
     <footer-section></footer-section>

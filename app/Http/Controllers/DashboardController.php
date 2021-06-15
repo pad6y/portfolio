@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\User;
 use Inertia\Inertia;
+use App\Mail\messageSent;
 use App\Mail\contactEmail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -92,10 +93,16 @@ class DashboardController extends Controller
         //
     }
 
-    public function sendEmail()
+    public function sendEmail(Request $request)
     {
+        $request->validate([
+            'email' => 'email'
+        ]);
+
+        $email = $request->email;
 
         Mail::to('saihowong81@hotmail.com')->send(new contactEmail());
+        Mail::to($email)->send(new messageSent());
 
         return back();
     }
