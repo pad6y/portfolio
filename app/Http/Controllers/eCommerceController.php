@@ -15,7 +15,9 @@ class eCommerceController extends Controller
      */
     public function index(Request $request)
     {
-        $products = Product::orderBy('id', "DESC")->paginate(4);
+        $products = Product::when($request->term, function ($query, $term) {
+            $query->where('product_name', 'LIKE', '%' . $term . '%');
+        })->orderBy('id', "DESC")->paginate(4);
         if ($request->wantsJson()) {
             return $products;
         }

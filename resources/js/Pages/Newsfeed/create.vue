@@ -190,6 +190,7 @@ export default {
       //   // console.log(data);
       //   this.$inertia.post(route("newsfeed.store"), data);
     },
+
     setImage(e) {
       this.form.post_image = e.target.files[0];
 

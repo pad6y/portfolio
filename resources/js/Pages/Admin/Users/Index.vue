@@ -12,6 +12,18 @@
       </span>
     </div> -->
 
+    <div class="px-6 mb-2">
+      <label for="search">Search Users</label>
+      <input
+        id="search"
+        type="text"
+        v-model="term"
+        @keyup="search"
+        class="ml-2 px-2 py-1 text-sm rounded border"
+        placeholder="Enter users name"
+      />
+    </div>
+
     <div class="md:px-6 py-2 text-xs sm:text-sm">
       <table class="table-auto w-full">
         <thead>
@@ -28,7 +40,15 @@
           <tr
             v-for="(user, index) in users"
             :key="index"
-            class="text-center shadow transition duration-500 ease-in-out transform hover:scale-105"
+            class="
+              text-center
+              shadow
+              transition
+              duration-500
+              ease-in-out
+              transform
+              hover:scale-105
+            "
             :class="{ 'bg-gray-300': index % 2 === 0 }"
           >
             <td class="text-left capitalize py-3 pl-3">{{ user.name }}</td>
@@ -61,15 +81,31 @@ import GreenButton from "@/Components/GreenButton";
 
 export default {
   props: ["users"],
-  data() {
-    return {
-      // flashMsg: this.$page.props.success,
-    };
-  },
   components: {
     AdminLayout,
     BlueButton,
     GreenButton,
+  },
+  data() {
+    return {
+      term: "",
+    };
+  },
+  methods: {
+    search: _.throttle(function () {
+      this.$inertia.get(
+        "/admin/users?term=" + this.term,
+        {},
+        {
+          preserveState: true,
+          replace: true,
+        }
+      );
+    }, 1000),
+
+    // {
+    //   this.$inertia.replace("/admin/users?term=" + this.term);
+    // },
   },
 };
 </script>

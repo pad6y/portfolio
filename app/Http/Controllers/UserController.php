@@ -15,11 +15,15 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        // $users = User::where('is_admin', 0)->get();
+
         if (Gate::allows('accessUsers')) {
             return Inertia::render('Admin/Users/Index', [
-                'users' => User::where('is_admin', 0)->get()
+                'users' => User::where('is_admin', 0)->when($request->term, function ($query, $term) {
+                    $query->where('name', 'LIKE', '%' . $term . '%');
+                })->get()
             ]);
         }
         return back();

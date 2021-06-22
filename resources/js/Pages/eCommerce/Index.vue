@@ -1,5 +1,6 @@
 <template>
   <e-com-layout>
+    <menu-bar @termChange="onTermChange"></menu-bar>
     <infinite-scroll @loadMore="loadMoreProducts">
       <div
         class="
@@ -13,7 +14,10 @@
         "
       >
         <div v-for="(productItem, index) in allProducts.data" :key="index">
-          <product-card :product="productItem"></product-card>
+          <product-card
+            :product="productItem"
+            :pagination="pagination"
+          ></product-card>
         </div>
       </div>
     </infinite-scroll>
@@ -22,6 +26,7 @@
 
 <script>
 import eComLayout from "@/Layouts/eComLayout";
+import menuBar from "@/Pages/eCommerce/menuBar";
 import ProductCard from "@/Pages/eCommerce/ProductCard";
 import InfiniteScroll from "@/Components/InfiniteScroll";
 
@@ -36,6 +41,7 @@ export default {
     eComLayout,
     ProductCard,
     InfiniteScroll,
+    menuBar,
   },
   computed: {
     pagination() {
@@ -43,6 +49,16 @@ export default {
     },
   },
   methods: {
+    onTermChange: function (searchTerm) {
+      this.$inertia.get(
+        "/eCommerce?term=" + searchTerm,
+        {},
+        {
+          preserveState: true,
+          replace: true,
+        }
+      );
+    },
     loadMoreProducts() {
       if (!this.allProducts.next_page_url) {
         return;

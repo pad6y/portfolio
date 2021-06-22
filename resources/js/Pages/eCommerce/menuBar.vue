@@ -23,7 +23,8 @@
 
       <div class="flex text-gray-500 ml-4 sm:ml-20 mt-1 w-2/3">
         <input
-          @input="onInput"
+          @keyup="onInput"
+          v-model="term"
           id="search"
           type="text"
           placeholder="Search Products"
@@ -101,6 +102,7 @@ export default {
     JetApplicationMark,
     Icons,
   },
+  emits: ["termChange"],
   inheritAttrs: false,
   methods: {
     onInput: function (event) {
