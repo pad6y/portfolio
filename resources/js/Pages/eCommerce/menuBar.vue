@@ -2,7 +2,7 @@
   <div class="">
     <div class="flex justify-between h-16 p-4 pb-8 bg-gray-100">
       <div class="flex-shrink-0 flex items-center relative">
-        <inertia-link :href="route('landing')">
+        <inertia-link :href="route('newsfeed.index')">
           <jet-application-mark class="block h-9 w-auto" />
           <div
             class="
@@ -23,6 +23,7 @@
 
       <div class="flex text-gray-500 ml-4 sm:ml-20 mt-1 w-2/3">
         <input
+          @input="onInput"
           id="search"
           type="text"
           placeholder="Search Products"
@@ -37,7 +38,6 @@
             focus:border-yellow-300
             focus:ring-transparent
           "
-          required
         />
         <i class="absolute active:hidden p-1 ml-2"
           ><icons :name="'search'"></icons
@@ -102,5 +102,10 @@ export default {
     Icons,
   },
   inheritAttrs: false,
+  methods: {
+    onInput: function (event) {
+      this.$emit("termChange", event.target.value);
+    },
+  },
 };
 </script>

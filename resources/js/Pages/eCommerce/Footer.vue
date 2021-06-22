@@ -1,10 +1,15 @@
 <template>
-  <div class="">
+  <div class="bg-gray-700">
     <div
-      class="grid grid-cols-3 gap-2 w-full bg-gray-700 text-gray-100 uppercase"
+      class="grid grid-cols-3 gap-2 w-2/3 mx-auto text-gray-100 uppercase pb-6"
     >
       <div class="col-span-1">
-        <div class="flex justify-center">Help & Info</div>
+        <div class="flex flex-col w-3/5 mx-auto">
+          <div class="flex justify-center p-4 font-semibold">Help & Info</div>
+          <div class="flex justify-start text-xs">
+            <a href="http://localhost:8000/newsfeed/5">Information</a>
+          </div>
+        </div>
       </div>
       <div class="flex justify-center">About Us</div>
       <div class="flex justify-center">More..</div>

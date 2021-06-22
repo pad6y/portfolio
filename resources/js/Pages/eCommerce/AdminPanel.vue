@@ -1,6 +1,6 @@
 <template>
   <e-com-layout>
-    <div class="w-full md:w-4/5 md:mx-auto">
+    <div class="w-full lg:w-4/5 md:mx-auto">
       <add-product></add-product>
       <help-info></help-info>
       <more></more>

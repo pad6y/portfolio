@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Inertia\Inertia;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class eCommerceController extends Controller
@@ -12,9 +13,13 @@ class eCommerceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Inertia::render('eCommerce/Index');
+        $products = Product::orderBy('id', "DESC")->paginate(4);
+        if ($request->wantsJson()) {
+            return $products;
+        }
+        return Inertia::render('eCommerce/Index', ['products' => $products]);
     }
 
     /**

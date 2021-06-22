@@ -2,10 +2,22 @@
   <div class="w-screen font-serif">
     <div class="grid sm:grid-cols-2 md:gap-20 items-center md:p-16 md:pb-14">
       <div
-        class="grid grid-cols-1 justify-items-center sm:justify-items-end text-gold"
+        class="
+          grid grid-cols-1
+          justify-items-center
+          sm:justify-items-end
+          text-gold
+        "
       >
         <div
-          class="min-w-min border-b-4 border-black pt-6 pb-6 text-6xl md:text-7xl"
+          class="
+            min-w-min
+            border-b-4 border-black
+            pt-6
+            pb-6
+            text-6xl
+            md:text-7xl
+          "
         >
           Pad6y
         </div>
@@ -14,21 +26,70 @@
         </div>
       </div>
 
-      <div class="grid justify-center xl:justify-start border-l-2">
-        <div v-if="canLogin" class="px-6 mt-6 xl:ml-20 xl:mt-10 py-4 sm:block">
-          <inertia-link
-            v-if="$page.props.user"
-            :href="route('newsfeed.index')"
-            class="border-2 rounded-md px-4 py-2 font-serif tracking-widest uppercase text-lg shadow-lg text-gray-700 bg-gold-text hover:bg-gold-md hover:ring-yellow-200 hover:ring-opacity-50"
-          >
-            Enter
-          </inertia-link>
+      <div class="flex justify-center md:border-l-2">
+        <div
+          v-if="canLogin"
+          class="
+            flex flex-row
+            md:flex-col
+            w-full
+            justify-center
+            mx-auto
+            md:max-w-min
+            md:ml-8
+            mt-3
+            p-2
+          "
+        >
+          <template v-if="$page.props.user">
+            <inertia-link
+              :href="route('newsfeed.index')"
+              class="
+                flex
+                justify-center
+                w-1/3
+                md:w-full
+                rounded-md
+                tracking-widest
+                uppercase
+                text-sm
+                font-semibold
+                text-gray-700
+                px-5
+                py-2
+                m-1
+                bg-gold-text
+                hover:bg-gold-md
+                hover:ring-yellow-200 hover:ring-opacity-50
+              "
+            >
+              Enter
+            </inertia-link>
+
+            <form method="POST" @submit.prevent="logout">
+              <jet-danger-button type="submit" class="w-full m-1">
+                Log Out
+              </jet-danger-button>
+            </form>
+          </template>
 
           <template v-else>
             <div class="grid gap-5">
               <inertia-link
                 :href="route('login')"
-                class="border-2 rounded-md px-4 py-2 font-serif text-lg shadow-md text-gray-700 text-center bg-gradient-to-r from-gold-text to-yellow-400"
+                class="
+                  border-2
+                  rounded-md
+                  px-4
+                  py-2
+                  font-serif
+                  text-lg
+                  shadow-md
+                  text-gray-700 text-center
+                  bg-gradient-to-r
+                  from-gold-text
+                  to-yellow-400
+                "
               >
                 <span class="animate-pulse">Log in</span>
               </inertia-link>
@@ -36,7 +97,19 @@
               <inertia-link
                 v-if="canRegister"
                 :href="route('register')"
-                class="border-2 rounded-md px-4 py-2 font-serif text-lg shadow-md text-gray-700 bg-gradient-to-r from-gold-text to-yellow-400"
+                class="
+                  border-2
+                  rounded-md
+                  px-4
+                  py-2
+                  font-serif
+                  text-lg
+                  shadow-md
+                  text-gray-700
+                  bg-gradient-to-r
+                  from-gold-text
+                  to-yellow-400
+                "
               >
                 <span class="animate-pulse">Register</span>
               </inertia-link>
@@ -57,7 +130,16 @@
 
         <!-- project cards -->
         <div
-          class="flex justify-center tracking-widest uppercase text-4xl text-gray-600 mb-10 md:pt-12 md:pb-10"
+          class="
+            flex
+            justify-center
+            tracking-widest
+            uppercase
+            text-4xl text-gray-600
+            mb-10
+            md:pt-12
+            md:pb-10
+          "
         >
           Projects
         </div>
@@ -70,14 +152,33 @@
 
     <!-- contact form -->
     <div
-      class="flex justify-center items-center md:mx-28 bg-gradient-to-t from-gray-400 to-gold-text"
+      class="
+        flex
+        justify-center
+        items-center
+        md:mx-28
+        bg-gradient-to-t
+        from-gray-400
+        to-gold-text
+      "
     >
       <contact-section />
     </div>
 
     <!-- social media, github and email icons -->
     <div
-      class="flex justify-center items-end space-x-4 pt-10 md:mx-28 md:h-44 bg-gradient-to-t from-white to-gray-400"
+      class="
+        flex
+        justify-center
+        items-end
+        space-x-4
+        pt-10
+        md:mx-28
+        md:h-44
+        bg-gradient-to-t
+        from-white
+        to-gray-400
+      "
     >
       <div class="h-6 w-6">
         <a href="https://www.linkedin.com/in/patrick-wong-77b0aa212/">
@@ -121,6 +222,7 @@ import techStack from "@/Pages/Landing/techStack";
 import projectCard from "@/Pages/Landing/dynamicProjectCard";
 import contactSection from "@/Pages/Landing/contactSection";
 import Icons from "@/Components/Icons";
+import JetDangerButton from "@/Jetstream/DangerButton";
 
 export default {
   components: {
@@ -129,6 +231,7 @@ export default {
     Icons,
     techStack,
     projectCard,
+    JetDangerButton,
   },
   props: {
     canLogin: Boolean,
@@ -136,6 +239,11 @@ export default {
     laravelVersion: String,
     phpVersion: String,
     projects: Array,
+  },
+  methods: {
+    logout() {
+      this.$inertia.post(route("logout"));
+    },
   },
 };
 </script>
