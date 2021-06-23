@@ -23,8 +23,8 @@
 
       <div class="flex text-gray-500 ml-4 sm:ml-20 mt-1 w-2/3">
         <input
-          @keyup="onInput"
-          v-model="term"
+          @keydown.enter="onInput"
+          @keyup.enter="reset"
           id="search"
           type="text"
           placeholder="Search Products"
@@ -107,6 +107,9 @@ export default {
   methods: {
     onInput: function (event) {
       this.$emit("termChange", event.target.value);
+    },
+    reset: function (event) {
+      event.target.value = null;
     },
   },
 };
