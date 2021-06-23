@@ -45,7 +45,9 @@
         ></i>
       </div>
       <div class="text-gray-500 mr-2 sm:mr-4 md:ml-36 mt-1">
-        <icons :name="'account'"></icons>
+        <inertia-link :href="route('profile.show')">
+          <icons :name="'account'"></icons>
+        </inertia-link>
       </div>
       <div class="text-gray-500 sm:mr-4 mt-1">
         <icons :name="'cart'"></icons>

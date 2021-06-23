@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     onTermChange: function (searchTerm) {
-      console.log(searchTerm);
+      "";
       this.$inertia.get(
         "/eCommerce?term=" + searchTerm,
         {},
