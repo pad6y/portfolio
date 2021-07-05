@@ -15,6 +15,24 @@
       <div class="flex justify-end px-2 py-2">
         £ {{ product.product_price }}
       </div>
+      <div class="flex justify-center">
+        <button
+          @click="addItem"
+          class="
+            border-2 border-gray-400
+            px-2
+            m-4
+            shadow-md
+            transition
+            duration-500
+            ease-in-out
+            transform
+            hover:scale-110
+          "
+        >
+          Add to cart
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -23,5 +41,18 @@
 <script>
 export default {
   props: ["product"],
+  emits: ["addItem"],
+  // data() {
+  //   return {
+  //     cart: {
+  //       items: [],
+  //     },
+  //   };
+  // },
+  methods: {
+    addItem() {
+      this.$emit("addItem", this.product);
+    },
+  },
 };
 </script>

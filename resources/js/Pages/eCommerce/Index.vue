@@ -1,6 +1,10 @@
 <template>
   <e-com-layout>
-    <menu-bar @termChange="onTermChange"></menu-bar>
+    <search-bar-header
+      @termChange="onTermChange"
+      @removeItem="removeFromCart"
+      :cart="this.cart"
+    ></search-bar-header>
     <infinite-scroll @loadMore="loadMoreProducts">
       <div
         class="
@@ -15,6 +19,7 @@
       >
         <div v-for="(productItem, index) in allProducts.data" :key="index">
           <product-card
+            @addItem="addToCart"
             :product="productItem"
             :pagination="pagination"
           ></product-card>
@@ -26,31 +31,46 @@
 
 <script>
 import eComLayout from "@/Layouts/eComLayout";
-import menuBar from "@/Pages/eCommerce/menuBar";
+import searchBarHeader from "@/Pages/eCommerce/searchBarHeader";
 import ProductCard from "@/Pages/eCommerce/ProductCard";
 import InfiniteScroll from "@/Components/InfiniteScroll";
 
 export default {
   props: ["products"],
+
   data() {
     return {
       allProducts: this.products,
+      cart: {
+        items: [],
+      },
     };
   },
   components: {
     eComLayout,
     ProductCard,
     InfiniteScroll,
-    menuBar,
+    searchBarHeader,
   },
   computed: {
+    // cart: localStorage.getItem("cart"),
     pagination() {
       return (this.allProducts = this.products);
     },
   },
+  created() {
+    this.cart.items = JSON.parse(localStorage.getItem("cart") || "[]");
+  },
   methods: {
+    addToCart(data) {
+      this.cart.items.push(data);
+      localStorage.setItem("cart", JSON.stringify(this.cart.items));
+    },
+    removeFromCart(item) {
+      this.cart.items.splice(item, 1);
+      localStorage.setItem("cart", JSON.stringify(this.cart.items));
+    },
     onTermChange: function (searchTerm) {
-      "";
       this.$inertia.get(
         "/eCommerce?term=" + searchTerm,
         {},

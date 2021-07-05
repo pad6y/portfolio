@@ -19,38 +19,23 @@
         </inertia-link>
       </div>
 
-      <!-- Search bar -->
+      <!-- Main header -->
 
-      <div class="flex text-gray-500 ml-4 sm:ml-20 mt-1 w-2/3">
-        <input
-          @keydown.enter="onInput"
-          @keyup.enter="reset"
-          id="search"
-          type="text"
-          placeholder="Search Products"
-          class="
-            block
-            w-full
-            h-8
-            pl-10
-            border-2 border-yellow-300
-            rounded-full
-            shadow-md
-            focus:border-yellow-300
-            focus:ring-transparent
-          "
-        />
-        <i class="absolute active:hidden p-1 ml-2"
-          ><icons :name="'search'"></icons
-        ></i>
-      </div>
-      <div class="text-gray-500 mr-2 sm:mr-4 md:ml-36 mt-1">
-        <inertia-link :href="route('profile.show')">
-          <icons :name="'account'"></icons>
-        </inertia-link>
-      </div>
-      <div class="text-gray-500 sm:mr-4 mt-1">
-        <icons :name="'cart'"></icons>
+      <div
+        class="
+          flex
+          justify-center
+          text-xl
+          sm:text-2xl
+          font-semibold
+          sm:font-bold
+          text-gray-600
+          sm:mr-24
+          mt-1
+          w-full
+        "
+      >
+        <slot name="title"></slot>
       </div>
     </div>
 
@@ -104,15 +89,7 @@ export default {
     JetApplicationMark,
     Icons,
   },
-  emits: ["termChange"],
+
   inheritAttrs: false,
-  methods: {
-    onInput: function (event) {
-      this.$emit("termChange", event.target.value);
-    },
-    reset: function (event) {
-      event.target.value = null;
-    },
-  },
 };
 </script>
