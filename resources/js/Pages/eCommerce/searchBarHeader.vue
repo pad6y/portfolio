@@ -52,6 +52,7 @@
           <template #trigger>
             <icons :name="'cart'" class="relative" :class="'h-6 w-6'"></icons>
             <div
+              v-if="cartItems.items != 0"
               class="
                 flex
                 justify-center
@@ -67,10 +68,10 @@
                 bg-red-600
                 rounded-full
               "
-              v-if="cartItems.items"
             >
               {{ cartItems.items.length }}
             </div>
+            <div v-else class="hidden"></div>
           </template>
 
           <template #content>
@@ -98,7 +99,7 @@
                       <div class="flex items-center ml-2">
                         <button
                           class=""
-                          @click.capture.stop="removeFromCart(item)"
+                          @click.capture.stop="removeFromCart(index)"
                         >
                           <icons :name="'bin'" :class="'h-4 w-4'"></icons>
                         </button>
@@ -112,9 +113,9 @@
               </div>
             </div>
             <div class="flex justify-end p-3 bg-gray-400 text-white">
-              Sub-Total: {{ grandTotal }}
+              Sub-Total: {{ grandTotal.toFixed(2) }}
             </div>
-            <div class="flex justify-center p-2">
+            <div class="flex justify-end p-2">
               <gold-button class="font-bold">Checkout</gold-button>
             </div>
           </template>
@@ -205,8 +206,8 @@ export default {
     reset: function (event) {
       event.target.value = null;
     },
-    removeFromCart: function (item) {
-      this.$emit("removeItem", item);
+    removeFromCart: function (index) {
+      this.$emit("removeItem", index);
     },
   },
 };

@@ -1,5 +1,5 @@
 <template>
-  <e-com-layout>
+  <e-com-layout :links="footerLinks">
     <ecommerces-admin-header>
       <template #title>Admin Control Panel</template>
     </ecommerces-admin-header>
@@ -21,6 +21,7 @@ import About from "@/Pages/eCommerce/About";
 import EcommercesAdminHeader from "../../Components/EcommercesAdminHeader.vue";
 
 export default {
+  props: { footerLinks: Array },
   components: {
     eComLayout,
     AddProduct,

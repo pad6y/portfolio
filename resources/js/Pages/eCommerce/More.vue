@@ -7,5 +7,83 @@
       This is where you add links that doesnt fall into help&info or about us
       section
     </div>
+
+    <div class="grid grid-cols-2 gap-2">
+      <div class="flex flex-col">
+        <label for="name" class="mt-2 text-xs">Display text:</label>
+        <input
+          id="nameMore"
+          type="text"
+          placeholder="Enter text that will be displayed in footer"
+          class="
+            text-xs
+            mt-2
+            md:mt-4
+            block
+            w-full
+            border-2 border-yellow-300
+            rounded-md
+            shadow-sm
+            focus:border-yellow-300
+            focus:ring-transparent
+          "
+          v-model="form.name"
+          required
+        />
+      </div>
+      <div class="flex flex-col">
+        <label for="url" class="mt-2 text-xs">Enter URL:</label>
+        <input
+          @keyup.enter="submit"
+          id="urlMore"
+          type="text"
+          placeholder="Enter URL link to article"
+          class="
+            text-xs
+            mt-2
+            md:mt-4
+            block
+            w-full
+            border-2 border-yellow-300
+            rounded-md
+            shadow-sm
+            focus:border-yellow-300
+            focus:ring-transparent
+          "
+          v-model="form.url"
+          required
+        />
+      </div>
+    </div>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      form: this.$inertia.form({
+        name: "",
+        type: "More",
+        url: "",
+      }),
+    };
+  },
+  methods: {
+    submit() {
+      this.form.post(this.route("eCommerce.footerLink.store"), {
+        preserveScroll: true,
+        onSuccess: () => {
+          Toast.fire({
+            icon: "success",
+            title: "New link added to the More section!",
+          });
+          this.form.reset();
+          // this.form.name = null;
+          // this.form.url = null;
+        },
+      });
+    },
+  },
+};
+</script>

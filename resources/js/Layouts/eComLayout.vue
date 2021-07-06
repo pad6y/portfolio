@@ -3,7 +3,7 @@
     <div class="bg-gold-text">
       <slot></slot>
     </div>
-    <footer-section></footer-section>
+    <footer-section :links="links"></footer-section>
   </div>
 </template>
 
@@ -11,8 +11,11 @@
 import FooterSection from "@/Pages/eCommerce/Footer";
 
 export default {
+  props: ["links"],
   components: {
     FooterSection,
   },
 };
 </script>
+
+

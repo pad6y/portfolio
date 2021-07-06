@@ -201,11 +201,11 @@ export default {
     return {
       form: this.$inertia.form(
         {
-          product_name: this.product_name,
-          product_code: this.product_code,
-          product_image: this.product_image,
-          product_description: this.product_description,
-          product_price: this.product_price,
+          product_name: "",
+          product_code: "",
+          product_image: "",
+          product_description: "",
+          product_price: "",
         },
         {
           key: "product",
@@ -224,13 +224,8 @@ export default {
           Toast.fire({
             icon: "success",
             title: "You have successfully been posted!",
-          }),
-            (this.form.product_name = null);
-          this.form.product_code = null;
-          this.form.product_image = null;
-          this.form.product_description = null;
-          this.form.product_price = null;
-          this.src = null;
+          });
+          this.form.reset();
         },
       });
     },

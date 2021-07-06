@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Inertia\Inertia;
 use App\Models\Product;
+use App\Models\FooterLinks;
 use Illuminate\Http\Request;
 
 class eCommerceController extends Controller
@@ -15,13 +16,15 @@ class eCommerceController extends Controller
      */
     public function index(Request $request)
     {
+        $footerLinks = FooterLinks::get();
+
         $products = Product::when($request->term, function ($query, $term) {
             $query->where('product_name', 'LIKE', '%' . $term . '%');
         })->orderBy('id', "DESC")->paginate(4);
         if ($request->wantsJson()) {
             return $products;
         }
-        return Inertia::render('eCommerce/Index', ['products' => $products]);
+        return Inertia::render('eCommerce/Index', ['products' => $products, 'footerLinks' => $footerLinks]);
     }
 
     /**
@@ -31,7 +34,9 @@ class eCommerceController extends Controller
      */
     public function adminPanel()
     {
-        return Inertia::render('eCommerce/AdminPanel');
+        $footerLinks = FooterLinks::get();
+
+        return Inertia::render('eCommerce/AdminPanel', ['footerLinks' => $footerLinks]);
     }
 
     /**
@@ -52,7 +57,21 @@ class eCommerceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'type' => 'required',
+            'url' => 'required',
+
+        ]);
+
+        FooterLinks::create([
+            'name' => $request->input('name'),
+            'type' => $request->input('type'),
+            'url' => $request->input('url'),
+
+        ]);
+
+        return back();
     }
 
     /**

@@ -1,5 +1,5 @@
 <template>
-  <e-com-layout>
+  <e-com-layout :links="footerLinks">
     <search-bar-header
       @termChange="onTermChange"
       @removeItem="removeFromCart"
@@ -36,7 +36,7 @@ import ProductCard from "@/Pages/eCommerce/ProductCard";
 import InfiniteScroll from "@/Components/InfiniteScroll";
 
 export default {
-  props: ["products"],
+  props: ["products", "footerLinks"],
 
   data() {
     return {
@@ -66,8 +66,8 @@ export default {
       this.cart.items.push(data);
       localStorage.setItem("cart", JSON.stringify(this.cart.items));
     },
-    removeFromCart(item) {
-      this.cart.items.splice(item, 1);
+    removeFromCart(index) {
+      this.cart.items.splice(index, 1);
       localStorage.setItem("cart", JSON.stringify(this.cart.items));
     },
     onTermChange: function (searchTerm) {
