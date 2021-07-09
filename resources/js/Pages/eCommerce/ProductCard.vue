@@ -9,13 +9,12 @@
       <div class="font-semibold text-sm px-2 py-1">
         {{ product.product_name }}
       </div>
-      <div class="text-xs px-2 py-1">
+      <div class="text-xs px-2 py-1 h-14">
         {{ product.product_description }}
       </div>
-      <div class="flex justify-end px-2 py-2">
-        £ {{ product.product_price }}
-      </div>
-      <div class="flex justify-center">
+
+      <div class="flex justify-between mt-4">
+        <div class="pt-5 pl-4">£ {{ product.product_price }}</div>
         <button
           @click="addItem"
           class="

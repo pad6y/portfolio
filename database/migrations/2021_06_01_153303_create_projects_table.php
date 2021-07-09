@@ -19,6 +19,7 @@ class CreateProjectsTable extends Migration
             $table->string('project_type')->nullable();
             $table->text('description');
             $table->text('url_link')->nullable();
+            $table->text('git_link')->nullable();
             $table->timestamps();
         });
     }

@@ -15,11 +15,12 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             RoleSeeder::class,
-            UserSeeder::class,
-
+            UserSeeder::class
         ]);
+
         \App\Models\Role::factory()->hasUsers(100)->create();
 
         $this->call(PostSeeder::class);
+        $this->call(ProductSeeder::class);
     }
 }

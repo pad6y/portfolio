@@ -20,7 +20,7 @@ class eCommerceController extends Controller
 
         $products = Product::when($request->term, function ($query, $term) {
             $query->where('product_name', 'LIKE', '%' . $term . '%');
-        })->orderBy('id', "DESC")->paginate(4);
+        })->orderBy('id', "DESC")->paginate(12);
         if ($request->wantsJson()) {
             return $products;
         }

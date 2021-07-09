@@ -16,7 +16,7 @@ class PostSeeder extends Seeder
     public function run()
     {
         User::all()->each(function (User $user) {
-            $posts = \App\Models\Post::factory()->count(2)->make();
+            $posts = Post::factory()->count(2)->make();
 
             $user->posts()->saveMany($posts);
         });
