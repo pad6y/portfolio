@@ -14,7 +14,7 @@
       </div>
 
       <div class="flex justify-between mt-4">
-        <div class="pt-5 pl-4">£ {{ product.product_price }}</div>
+        <div class="pt-5 pl-4">£ {{ product.product_price.toFixed(2) }}</div>
         <button
           @click="addItem"
           class="

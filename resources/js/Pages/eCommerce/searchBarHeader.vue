@@ -105,7 +105,7 @@
                         </button>
                       </div>
                       <div class="flex justify-end items-center mt-2">
-                        £{{ item.product_price }}
+                        £{{ item.product_price.toFixed(2) }}
                       </div>
                     </div>
                   </div>
@@ -116,7 +116,11 @@
               Sub-Total: {{ grandTotal.toFixed(2) }}
             </div>
             <div class="flex justify-end p-2">
-              <gold-button class="font-bold">Checkout</gold-button>
+              <gold-button
+                class="font-bold"
+                :href="route('eCommerce.checkout', cartItems)"
+                >Checkout</gold-button
+              >
             </div>
           </template>
         </jet-dropdown>

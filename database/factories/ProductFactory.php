@@ -25,9 +25,9 @@ class ProductFactory extends Factory
             'user_id' => 1,
             'product_name' => $this->faker->name,
             'product_image' => $this->faker->imageUrl('320', '410'),
-            'product_description' => $this->faker->paragraph,
+            'product_description' => $this->faker->text(100),
             'product_code' => $this->faker->ean8(),
-            'product_price' => $this->faker->randomFloat(2, 10, 500)
+            'product_price' => $this->faker->randomFloat(2, 10.99, 500.99)
         ];
     }
 }

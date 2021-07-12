@@ -44,9 +44,9 @@ class eCommerceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function checkout()
     {
-        //
+        return Inertia::render('eCommerce/Checkout');
     }
 
     /**

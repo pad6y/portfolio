@@ -9,4 +9,5 @@ Route::name('eCommerce.')->group(function () {
   Route::get('/admins', [eCommerceController::class, 'adminPanel'])->name('adminPanel');
   Route::post('/admins/create', [ProductController::class, 'store'])->name('product.store');
   Route::post('/admins/footer_links', [eCommerceController::class, 'store'])->name('footerLink.store');
+  Route::get('/checkout', [eCommerceController::class, 'checkout'])->name('checkout');
 });
