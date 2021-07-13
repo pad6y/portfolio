@@ -95,17 +95,27 @@
                 <div class="col-span-5 p-2">
                   <div class="grid grid-rows-2">
                     <div class="pb-6">{{ item.product_name }}</div>
+
+                    <div class="flex flex-row">
+                      <button @click.capture.stop="item.qty--">
+                        <icons :name="'minus'" :class="'h-4 w-4'"></icons>
+                      </button>
+                      <div class="flex items-center px-2">
+                        {{ item.qty }}
+                      </div>
+                      <button @click.capture.stop="item.qty++">
+                        <icons :name="'plus'" :class="'h-4 w-4'"></icons>
+                      </button>
+                    </div>
+
                     <div class="grid grid-cols-2">
-                      <div class="flex items-center ml-2">
-                        <button
-                          class=""
-                          @click.capture.stop="removeFromCart(index)"
-                        >
+                      <div class="flex items-end ml-2">
+                        <button @click.capture.stop="removeFromCart(index)">
                           <icons :name="'bin'" :class="'h-4 w-4'"></icons>
                         </button>
                       </div>
-                      <div class="flex justify-end items-center mt-2">
-                        £{{ item.product_price.toFixed(2) }}
+                      <div class="flex justify-end items-end mt-2">
+                        £{{ item.product_price }}
                       </div>
                     </div>
                   </div>
@@ -113,7 +123,7 @@
               </div>
             </div>
             <div class="flex justify-end p-3 bg-gray-400 text-white">
-              Sub-Total: {{ grandTotal.toFixed(2) }}
+              Sub-Total: £{{ grandTotal }}
             </div>
             <div class="flex justify-end p-2">
               <gold-button
@@ -197,7 +207,7 @@ export default {
   computed: {
     grandTotal: function () {
       return this.cartItems.items.reduce((total, item) => {
-        return (total += item.product_price);
+        return (total += item.product_price * item.qty);
       }, 0);
     },
   },

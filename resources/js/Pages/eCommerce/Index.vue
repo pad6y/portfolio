@@ -63,7 +63,19 @@ export default {
   },
   methods: {
     addToCart(data) {
+      let productInCartIndex = this.cart.items.findIndex(
+        (item) => item.product_name === data.product_name
+      );
+
+      if (productInCartIndex !== -1) {
+        // data.qty++;
+        this.cart.items[productInCartIndex].qty++;
+        return;
+      }
+      data.qty = 1;
+
       this.cart.items.push(data);
+      // console.log(this.cart.items);
       localStorage.setItem("cart", JSON.stringify(this.cart.items));
     },
     removeFromCart(index) {

@@ -9,12 +9,16 @@
       <div class="font-semibold text-sm px-2 py-1">
         {{ product.product_name }}
       </div>
-      <div class="text-xs px-2 py-1 h-14">
-        {{ product.product_description }}
-      </div>
+      <div
+        class="text-xs px-2 py-1 h-14"
+        v-text="product.product_description"
+      ></div>
 
       <div class="flex justify-between mt-4">
-        <div class="pt-5 pl-4">£ {{ product.product_price.toFixed(2) }}</div>
+        <div class="pt-5 pl-4">
+          <!-- £ {{ product.product_price.toFixed(2) }} -->
+          {{ formatCurrency(product.product_price) }}
+        </div>
         <button
           @click="addItem"
           class="
@@ -51,6 +55,13 @@ export default {
   methods: {
     addItem() {
       this.$emit("addItem", this.product);
+    },
+    formatCurrency(price) {
+      // price = price / 100;
+      return price.toLocaleString("en-GB", {
+        style: "currency",
+        currency: "GBP",
+      });
     },
   },
 };
