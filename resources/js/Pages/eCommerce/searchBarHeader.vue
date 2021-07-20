@@ -1,26 +1,7 @@
 <template>
-  <div class="">
-    <div class="flex justify-between h-16 p-4 pb-8 bg-gray-100">
-      <div class="flex-shrink-0 flex items-center relative">
-        <inertia-link :href="route('newsfeed.index')">
-          <jet-application-mark class="block h-9 w-auto" />
-          <div
-            class="
-              absolute
-              bottom-0
-              top-3
-              left-1
-              items-end
-              text-gray-500 text-lg
-            "
-          >
-            Ecommerce
-          </div>
-        </inertia-link>
-      </div>
-
+  <ecommerces-admin-header>
+    <template #title>
       <!-- Search bar -->
-
       <div class="flex text-gray-500 ml-4 mr-2 sm:mr-24 sm:ml-20 mt-1 w-2/3">
         <input
           @keydown.enter="onInput"
@@ -47,7 +28,7 @@
 
       <!-- shopping cart dropdown -->
 
-      <div class="text-gray-500 sm:pl-2 mt-1 mr-2">
+      <div class="text-gray-500 mt-1 sm:ml-24 sm:pl-12">
         <jet-dropdown :contentClasses="'w-56 sm:w-64 lg:w-72 bg-white'">
           <template #trigger>
             <icons :name="'cart'" class="relative" :class="'h-6 w-6'"></icons>
@@ -75,7 +56,9 @@
           </template>
 
           <template #content>
-            <div class="flex justify-center font-bold p-2">Shopping Cart</div>
+            <div class="flex justify-center font-bold p-2 pt-2 text-sm">
+              Shopping Cart
+            </div>
             <div v-for="(item, index) in cartItems.items" :key="index">
               <div
                 class="
@@ -84,7 +67,7 @@
                   pt-2
                   text-xs
                   border-t-2 border-gray-300
-                  my-2
+                  mb-2
                 "
               >
                 <img
@@ -97,13 +80,13 @@
                     <div class="pb-3">{{ item.product_name }}</div>
 
                     <div class="flex flex-row p-1">
-                      <button @click.capture.stop="item.qty--">
+                      <button @click.capture.stop="updateItemQty(item.qty--)">
                         <icons :name="'minus'" :class="'h-4 w-4'"></icons>
                       </button>
                       <div class="flex items-center px-2">
                         {{ item.qty }}
                       </div>
-                      <button @click.capture.stop="item.qty++">
+                      <button @click.capture.stop="updateItemQty(item.qty++)">
                         <icons :name="'plus'" :class="'h-4 w-4'"></icons>
                       </button>
                     </div>
@@ -122,12 +105,12 @@
                 </div>
               </div>
             </div>
-            <div class="flex justify-end p-3 bg-gray-400 text-white">
+            <div class="flex justify-end p-3 bg-gray-400 text-white text-sm">
               Sub-Total:{{ formatCurrency(grandTotal) }}
             </div>
             <div class="flex justify-end p-2">
               <gold-button
-                class="font-bold"
+                class="font-bold text-sm"
                 :href="route('eCommerce.checkout', cartItems)"
                 >Checkout</gold-button
               >
@@ -137,52 +120,13 @@
       </div>
 
       <!-- User Account -->
-      <div class="text-gray-500 mr-2 sm:mr-4 md:mr-10 mt-1">
+      <div class="text-gray-500 sm:ml-8 sm:mr-4 md:mr-10 mt-1">
         <inertia-link :href="route('profile.show')">
           <icons :name="'account'"></icons>
         </inertia-link>
       </div>
-    </div>
-
-    <!-- SUB Nav Bar -->
-
-    <div
-      class="
-        flex
-        justify-center
-        items-center
-        bg-gray-700
-        h-10
-        uppercase
-        text-xs
-        sm:text-lg
-        text-gray-100
-      "
-    >
-      <inertia-link
-        :href="route('eCommerce.index')"
-        class="p-4 md:p-2"
-        :class="
-          route().current('eCommerce.index')
-            ? 'text-gray-50 bg-gray-500'
-            : 'hover:text-gray-50 hover:bg-gray-500'
-        "
-        >All Products</inertia-link
-      >
-      <div class="p-2 hover:bg-gray-500">Mens</div>
-      <div class="p-2 hover:bg-gray-500">Womens</div>
-      <inertia-link
-        :href="route('eCommerce.adminPanel')"
-        class="p-4 md:p-2"
-        :class="
-          route().current('eCommerce.adminPanel')
-            ? 'text-gray-50 bg-gray-500'
-            : 'hover:text-gray-50 hover:bg-gray-500'
-        "
-        >Admin Panel</inertia-link
-      >
-    </div>
-  </div>
+    </template>
+  </ecommerces-admin-header>
 </template>
 
 <script>
@@ -190,6 +134,7 @@ import JetApplicationMark from "@/Jetstream/ApplicationMark";
 import Icons from "@/Components/Icons";
 import JetDropdown from "@/Jetstream/Dropdown";
 import GoldButton from "@/Components/GoldButton";
+import EcommercesAdminHeader from "@/Components/EcommercesAdminHeader.vue";
 
 export default {
   components: {
@@ -197,6 +142,7 @@ export default {
     JetDropdown,
     Icons,
     GoldButton,
+    EcommercesAdminHeader,
   },
   props: ["cart"],
   data() {
@@ -215,7 +161,7 @@ export default {
   inheritAttrs: false,
   methods: {
     formatCurrency(price) {
-      // price = price / 100;
+      price = price / 100;
       return price.toLocaleString("en-GB", {
         style: "currency",
         currency: "GBP",
@@ -229,6 +175,14 @@ export default {
     },
     removeFromCart: function (index) {
       this.$emit("removeItem", index);
+    },
+    updateItemQty: function () {
+      // let productInCartIndex = this.cartItems.items.findIndex(
+      //   (item) => item.product_name === itemToUpdate.product_name
+      // );
+      // console.log(itemToUpdate);
+      // this.cartItems.items[productInCartIndex].qty--;
+      localStorage.setItem("cart", JSON.stringify(this.cartItems.items));
     },
   },
 };

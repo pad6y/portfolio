@@ -74,10 +74,11 @@
                   items-center
                   cursor-pointer
                   w-full
+                  p-2
                   hover:bg-gold-md
                 "
               >
-                add product image
+                add image
               </label>
               <input
                 @change="setImage"
@@ -158,7 +159,7 @@
       <div class="col-span-2 bg-white pl-4 pt-2">
         Preview Card
         <div
-          v-if="this.form.product_name"
+          v-if="form.product_name"
           class="
             flex flex-col
             justify-center
@@ -175,12 +176,13 @@
             <img :src="src" alt="image unavailable" class="w-auto" />
           </div>
 
-          <div class="m-1 text-gray-600">{{ this.form.product_name }}</div>
+          <div class="m-1 text-gray-600">{{ form.product_name }}</div>
 
-          <div class="m-1">{{ this.form.product_description }}</div>
+          <div class="m-1">{{ form.product_description }}</div>
           <div class="mr-2 flex justify-end">
-            <span v-if="this.form.product_price">£</span
-            >{{ this.form.product_price }}
+            <span v-if="form.product_price"
+              >{{ formatCurrency(form.product_price) }}
+            </span>
           </div>
         </div>
       </div>
@@ -217,6 +219,15 @@ export default {
   },
 
   methods: {
+    formatCurrency(price) {
+      var priceNum = parseInt(price, 10);
+      priceNum = priceNum / 100;
+      // price = price / 100;
+      return priceNum.toLocaleString("en-GB", {
+        style: "currency",
+        currency: "GBP",
+      });
+    },
     submit() {
       this.form.post(this.route("eCommerce.product.store"), {
         preserveScroll: true,

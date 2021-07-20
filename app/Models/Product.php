@@ -33,4 +33,9 @@ class Product extends Model
             return asset('storage/' . $value);
         }
     }
+
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class);
+    }
 }

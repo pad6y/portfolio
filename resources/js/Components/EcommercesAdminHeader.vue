@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <div class="flex justify-between h-16 p-4 pb-8 bg-gray-100">
+    <div class="flex justify-between h-16 p-2 sm:p-4 pb-8 bg-gray-100">
       <div class="flex-shrink-0 flex items-center relative">
         <inertia-link :href="route('newsfeed.index')">
           <jet-application-mark class="block h-9 w-auto" />
@@ -8,7 +8,7 @@
             class="
               absolute
               bottom-0
-              top-3
+              top-4
               left-1
               items-end
               text-gray-500 text-lg
@@ -30,7 +30,6 @@
           font-semibold
           sm:font-bold
           text-gray-600
-          sm:mr-24
           mt-1
           w-full
         "
@@ -64,8 +63,7 @@
         "
         >All Products</inertia-link
       >
-      <div class="p-2 hover:bg-gray-500">Mens</div>
-      <div class="p-2 hover:bg-gray-500">Womens</div>
+
       <inertia-link
         :href="route('eCommerce.adminPanel')"
         class="p-4 md:p-2"

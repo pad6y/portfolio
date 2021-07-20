@@ -14,6 +14,9 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
+        Product::factory()->count(5)->create([
+            'gender' => 'female',
+        ]);
         Product::factory()->count(30)->create();
     }
 }

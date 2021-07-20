@@ -97,11 +97,11 @@ export default {
         "/admin/users?term=" + this.term,
         {},
         {
-          preserveState: true,
           replace: true,
+          preserveState: true,
         }
       );
-    }, 1000),
+    }, 2000),
 
     // {
     //   this.$inertia.replace("/admin/users?term=" + this.term);

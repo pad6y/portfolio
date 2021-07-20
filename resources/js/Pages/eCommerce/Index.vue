@@ -70,6 +70,7 @@ export default {
       if (productInCartIndex !== -1) {
         // data.qty++;
         this.cart.items[productInCartIndex].qty++;
+        localStorage.setItem("cart", JSON.stringify(this.cart.items));
         return;
       }
       data.qty = 1;
@@ -83,14 +84,10 @@ export default {
       localStorage.setItem("cart", JSON.stringify(this.cart.items));
     },
     onTermChange: function (searchTerm) {
-      this.$inertia.get(
-        "/eCommerce?term=" + searchTerm,
-        {},
-        {
-          preserveState: true,
-          replace: true,
-        }
-      );
+      this.$inertia.get("/eCommerce?term=" + searchTerm, {
+        preserveState: true,
+        replace: true,
+      });
     },
     loadMoreProducts() {
       if (!this.allProducts.next_page_url) {

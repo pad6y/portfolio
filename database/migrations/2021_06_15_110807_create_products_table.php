@@ -17,10 +17,11 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('product_name');
+            $table->string('gender');
             $table->text('product_image')->nullable();
             $table->text('product_description');
             $table->text('product_code');
-            $table->float('product_price');
+            $table->integer('product_price');
             $table->timestamps();
         });
     }

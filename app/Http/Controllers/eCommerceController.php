@@ -19,7 +19,8 @@ class eCommerceController extends Controller
         $footerLinks = FooterLinks::get();
 
         $products = Product::when($request->term, function ($query, $term) {
-            $query->where('product_name', 'LIKE', '%' . $term . '%');
+            $query->where('product_name', 'LIKE', '%' . $term . '%')
+                ->orWhere('gender', 'LIKE', '%' . $term . '%');
         })->orderBy('id', "DESC")->paginate(12);
         if ($request->wantsJson()) {
             return $products;
