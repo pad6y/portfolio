@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Role;
 use App\Models\User;
 use Inertia\Inertia;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -108,5 +110,48 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function purchase(Request $request)
+    {
+        $user = User::firstOrCreate(
+            [
+                'email' => $request->input('email')
+            ],
+            [
+                'password' => Hash::make(Str::random(12)),
+                // 'name' => $request->input('name') . ' ' . $request->input('last_name'),
+                // 'address' => $request->input('address'),
+                // 'city' => $request->input('city'),
+                // 'state' => $request->input('state'),
+                // 'zip_code' => $request->input('zip_code')
+            ]
+        );
+
+        try {
+            $payment = $user->charge(
+                $request->input('amount'),
+                $request->input('payment_method_id')
+            );
+
+            $payment = $payment->asStripePaymentIntent();
+
+            $order = $user->orders()
+                ->create([
+                    'transaction_id' => $payment->charges->data[0]->id,
+                    'total' => $payment->charges->data[0]->amount
+                ]);
+
+            foreach (json_decode($request->input('cart'), true) as $item) {
+                $order->products()
+                    ->attach($item['id'], ['qty' => $item['qty']]);
+            }
+
+            $order->load('products');
+
+            return Inertia::render('eCommerce/Summary', ['orderDetails' => $order]);
+        } catch (\Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 }

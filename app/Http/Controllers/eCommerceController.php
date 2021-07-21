@@ -41,13 +41,22 @@ class eCommerceController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the checkout page.
      *
      * @return \Illuminate\Http\Response
      */
     public function checkout()
     {
         return Inertia::render('eCommerce/Checkout');
+    }
+    /**
+     * Show the checkout page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function summary()
+    {
+        return Inertia::render('eCommerce/Summary');
     }
 
     /**

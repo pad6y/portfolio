@@ -1,10 +1,21 @@
 <template>
   <div class="bg-gray-700">
     <div
-      class="grid grid-cols-3 gap-2 w-2/3 mx-auto text-gray-100 uppercase pb-6"
+      class="
+        grid grid-cols-3
+        gap-2
+        w-full
+        md:w-2/3
+        mx-auto
+        text-gray-100
+        uppercase
+        pb-6
+        text-xs
+        md:text-base
+      "
     >
       <div class="col-span-1">
-        <div class="flex flex-col w-3/5 mx-auto">
+        <div class="flex flex-col w-full md:w-3/5 mx-auto">
           <div class="flex justify-center p-4 font-semibold">Help & Info</div>
           <div
             v-for="(link, index) in allLinks"
@@ -19,7 +30,7 @@
       </div>
 
       <div class="col-span-1">
-        <div class="flex flex-col w-3/5 mx-auto">
+        <div class="flex flex-col w-full md:w-3/5 mx-auto">
           <div class="flex justify-center p-4 font-semibold">About Us</div>
           <div
             v-for="(link, index) in allLinks"
@@ -34,7 +45,7 @@
       </div>
 
       <div class="col-span-1">
-        <div class="flex flex-col w-3/5 mx-auto">
+        <div class="flex flex-col w-full md:w-3/5 mx-auto">
           <div class="flex justify-center p-4 font-semibold">More</div>
           <div
             v-for="(link, index) in allLinks"
