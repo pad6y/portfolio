@@ -13,5 +13,5 @@ Route::name('eCommerce.')->group(function () {
   Route::get('/checkout', [eCommerceController::class, 'checkout'])->name('checkout');
   Route::post('/checkout', [UserController::class, 'purchase'])->name('purchase');
 
-  Route::get('/summary', [eCommerceController::class, 'summary'])->name('summary');
+  // Route::get('/summary', [eCommerceController::class, 'summary'])->name('summary');
 });

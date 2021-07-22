@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full mx-auto lg:max-w-5xl text-lg text-gray-600 pt-6">
+  <div class="w-full mx-auto lg:max-w-5xl text-lg text-gray-700 pt-6 font-sans">
     Hi, I'm Patrick a.k.a Paddy
     <div class="mt-8">
       Thank you for checking out my website. I have designed it to showcase what
@@ -23,6 +23,21 @@
       Please register to gain access to admin pages. You will be given moderator
       role where u can see pages but cannot access certain pages to alter or
       create users or posts.
+    </div>
+
+    <div class="mt-6">
+      Please understand this is just a demo site. I'm currently just too busy to
+      implement every single feature. Happy to discuss this with you if your
+      interested in hiring me. At the time of deploying this site I will have
+      moved on to another project and be starting TDD course amongst other
+      courses.
+    </div>
+
+    <div class="mt-6">
+      If I'm not a good fit currently please save this site. More projects will
+      be published over time with different tech and will be listed in my
+      project section of this page. Thanks for you time and hope to hear from
+      you soon!
     </div>
   </div>
 </template>

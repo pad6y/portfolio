@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <div class="flex justify-between h-16 p-2 sm:p-4 pb-8 bg-gray-100">
+    <div class="flex justify-between h-18 p-2 sm:p-4 pb-10 bg-gray-100">
       <div class="flex-shrink-0 flex items-center relative">
         <inertia-link :href="route('newsfeed.index')">
           <jet-application-mark class="block h-9 w-auto" />

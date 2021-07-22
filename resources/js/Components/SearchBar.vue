@@ -1,5 +1,5 @@
 <template>
-  <div class="flex text-gray-500 ml-4 sm:ml-20 mt-1 w-2/3">
+  <div class="flex text-gray-500 ml-4 sm:ml-20 w-2/3">
     <input
       @keydown.enter="onInput"
       @keyup.enter="reset"

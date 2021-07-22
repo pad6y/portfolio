@@ -158,36 +158,7 @@
             />
           </div>
         </div>
-        <!-- <div class="p-2 w-1/3">
-          <div class="relative">
-            <label for="last_name" class="leading-7 text-sm text-gray-600"
-              >Last Name</label
-            >
-            <input
-              type="text"
-              id="last_name"
-              name="last_name"
-              class="
-                w-full
-                bg-gray-100
-                rounded
-                border border-gray-300
-                focus:border-indigo-500
-                text-base
-                outline-none
-                text-gray-700
-                py-1
-                px-3
-                leading-8
-                transition-colors
-                duration-200
-                ease-in-out
-              "
-              v-model="customer.last_name"
-              :disabled="paymentProcessing"
-            />
-          </div>
-        </div> -->
+
         <div class="p-2 w-3/6 md:w-1/3">
           <div class="relative">
             <label for="email" class="leading-7 text-sm text-gray-600"
@@ -220,128 +191,7 @@
           </div>
         </div>
       </div>
-      <!-- <div class="flex flex-wrap -mx-2 mt-4">
-        <div class="p-2 w-1/3">
-          <div class="relative">
-            <label for="address" class="leading-7 text-sm text-gray-600"
-              >Street Address</label
-            >
-            <input
-              type="text"
-              id="address"
-              name="address"
-              class="
-                w-full
-                bg-gray-100
-                rounded
-                border border-gray-300
-                focus:border-indigo-500
-                text-base
-                outline-none
-                text-gray-700
-                py-1
-                px-3
-                leading-8
-                transition-colors
-                duration-200
-                ease-in-out
-              "
-              v-model="customer.address"
-              :disabled="paymentProcessing"
-            />
-          </div>
-        </div>
-        <div class="p-2 w-1/3">
-          <div class="relative">
-            <label for="city" class="leading-7 text-sm text-gray-600"
-              >City</label
-            >
-            <input
-              type="text"
-              id="city"
-              name="city"
-              class="
-                w-full
-                bg-gray-100
-                rounded
-                border border-gray-300
-                focus:border-indigo-500
-                text-base
-                outline-none
-                text-gray-700
-                py-1
-                px-3
-                leading-8
-                transition-colors
-                duration-200
-                ease-in-out
-              "
-              v-model="customer.city"
-              :disabled="paymentProcessing"
-            />
-          </div>
-        </div>
-        <div class="p-2 w-1/6">
-          <div class="relative">
-            <label for="state" class="leading-7 text-sm text-gray-600"
-              >State</label
-            >
-            <input
-              type="email"
-              id="state"
-              name="state"
-              class="
-                w-full
-                bg-gray-100
-                rounded
-                border border-gray-300
-                focus:border-indigo-500
-                text-base
-                outline-none
-                text-gray-700
-                py-1
-                px-3
-                leading-8
-                transition-colors
-                duration-200
-                ease-in-out
-              "
-              v-model="customer.state"
-              :disabled="paymentProcessing"
-            />
-          </div>
-        </div>
-        <div class="p-2 w-1/6">
-          <div class="relative">
-            <label for="zip_code" class="leading-7 text-sm text-gray-600"
-              >Zip Code</label
-            >
-            <input
-              type="email"
-              id="zip_code"
-              name="zip_code"
-              class="
-                w-full
-                bg-gray-100
-                rounded
-                border border-gray-300
-                focus:border-indigo-500
-                text-base
-                outline-none
-                text-gray-700
-                py-1
-                px-3
-                leading-8
-                transition-colors
-                duration-200
-                ease-in-out
-              "
-              v-model="customer.zip_code"
-              :disabled="paymentProcessing"
-            />
-          </div>
-        </div>
-      </div> -->
+
       <div class="flex flex-wrap -mx-2 mt-4">
         <div class="p-2 w-full md:w-4/6 ml-2 md:ml-14 md:pr-11">
           <div class="relative">
@@ -472,20 +322,6 @@ export default {
             localStorage.removeItem("cart");
           },
         });
-        // axios
-        //   .post("/api/purchase", this.customer)
-        //   .then((response) => {
-        //     this.paymentProcessing = false;
-        //     console.log(response);
-        //     // this.$store.commit("updateOrder", response.data);
-        //     // this.$store.dispatch("clearCart");
-        //     localStorage.setItem("cart", "[]");
-        //     this.$router.push({ name: "order.summary" });
-        //   })
-        //   .catch((error) => {
-        //     this.paymentProcessing = false;
-        //     console.error(error);
-        //   });
       }
     },
   },

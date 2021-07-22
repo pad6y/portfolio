@@ -5,6 +5,7 @@
       @removeItem="removeFromCart"
       :cart="this.cart"
     ></search-bar-header>
+    <filter-menu></filter-menu>
     <infinite-scroll @loadMore="loadMoreProducts">
       <div
         class="
@@ -32,6 +33,7 @@
 <script>
 import eComLayout from "@/Layouts/eComLayout";
 import searchBarHeader from "@/Pages/eCommerce/searchBarHeader";
+import FilterMenu from "@/Pages/eCommerce/FilterMenu";
 import ProductCard from "@/Pages/eCommerce/ProductCard";
 import InfiniteScroll from "@/Components/InfiniteScroll";
 
@@ -51,6 +53,7 @@ export default {
     ProductCard,
     InfiniteScroll,
     searchBarHeader,
+    FilterMenu,
   },
   computed: {
     // cart: localStorage.getItem("cart"),

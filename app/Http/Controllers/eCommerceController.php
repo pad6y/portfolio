@@ -49,15 +49,16 @@ class eCommerceController extends Controller
     {
         return Inertia::render('eCommerce/Checkout');
     }
-    /**
-     * Show the checkout page.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function summary()
-    {
-        return Inertia::render('eCommerce/Summary');
-    }
+
+    // /**
+    //  * Show the summary page.
+    //  *
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function summary()
+    // {
+    //     return Inertia::render('eCommerce/Summary');
+    // }
 
     /**
      * Store a newly created resource in storage.
