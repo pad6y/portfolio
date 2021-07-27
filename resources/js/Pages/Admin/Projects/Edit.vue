@@ -57,7 +57,14 @@
 
             <textarea
               id="description"
-              class="w-full border-yellow-300 focus:border-yellow-400 focus:ring focus:ring-yellow-200 focus:ring-opacity-50 rounded-md shadow-sm"
+              class="
+                w-full
+                border-yellow-300
+                focus:border-yellow-400
+                focus:ring focus:ring-yellow-200 focus:ring-opacity-50
+                rounded-md
+                shadow-sm
+              "
               v-model="form.description"
               required
             />
@@ -67,7 +74,7 @@
           <div class="mt-4">
             <jet-label
               for="url_link"
-              value="Git Repo Link"
+              value="Deployed url Link"
               class="flex justify-start text-lg"
             ></jet-label>
             <jet-input

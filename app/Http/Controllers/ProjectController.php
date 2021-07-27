@@ -52,6 +52,7 @@ class ProjectController extends Controller
                 'project_type' => 'required|min:8|max:25',
                 'description' => 'required|min:8|max:255',
                 'url_link' => 'url',
+                'git_link' => 'url',
 
             ]);
 
@@ -60,6 +61,7 @@ class ProjectController extends Controller
                 'project_type' => $request->input('project_type'),
                 'description' => $request->input('description'),
                 'url_link' => $request->input('url_link'),
+                'git_link' => $request->input('git_link'),
 
             ]);
 

@@ -2,16 +2,11 @@
   <e-com-layout :links="footerLinks">
     <ecommerces-admin-header>
       <template #title>
-        <div class="mr-24">Admin Control Panel</div>
+        <div class="mr-24">Admin Control Panel - Manage Products</div>
       </template>
     </ecommerces-admin-header>
     <admin-sub-menu />
-    <div class="w-full lg:w-4/5 md:mx-auto">
-      <add-product></add-product>
-      <help-info></help-info>
-      <more></more>
-      <about></about>
-    </div>
+    <div class="w-full lg:w-4/5 md:mx-auto">Manage Products</div>
   </e-com-layout>
 </template>
 
@@ -37,4 +32,3 @@ export default {
   },
 };
 </script>
-

@@ -33,7 +33,7 @@
 <script>
 import eComLayout from "@/Layouts/eComLayout";
 import searchBarHeader from "@/Pages/eCommerce/searchBarHeader";
-import FilterMenu from "@/Pages/eCommerce/FilterMenu";
+import FilterMenu from "@/Pages/eCommerce/SubMenus/FilterMenu";
 import ProductCard from "@/Pages/eCommerce/ProductCard";
 import InfiniteScroll from "@/Components/InfiniteScroll";
 

@@ -43,7 +43,7 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/api.php'));
 
-            Route::middleware('web')
+            Route::middleware(['web', 'auth:sanctum', 'verified'])
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web/newsfeed.php'));
 
@@ -66,6 +66,11 @@ class RouteServiceProvider extends ServiceProvider
                 ->middleware(['web', 'auth:sanctum', 'verified'])
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web/eCommerce.php'));
+
+            Route::prefix('admin')
+                ->middleware(['web', 'auth:sanctum', 'verified'])
+                ->namespace($this->namespace)
+                ->group(base_path('routes/web/product.php'));
 
             Route::middleware('web')
                 ->namespace($this->namespace)

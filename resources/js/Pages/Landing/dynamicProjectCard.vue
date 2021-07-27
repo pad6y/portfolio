@@ -32,7 +32,7 @@
             justify-center
             mx-auto
             w-full
-            min-h-48
+            min-h-80
             uppercase
             text-lg
             font-semibold
@@ -54,16 +54,16 @@
           </div>
 
           <a
-            v-if="project.url_link != null"
-            :href="project.url_link"
+            v-if="project.git_link"
+            :href="project.git_link"
             class="flex justify-center uppercase font-bold hover:text-blue-700"
             >Git repo</a
           >
 
           <!-- Need to add table column for deployed link and the do v-if display -->
-          <!-- <div class="flex justify-center p-2">
+          <div class="flex justify-center p-2" v-if="project.url_link">
             <blue-button :href="project.url_link">More Info</blue-button>
-          </div> -->
+          </div>
           <div
             class="
               flex
@@ -98,7 +98,7 @@ export default {
       let strData = data;
 
       if (strData != null) {
-        return strData.substring(0, 40) + "...";
+        return strData.substring(0, 70) + "...";
       }
     },
   },

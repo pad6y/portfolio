@@ -40,7 +40,15 @@
           <tr
             v-for="(project, index) in projects"
             :key="index"
-            class="text-center shadow transition duration-500 ease-in-out transform hover:scale-105"
+            class="
+              text-center
+              shadow
+              transition
+              duration-500
+              ease-in-out
+              transform
+              hover:scale-105
+            "
             :class="{ 'bg-gray-200': index % 2 === 0 }"
           >
             <td class="text-left capitalize py-3 pl-3">
@@ -53,8 +61,8 @@
               {{ getReduceBody(project.description) }}
             </td>
             <td class="text-left py-3">
-              <a :href="project.url_link">{{
-                getReduceBody(project.url_link)
+              <a :href="project.git_link">{{
+                getReduceBody(project.git_link)
               }}</a>
             </td>
             <td class="py-3" v-if="$page.props.auth.can.manageAdmins">

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Inertia\Inertia;
 use App\Models\Product;
+use App\Models\FooterLinks;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,7 +17,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $footerLinks = FooterLinks::get();
+        return Inertia::render('eCommerce/ManageProducts', ['footerLinks' => $footerLinks]);
     }
 
     /**

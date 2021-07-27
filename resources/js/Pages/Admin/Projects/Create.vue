@@ -57,7 +57,14 @@
 
             <textarea
               id="description"
-              class="w-full border-yellow-300 focus:border-yellow-400 focus:ring focus:ring-yellow-200 focus:ring-opacity-50 rounded-md shadow-sm"
+              class="
+                w-full
+                border-yellow-300
+                focus:border-yellow-400
+                focus:ring focus:ring-yellow-200 focus:ring-opacity-50
+                rounded-md
+                shadow-sm
+              "
               v-model="form.description"
               required
             />
@@ -67,7 +74,7 @@
           <div class="mt-4">
             <jet-label
               for="url_link"
-              value="Git Repo Link"
+              value="url Link"
               class="flex justify-start text-lg"
             ></jet-label>
             <jet-input
@@ -79,6 +86,25 @@
             ></jet-input>
             <jet-input-error
               :message="form.errors.url_link"
+              class="mt-2"
+            ></jet-input-error>
+          </div>
+
+          <div class="mt-4">
+            <jet-label
+              for="git_link"
+              value="git Link"
+              class="flex justify-start text-lg"
+            ></jet-label>
+            <jet-input
+              id="url_link"
+              type="text"
+              class="mt-1 block w-full"
+              v-model="form.git_link"
+              autofocus
+            ></jet-input>
+            <jet-input-error
+              :message="form.errors.git_link"
               class="mt-2"
             ></jet-input-error>
           </div>
@@ -129,6 +155,7 @@ export default {
         project_type: this.project_type,
         description: this.description,
         url_link: this.url_link,
+        git_link: this.git_link,
       }),
     };
   },
