@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <div class="flex justify-between h-18 p-2 sm:p-4 pb-10 bg-gray-100">
+    <div class="flex justify-between h-18 p-2 sm:p-4 md:pb-10 bg-gray-100">
       <div class="flex-shrink-0 flex items-center relative">
         <inertia-link :href="route('newsfeed.index')">
           <jet-application-mark class="block h-9 w-auto" />
@@ -55,7 +55,7 @@
     >
       <inertia-link
         :href="route('eCommerce.index')"
-        class="p-4 md:p-2"
+        class="p-4 md:p-2 text-base"
         :class="
           route().current('eCommerce.index')
             ? 'text-gray-50 bg-gray-500'
@@ -66,7 +66,7 @@
 
       <inertia-link
         :href="route('eCommerce.adminPanel')"
-        class="p-4 md:p-2"
+        class="p-4 md:p-2 text-base"
         :class="
           route().current('eCommerce.adminPanel')
             ? 'text-gray-50 bg-gray-500'

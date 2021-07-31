@@ -19,12 +19,12 @@ class PostController extends Controller
      */
     public function index(Request $request)
     {
-        $posts = Post::with('user')->orderBy("created_at", "DESC")->paginate(20);
+        $posts = Post::with("user")->orderBy("created_at", "DESC")->paginate(20);
         if ($request->wantsJson()) {
             return $posts;
         }
 
-        return Inertia::render('NewsfeedLayout', ['posts' => $posts]);
+        return Inertia::render("NewsfeedLayout", ["posts" => $posts]);
     }
 
     /**

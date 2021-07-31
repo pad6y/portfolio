@@ -42,7 +42,10 @@
 
 
 <script>
+import formatCurrency from "@/Mixins/formatCurrency";
+
 export default {
+  mixins: [formatCurrency],
   props: ["product"],
   emits: ["addItem"],
   // data() {
@@ -56,13 +59,13 @@ export default {
     addItem() {
       this.$emit("addItem", this.product);
     },
-    formatCurrency(price) {
-      price = price / 100;
-      return price.toLocaleString("en-GB", {
-        style: "currency",
-        currency: "GBP",
-      });
-    },
+    // formatCurrency(price) {
+    //   price = price / 100;
+    //   return price.toLocaleString("en-GB", {
+    //     style: "currency",
+    //     currency: "GBP",
+    //   });
+    // },
   },
 };
 </script>

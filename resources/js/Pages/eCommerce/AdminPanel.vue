@@ -1,11 +1,11 @@
 <template>
   <e-com-layout :links="footerLinks">
-    <ecommerces-admin-header>
-      <template #title>
-        <div class="mr-24">Admin Control Panel</div>
-      </template>
-    </ecommerces-admin-header>
-    <admin-sub-menu />
+    <template #title>
+      <div class="md:pl-10 text-base md:text-3xl md:mr-24">
+        Add Products and links
+      </div>
+    </template>
+
     <div class="w-full lg:w-4/5 md:mx-auto">
       <add-product></add-product>
       <help-info></help-info>
@@ -18,11 +18,10 @@
 <script>
 import eComLayout from "@/Layouts/eComLayout";
 import AddProduct from "@/Pages/eCommerce/AddProduct";
-import AdminSubMenu from "@/Pages/eCommerce/SubMenus/AdminSubMenu";
+
 import HelpInfo from "@/Pages/eCommerce/FooterSection/HelpInfo";
 import More from "@/Pages/eCommerce/FooterSection/More";
 import About from "@/Pages/eCommerce/FooterSection/About";
-import EcommercesAdminHeader from "@/Components/EcommercesAdminHeader.vue";
 
 export default {
   props: { footerLinks: Array },
@@ -32,8 +31,6 @@ export default {
     HelpInfo,
     More,
     About,
-    EcommercesAdminHeader,
-    AdminSubMenu,
   },
 };
 </script>

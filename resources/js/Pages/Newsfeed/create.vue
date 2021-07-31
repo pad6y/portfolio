@@ -179,8 +179,8 @@ export default {
           Toast.fire({
             icon: "success",
             title: "You have successfully been posted!",
-          }),
-            (this.form.body = null);
+          });
+          this.form.reset();
         },
       });
       //   let data = new FormData();

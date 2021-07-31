@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
 use Inertia\Inertia;
 use App\Models\Product;
+use App\Models\Order;
 use App\Models\FooterLinks;
 use Illuminate\Http\Request;
 
@@ -29,7 +31,7 @@ class eCommerceController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display a form input page for products and url links.
      *
      * @return \Illuminate\Http\Response
      */
@@ -39,6 +41,8 @@ class eCommerceController extends Controller
 
         return Inertia::render('eCommerce/AdminPanel', ['footerLinks' => $footerLinks]);
     }
+
+
 
     /**
      * Show the checkout page.
@@ -83,50 +87,5 @@ class eCommerceController extends Controller
         ]);
 
         return back();
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

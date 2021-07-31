@@ -193,8 +193,10 @@
 <script>
 import JetInputError from "@/Jetstream/InputError";
 import GoldButton from "@/Components/GoldButton";
+import formatCurrency from "@/Mixins/formatCurrency";
 
 export default {
+  mixins: [formatCurrency],
   components: {
     JetInputError,
     GoldButton,
@@ -219,15 +221,15 @@ export default {
   },
 
   methods: {
-    formatCurrency(price) {
-      var priceNum = parseInt(price, 10);
-      priceNum = priceNum / 100;
-      // price = price / 100;
-      return priceNum.toLocaleString("en-GB", {
-        style: "currency",
-        currency: "GBP",
-      });
-    },
+    // formatCurrency(price) {
+    //   var priceNum = parseInt(price, 10);
+    //   priceNum = priceNum / 100;
+    //   // price = price / 100;
+    //   return priceNum.toLocaleString("en-GB", {
+    //     style: "currency",
+    //     currency: "GBP",
+    //   });
+    // },
     submit() {
       this.form.post(this.route("eCommerce.product.store"), {
         preserveScroll: true,

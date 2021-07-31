@@ -102,10 +102,6 @@ export default {
         }
       );
     }, 2000),
-
-    // {
-    //   this.$inertia.replace("/admin/users?term=" + this.term);
-    // },
   },
 };
 </script>

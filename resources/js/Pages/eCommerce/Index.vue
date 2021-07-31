@@ -1,10 +1,12 @@
 <template>
   <e-com-layout :links="footerLinks">
-    <search-bar-header
-      @termChange="onTermChange"
-      @removeItem="removeFromCart"
-      :cart="this.cart"
-    ></search-bar-header>
+    <template #title>
+      <search-bar-header
+        @termChange="onTermChange"
+        @removeItem="removeFromCart"
+        :cart="this.cart"
+      ></search-bar-header>
+    </template>
     <filter-menu></filter-menu>
     <infinite-scroll @loadMore="loadMoreProducts">
       <div

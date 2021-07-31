@@ -9,11 +9,28 @@
     </template>
 
     <div
-      class="flex flex-col mx-auto h-5/6 w-full md:w-1/2 lg:px-6 py-2 text-xs sm:text-sm"
+      class="
+        flex flex-col
+        mx-auto
+        h-5/6
+        w-full
+        md:w-1/2
+        lg:px-6
+        py-2
+        text-xs
+        sm:text-sm
+      "
     >
       <div>
         <h2
-          class="text-center text-lg md:text-xl font-semibold capitalize underline text-gray-700"
+          class="
+            text-center text-lg
+            md:text-xl
+            font-semibold
+            capitalize
+            underline
+            text-gray-700
+          "
         >
           Current Role: {{ user.name }}
         </h2>
@@ -180,7 +197,7 @@ export default {
   },
   methods: {
     submit() {
-      console.log(this.form.roles[0][0].name);
+      // console.log(this.form.roles[0][0].name);
       this.form.patch(this.route("users.update", this.user.id), {
         preserveScroll: true,
         onSuccess: () => {

@@ -24,7 +24,7 @@
           <tr>
             <th class="text-left pl-3">Name</th>
             <th class="text-left pl-3">Created</th>
-            <th class="text-right pr-3" v-if="$page.props.auth.can.manageRoles">
+            <th class="text-left pr-3" v-if="$page.props.auth.can.manageRoles">
               Actions
             </th>
           </tr>
@@ -33,13 +33,21 @@
           <tr
             v-for="(role, index) in roles"
             :key="index"
-            class="text-center shadow transition duration-500 ease-in-out transform hover:scale-105"
+            class="
+              text-center
+              shadow
+              transition
+              duration-500
+              ease-in-out
+              transform
+              hover:scale-105
+            "
             :class="{ 'bg-gray-300': index % 2 === 0 }"
           >
             <td class="text-left capitalize py-3 pl-3">{{ role.name }}</td>
             <td class="text-left py-3 pl-3">{{ role.created_at }}</td>
             <td class="md:py-3" v-if="$page.props.auth.can.manageRoles">
-              <div class="flex justify-end pr-2">
+              <div class="flex justify-center pr-2">
                 <green-button
                   :href="route('AdminControlPanel.roles.show', role.id)"
                   class="sm:text-sm shadow-md"

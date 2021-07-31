@@ -18,7 +18,9 @@ class ProductController extends Controller
     public function index()
     {
         $footerLinks = FooterLinks::get();
-        return Inertia::render('eCommerce/ManageProducts', ['footerLinks' => $footerLinks]);
+        $products = Product::get();
+
+        return Inertia::render('eCommerce/ManageProducts', ['products' => $products, 'footerLinks' => $footerLinks]);
     }
 
     /**
