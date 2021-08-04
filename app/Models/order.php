@@ -17,6 +17,15 @@ class Order extends Model
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'created_at' => 'datetime:d-M-Y',
+    ];
+
     public function products()
     {
         return $this->belongsToMany(Product::class)

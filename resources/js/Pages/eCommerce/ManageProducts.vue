@@ -1,7 +1,7 @@
 <template>
   <e-com-layout :links="footerLinks">
     <template #title>
-      <div class="md:pl-10 text-base md:text-3xl md:mr-24">Manage Products</div>
+      <div class="text-base md:text-3xl md:mr-24">Manage Products</div>
     </template>
 
     <div class="w-full lg:w-4/5 md:mx-auto">
@@ -26,36 +26,22 @@
               <div class="col-span-2 pl-2">{{ item.product_code }}</div>
               <div class="col-span-5 pl-4">
                 <div class="grid grid-cols-4 gap-1 md:gap-4">
-                  <div
-                    class="
-                      flex
-                      justify-center
-                      col-span-2
-                      md:col-span-1
-                      text-yellow-600
-                      border-2 border-yellow-600
-                      rounded-md
-                      hover:bg-yellow-600
-                      hover:text-black
-                    "
-                  >
-                    Edit
+                  <div class="col-span-2 md:col-span-1">
+                    <dynamic-ecommerce-button
+                      :href="route('product.edit', item.id)"
+                      :class="'flex justify-center w-full uppercase font-bold text-yellow-600 border-2 border-yellow-600 rounded-md hover:bg-yellow-600 hover:text-black'"
+                      >Edit</dynamic-ecommerce-button
+                    >
                   </div>
 
-                  <div
-                    class="
-                      flex
-                      justify-center
-                      col-span-2
-                      md:col-span-1
-                      text-red-700
-                      border-2 border-red-700
-                      rounded-md
-                      hover:bg-red-700
-                      hover:text-white
-                    "
-                  >
-                    Delete
+                  <div class="col-span-2 md:col-span-1">
+                    <form @submit.prevent="submit(item.id)">
+                      <dynamic-ecommerce-button
+                        type="submit"
+                        :class="'flex justify-center w-full uppercase font-bold text-red-700 border-2 border-red-700 rounded-md hover:bg-red-700 hover:text-white'"
+                        >Delete</dynamic-ecommerce-button
+                      >
+                    </form>
                   </div>
                 </div>
               </div>
@@ -69,11 +55,27 @@
 
 <script>
 import eComLayout from "@/Layouts/eComLayout";
+import DynamicEcommerceButton from "@/Components/DynamicEcommerceButton";
 
 export default {
   props: { footerLinks: Array, products: Array },
   components: {
     eComLayout,
+    DynamicEcommerceButton,
+  },
+  methods: {
+    submit(id) {
+      this.$inertia.delete(this.route("product.destroy", id), {
+        preserveScroll: true,
+        onSuccess: () => {
+          Toast.fire({
+            icon: "success",
+            title: "You have successfully deleted product!",
+          });
+        },
+      });
+    },
   },
 };
 </script>
+

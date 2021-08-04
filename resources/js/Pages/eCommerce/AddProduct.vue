@@ -12,26 +12,53 @@
         <form id="create-product" @submit.prevent="submit">
           <div>Enter product data:</div>
 
-          <div>
-            <input
-              id="product_name"
-              type="text"
-              placeholder="Enter Product Name"
-              class="
-                text-xs
-                mt-2
-                md:mt-4
-                block
-                w-full
-                border-2 border-yellow-300
-                rounded-md
-                shadow-sm
-                focus:border-yellow-300
-                focus:ring-transparent
-              "
-              v-model="form.product_name"
-            />
-            <jet-input-error :message="form.errors.product_name" class="mt-2" />
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <input
+                id="product_name"
+                type="text"
+                placeholder="Enter Product Name"
+                class="
+                  text-xs
+                  mt-2
+                  md:mt-4
+                  block
+                  w-full
+                  border-2 border-yellow-300
+                  rounded-md
+                  shadow-sm
+                  focus:border-yellow-300
+                  focus:ring-transparent
+                "
+                v-model="form.product_name"
+              />
+              <jet-input-error
+                :message="form.errors.product_name"
+                class="mt-2"
+              />
+            </div>
+
+            <div>
+              <input
+                id="gender"
+                type="text"
+                placeholder="Enter Product Gender"
+                class="
+                  text-xs
+                  mt-2
+                  md:mt-4
+                  block
+                  w-full
+                  border-2 border-yellow-300
+                  rounded-md
+                  shadow-sm
+                  focus:border-yellow-300
+                  focus:ring-transparent
+                "
+                v-model="form.gender"
+              />
+              <jet-input-error :message="form.errors.gender" class="mt-2" />
+            </div>
           </div>
 
           <div>
@@ -179,10 +206,13 @@
           <div class="m-1 text-gray-600">{{ form.product_name }}</div>
 
           <div class="m-1">{{ form.product_description }}</div>
-          <div class="mr-2 flex justify-end">
-            <span v-if="form.product_price"
-              >{{ formatCurrency(form.product_price) }}
-            </span>
+
+          <div class="flex justify-between text-xs mt-2 px-2 text-gray-400">
+            <div class="">Gender: {{ form.gender }}</div>
+            <div class="text-gray-700 font-semibold pr-4 flex justify-end">
+              <!-- £ {{ product.product_price.toFixed(2) }} -->
+              {{ formatCurrency(form.product_price) }}
+            </div>
           </div>
         </div>
       </div>
@@ -206,6 +236,7 @@ export default {
       form: this.$inertia.form(
         {
           product_name: "",
+          gender: "",
           product_code: "",
           product_image: "",
           product_description: "",
@@ -236,7 +267,7 @@ export default {
         onSuccess: () => {
           Toast.fire({
             icon: "success",
-            title: "You have successfully been posted!",
+            title: "You have successfully added product!",
           });
           this.form.reset();
         },

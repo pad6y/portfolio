@@ -2,7 +2,7 @@
   <e-com-layout :links="footerLinks">
     <ecommerces-admin-header>
       <template #title>
-        <div class="mr-24">Order Summary</div>
+        <div class="text-base md:text-3xl md:mr-24">Order Summary</div>
       </template>
     </ecommerces-admin-header>
 

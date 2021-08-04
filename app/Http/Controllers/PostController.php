@@ -117,7 +117,7 @@ class PostController extends Controller
         ]);
 
         $post->update([
-            'user_id' => $post->user_id,
+            'user_id' => Auth::id(),
             'title' => $request->input('title'),
             'body' => $request->input('body'),
             'post_image' => $request->file('post_image') ? $request->file('post_image')->store('images/post', 'public') : $post->post_image

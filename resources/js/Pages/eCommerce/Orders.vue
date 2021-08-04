@@ -1,7 +1,9 @@
 <template>
   <e-com-layout :links="footerLinks">
     <template #title>
-      <div class="md:pl-10 text-base md:text-3xl md:mr-24">Manage Orders</div>
+      <div class="md:mr-24 text-lg lg:text-base md:text-3xl flex items-center">
+        Manage Orders
+      </div>
     </template>
 
     <div class="w-full lg:w-4/5 md:mx-auto">
@@ -12,9 +14,6 @@
           <div class="grid grid-cols-12 p-2 text-white bg-gray-500">
             <div class="col-span-1 md:pl-2">Id</div>
             <div class="col-span-7 md:col-span-5">Transaction id</div>
-            <div class="col-start-9 col-end-9 md:col-span-2 md:visible">
-              Total
-            </div>
             <div class="col-span-4 pl-4">Actions</div>
           </div>
 
@@ -24,44 +23,30 @@
               :class="{ 'bg-white p-1': index % 2 === 0 }"
             >
               <div class="col-span-1 md:pl-2">{{ item.id }}</div>
-              <div class="col-span-7 md:col-span-5">
-                {{ item.transaction_id }}
-              </div>
-              <div class="invisible md:col-span-2 md:visible text-yellow-500">
-                {{ formatCurrency(item.total) }}
+              <div class="col-span-7 md:col-span-5 text-blue-600 underline">
+                <inertia-link :href="route('eCommerce.order.show', item.id)">{{
+                  item.transaction_id
+                }}</inertia-link>
               </div>
 
-              <div class="col-span-4 pl-4">
+              <div class="col-span-4 md:col-span-5 pl-4">
                 <div class="grid grid-cols-4 gap-1 md:gap-4">
-                  <div
-                    class="
-                      flex
-                      justify-center
-                      col-span-2
-                      text-red-700
-                      border-2 border-red-700
-                      rounded-md
-                      hover:bg-red-700
-                      hover:text-white
-                    "
-                  >
-                    Delete
+                  <div class="col-span-2 md:col-span-1">
+                    <form @submit.prevent="submit(item.id)">
+                      <dynamic-ecommerce-button
+                        type="submit"
+                        :class="'flex justify-center w-full uppercase font-bold text-red-700 border-2 border-red-700 rounded-md hover:bg-red-700 hover:text-white'"
+                        >Delete</dynamic-ecommerce-button
+                      >
+                    </form>
                   </div>
 
-                  <div
-                    class="
-                      flex
-                      justify-center
-                      col-span-2
-                      text-green-600
-                      border-2 border-green-600
-                      rounded-md
-                      hover:bg-green-600
-                      hover:text-white
-                    "
-                  >
-                    PDF
-                  </div>
+                  <!-- <div class="col-span-2 md:col-span-1">
+                    <dynamic-ecommerce-button
+                      :class="'flex justify-center w-full uppercase font-bold text-green-600 border-2 border-green-600 rounded-md hover:bg-green-600 hover:text-white'"
+                      >PDF</dynamic-ecommerce-button
+                    >
+                  </div> -->
                 </div>
               </div>
             </div>
@@ -74,7 +59,7 @@
 
 <script>
 import eComLayout from "@/Layouts/eComLayout";
-
+import DynamicEcommerceButton from "@/Components/DynamicEcommerceButton";
 import formatCurrency from "@/Mixins/formatCurrency";
 
 export default {
@@ -82,6 +67,20 @@ export default {
   mixins: [formatCurrency],
   components: {
     eComLayout,
+    DynamicEcommerceButton,
+  },
+  methods: {
+    submit(id) {
+      this.$inertia.delete(this.route("eCommerce.order.destroy", id), {
+        preserveScroll: true,
+        onSuccess: () => {
+          Toast.fire({
+            icon: "success",
+            title: "You have successfully deleted order!",
+          });
+        },
+      });
+    },
   },
 };
 </script>

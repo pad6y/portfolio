@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Inertia\Inertia;
 use App\Models\Order;
 use App\Models\FooterLinks;
@@ -52,7 +53,10 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
+
+        $order->load(['products', 'user']);
+
+        return Inertia::render('eCommerce/EditShow/ShowOrder', ['order' => $order]);
     }
 
     /**
@@ -86,6 +90,7 @@ class OrderController extends Controller
      */
     public function destroy(Order $order)
     {
-        //
+        $order->delete();
+        return back();
     }
 }

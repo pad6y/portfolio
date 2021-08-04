@@ -1,9 +1,7 @@
 <template>
   <e-com-layout :links="footerLinks">
     <template #title>
-      <div class="md:pl-10 text-base md:text-3xl md:mr-24">
-        Add Products and links
-      </div>
+      <div class="text-base md:text-3xl md:mr-24">Add Products and links</div>
     </template>
 
     <div class="w-full lg:w-4/5 md:mx-auto">

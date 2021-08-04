@@ -9,11 +9,16 @@ use App\Http\Controllers\eCommerceController;
 Route::name('eCommerce.')->group(function () {
   Route::get('/', [eCommerceController::class, 'index'])->name('index');
   Route::get('/admins', [eCommerceController::class, 'adminPanel'])->name('adminPanel');
+
   Route::post('/admins/create', [ProductController::class, 'store'])->name('product.store');
   Route::post('/admins/footer_links', [eCommerceController::class, 'store'])->name('footerLink.store');
+
   Route::get('/checkout', [eCommerceController::class, 'checkout'])->name('checkout');
-  Route::get('/orders', [OrderController::class, 'index'])->name('orders');
   Route::post('/checkout', [UserController::class, 'purchase'])->name('purchase');
+
+  Route::get('/orders', [OrderController::class, 'index'])->name('orders');
+  Route::get('/{order}/order', [OrderController::class, 'show'])->name('order.show');
+  Route::delete('/{order}/delete', [OrderController::class, 'destroy'])->name('order.destroy');
 
   // Route::get('/summary', [eCommerceController::class, 'summary'])->name('summary');
 });

@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Inertia\Middleware;
+use App\Models\FooterLinks;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -55,7 +56,11 @@ class HandleInertiaRequests extends Middleware
                 return Session::get('success')
                     ? Session::get('success')
                     : null;
+            },
+            'footerLinks' => function () {
+                return FooterLinks::get() ? FooterLinks::get() : null;
             }
+
         ]);
     }
 }

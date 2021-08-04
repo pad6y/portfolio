@@ -19,8 +19,8 @@
         focus:ring-transparent
       "
     />
-    <i class="absolute active:hidden p-1 ml-2"
-      ><icons :name="'search'" :class="'h-5 w-5'"></icons
+    <i class="absolute active:hidden p-1 ml-3"
+      ><icons :name="'search'" :class="'h-4 w-4 mt-1'"></icons
     ></i>
   </div>
 
@@ -29,7 +29,7 @@
   <div class="text-gray-500 mt-1 sm:ml-24 sm:pl-12">
     <jet-dropdown :contentClasses="'w-56 sm:w-64 lg:w-72 bg-white'">
       <template #trigger>
-        <icons :name="'cart'" class="relative" :class="'h-6 w-6'"></icons>
+        <icons :name="'cart'" class="mt-1" :class="'h-6 w-6'"></icons>
         <div
           v-if="cartItems.items != 0"
           class="
@@ -129,7 +129,7 @@
   <!-- User Account -->
   <div class="text-gray-500 sm:ml-8 sm:mr-4 md:mr-10 mt-1">
     <inertia-link :href="route('profile.show')">
-      <icons :name="'account'"></icons>
+      <icons :name="'account'" :class="'h-6 w-6 mt-1'"></icons>
     </inertia-link>
   </div>
 </template>
