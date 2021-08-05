@@ -10,12 +10,11 @@
       <div class="flex flex-col bg-gray-200">
         <div class="w-full md:w-2/3 mx-auto p-2 md:p-8 mb-4">
           Thank you for trying out the eCommerce demo. This is the summary of
-          your order. Details of it has been saved to the database. However I
-          currently dont plan to create a section in the user account section to
-          display your order. Simply because its just repeating the same process
-          that I have already demonstrated. Perhaps one day when I have spare
-          time this feature will be added. If so it will be announced on the
-          newsfeed section in the future. Thanks again and have a nice day!
+          your order. Details of it has been saved to the database. Orders can
+          be view by users in their accounts aswell as in the admin panel.
+          (Which is purposely left for none admins to see. Unlike the main
+          portfolio where most actions and pages are hidden) Thanks again and
+          have a nice day!
         </div>
 
         <div class="w-full md:w-2/3 mx-auto p-2 md:p-8 font-semibold text-sm">

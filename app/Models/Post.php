@@ -21,11 +21,23 @@ class Post extends Model
      *
      * @var array
      */
-    protected $casts = [
-        'created_at' => 'datetime:d-M-Y',
+    // protected $casts = [
+    //     'created_at' => 'datetime:d-M-Y',
+    // ];
+
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = [
+        'timeAgo'
     ];
 
-
+    public function getTimeAgoAttribute()
+    {
+        return $this->created_at->diffForHumans();
+    }
 
     // protected $appends = [
     //     'post_image_url',

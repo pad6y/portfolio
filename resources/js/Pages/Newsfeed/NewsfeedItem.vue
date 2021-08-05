@@ -12,7 +12,16 @@
     </div>
 
     <div
-      class="flex items-center col-span-10 sm:col-span-4 sm:mx-4 sm:ml-10 pt-4 sm:pt-0"
+      class="
+        flex
+        items-center
+        col-span-10
+        sm:col-span-4
+        sm:mx-4
+        sm:ml-10
+        pt-4
+        sm:pt-0
+      "
     >
       <div v-if="post.post_image">
         <img
@@ -25,7 +34,15 @@
 
     <div class="col-span-10 sm:col-span-2 border-l-2">
       <div
-        class="grid justify-items-end sm:justify-items-start text-xs sm:text-base text-gold sm:ml-5"
+        class="
+          grid
+          justify-items-end
+          sm:justify-items-start
+          text-xs
+          sm:text-base
+          text-gold
+          sm:ml-5
+        "
       >
         <div class="mb-4">
           <span class="text-gray-600">Author: </span> {{ post.user.name }}
@@ -43,12 +60,36 @@
 
           <div
             v-if="openMenu"
-            class="bg-gray-300 text-sm absolute w-48 right-0 text-gray-700 shadow-lg rounded-md px-4 py-2 transition duration-150 ease-in-out"
+            class="
+              bg-gray-300
+              text-sm
+              absolute
+              w-48
+              right-0
+              text-gray-700
+              shadow-lg
+              rounded-md
+              px-4
+              py-2
+              transition
+              duration-150
+              ease-in-out
+            "
           >
             <!-- <form @submit.prevent="deletePost"> -->
             <button
               type="submit"
-              class="flex justify-between items-center w-full p-2 rounded-md focus:outline-none hover:bg-red-800 hover:text-gray-300"
+              class="
+                flex
+                justify-between
+                items-center
+                w-full
+                p-2
+                rounded-md
+                focus:outline-none
+                hover:bg-red-800
+                hover:text-gray-300
+              "
               @click="deletePost"
             >
               Delete Post
@@ -56,7 +97,16 @@
             <!-- </form> -->
 
             <button
-              class="flex justify-between items-center w-full p-2 rounded-md focus:outline-none hover:bg-yellow-500"
+              class="
+                flex
+                justify-between
+                items-center
+                w-full
+                p-2
+                rounded-md
+                focus:outline-none
+                hover:bg-yellow-500
+              "
             >
               <inertia-link :href="route('newsfeed.edit', post.id)">
                 Edit Post
@@ -69,7 +119,7 @@
   </div>
   <div class="flex justify-end border-b font-serif text-xs text-gray-400 pb-4">
     <!-- <div class="">{{ moment().startOf(post.created_at).fromNow() }}</div> -->
-    Published: {{ post.created_at }}
+    Published: {{ post.timeAgo }}
   </div>
 </template>
 

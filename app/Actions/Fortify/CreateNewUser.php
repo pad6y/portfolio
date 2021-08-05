@@ -35,7 +35,7 @@ class CreateNewUser implements CreatesNewUsers
             'password' => Hash::make($input['password']),
         ]);
 
-        $userRole = Role::where('name', 'moderator')->first();
+        $userRole = Role::where('name', 'user')->first();
 
         $user->roles()->attach($userRole);
 
