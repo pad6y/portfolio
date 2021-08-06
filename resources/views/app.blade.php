@@ -12,12 +12,12 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap">
 
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset(mix('css/app.css')) }}">
 
         <!-- Scripts -->
         @routes
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-        <script src="{{ mix('js/app.js') }}" defer></script>
+        <script src="{{ asset(mix('js/app.js')) }}" defer></script>
     </head>
     <body class="font-sans antialiased">
         @inertia
