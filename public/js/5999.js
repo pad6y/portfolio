@@ -1,2 +1,1 @@
 (self.webpackChunk=self.webpackChunk||[]).push([[5999],{5999:(e,c,r)=>{"use strict";r.r(c),r.d(c,{default:()=>t});var s=r(5166),o={class:""};const p={props:{product:{}},render:function(e,c,r,p,t,u){return(0,s.openBlock)(),(0,s.createBlock)("div",o,"product show page")}},t=p}}]);
-//# sourceMappingURL=5999.js.map
