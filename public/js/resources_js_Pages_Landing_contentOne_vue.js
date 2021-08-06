@@ -1,3 +1,11 @@
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
 (self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_Pages_Landing_contentOne_vue"],{
 
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Landing/contentOne.vue?vue&type=template&id=1f207de4":
@@ -7,39 +15,7 @@
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render)
-/* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-
-var _hoisted_1 = {
-  "class": "ml-4 font-serif text-lg text-gray-600 pt-6"
-};
-
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Hi, I'm Paddy ");
-
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-  "class": "mt-4"
-}, " I'm am currently at the beginning of my journey into web development. Over the last 18 months I have been studying hard to achieve the required skills and knowledge to become a fullstack web developer. On the right is a list of subjects that I have taken interest in, in my quest to achieve my goals. ", -1
-/* HOISTED */
-);
-
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-  "class": "mt-3"
-}, " This site is to showcase the knowledge I have attained during my continous learning over the last 18 months. I will continue to update and improve the site as I gain more experience. Essentially the site is a demo. Please register to gain access to the rest of the site. ", -1
-/* HOISTED */
-);
-
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-  "class": "mt-3"
-}, " I am currently looking for employment if you like what you see or like to know more about myself etc. Please get in touch! I am also opened to taking on freelancing jobs so get in touch to discuss your project today! ", -1
-/* HOISTED */
-);
-
-function render(_ctx, _cache) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [_hoisted_2, _hoisted_3, _hoisted_4, _hoisted_5]);
-}
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"render\": () => (/* binding */ render)\n/* harmony export */ });\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.esm-bundler.js\");\n\nvar _hoisted_1 = {\n  \"class\": \"w-full mx-auto lg:max-w-5xl text-lg text-gray-700 pt-6 font-sans\"\n};\n\nvar _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)(\" Hi, I&#39;m Patrick a.k.a Paddy <div class=\\\"mt-8\\\"> Thank you for checking out my website. I have designed it to showcase what I have learned from all the courses on Udemy and from various sources on-line. The site is desktop version first, however I made sure its mobile responsive. </div><div class=\\\"mt-6\\\"> This web site is like a scrap book, where I&#39;m testing and experimenting. This site is created from Laravel 8 Jetstream with VueJs frontend and inertiaJs to glue it all together. All the Udemy courses Ive taken didnt use this setup so I had to put to good use what I had learned with a lot of experimenting and researching to get a better understanding how it all worked together. Most of the courses used bootstrap so tailwind was a bit different. Knowing how vanilla CSS worked really helped with using tailwind for the first time! </div><div class=\\\"mt-6\\\"> Please register to gain access to admin pages. You will be given moderator role where u can see pages but cannot access certain pages to alter or create users or posts. </div><div class=\\\"mt-6\\\"> Please understand this is just a demo site. I&#39;m currently just too busy to implement every single feature. Happy to discuss this with you if your interested in hiring me. At the time of deploying this site I will have moved on to another project and be starting TDD course amongst other courses. </div><div class=\\\"mt-6\\\"> If I&#39;m not a good fit currently please save this site. More projects will be published over time with different tech and will be listed in my project section of this page. Thanks for you time and hope to hear from you soon! </div>\", 6);\n\nfunction render(_ctx, _cache) {\n  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(\"div\", _hoisted_1, [_hoisted_2]);\n}//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvanMvUGFnZXMvTGFuZGluZy9jb250ZW50T25lLnZ1ZT84YTg2Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7QUFDTyxXQUFNOzs7Ozs7MkRBQVgsaURBd0NNLEtBeENOLGNBd0NNLEMsVUFBQSxDQXhDTixDIiwiZmlsZSI6Ii4vbm9kZV9tb2R1bGVzL2JhYmVsLWxvYWRlci9saWIvaW5kZXguanM/P2Nsb25lZFJ1bGVTZXQtNS51c2VbMF0hLi9ub2RlX21vZHVsZXMvdnVlLWxvYWRlci9kaXN0L3RlbXBsYXRlTG9hZGVyLmpzPz9ydWxlU2V0WzFdLnJ1bGVzWzJdIS4vbm9kZV9tb2R1bGVzL3Z1ZS1sb2FkZXIvZGlzdC9pbmRleC5qcz8/cnVsZVNldFswXS51c2VbMF0hLi9yZXNvdXJjZXMvanMvUGFnZXMvTGFuZGluZy9jb250ZW50T25lLnZ1ZT92dWUmdHlwZT10ZW1wbGF0ZSZpZD0xZjIwN2RlNC5qcyIsInNvdXJjZXNDb250ZW50IjpbIjx0ZW1wbGF0ZT5cbiAgPGRpdiBjbGFzcz1cInctZnVsbCBteC1hdXRvIGxnOm1heC13LTV4bCB0ZXh0LWxnIHRleHQtZ3JheS03MDAgcHQtNiBmb250LXNhbnNcIj5cbiAgICBIaSwgSSdtIFBhdHJpY2sgYS5rLmEgUGFkZHlcbiAgICA8ZGl2IGNsYXNzPVwibXQtOFwiPlxuICAgICAgVGhhbmsgeW91IGZvciBjaGVja2luZyBvdXQgbXkgd2Vic2l0ZS4gSSBoYXZlIGRlc2lnbmVkIGl0IHRvIHNob3djYXNlIHdoYXRcbiAgICAgIEkgaGF2ZSBsZWFybmVkIGZyb20gYWxsIHRoZSBjb3Vyc2VzIG9uIFVkZW15IGFuZCBmcm9tIHZhcmlvdXMgc291cmNlc1xuICAgICAgb24tbGluZS4gVGhlIHNpdGUgaXMgZGVza3RvcCB2ZXJzaW9uIGZpcnN0LCBob3dldmVyIEkgbWFkZSBzdXJlIGl0cyBtb2JpbGVcbiAgICAgIHJlc3BvbnNpdmUuXG4gICAgPC9kaXY+XG5cbiAgICA8ZGl2IGNsYXNzPVwibXQtNlwiPlxuICAgICAgVGhpcyB3ZWIgc2l0ZSBpcyBsaWtlIGEgc2NyYXAgYm9vaywgd2hlcmUgSSdtIHRlc3RpbmcgYW5kIGV4cGVyaW1lbnRpbmcuXG4gICAgICBUaGlzIHNpdGUgaXMgY3JlYXRlZCBmcm9tIExhcmF2ZWwgOCBKZXRzdHJlYW0gd2l0aCBWdWVKcyBmcm9udGVuZCBhbmRcbiAgICAgIGluZXJ0aWFKcyB0byBnbHVlIGl0IGFsbCB0b2dldGhlci4gQWxsIHRoZSBVZGVteSBjb3Vyc2VzIEl2ZSB0YWtlbiBkaWRudFxuICAgICAgdXNlIHRoaXMgc2V0dXAgc28gSSBoYWQgdG8gcHV0IHRvIGdvb2QgdXNlIHdoYXQgSSBoYWQgbGVhcm5lZCB3aXRoIGEgbG90XG4gICAgICBvZiBleHBlcmltZW50aW5nIGFuZCByZXNlYXJjaGluZyB0byBnZXQgYSBiZXR0ZXIgdW5kZXJzdGFuZGluZyBob3cgaXQgYWxsXG4gICAgICB3b3JrZWQgdG9nZXRoZXIuIE1vc3Qgb2YgdGhlIGNvdXJzZXMgdXNlZCBib290c3RyYXAgc28gdGFpbHdpbmQgd2FzIGEgYml0XG4gICAgICBkaWZmZXJlbnQuIEtub3dpbmcgaG93IHZhbmlsbGEgQ1NTIHdvcmtlZCByZWFsbHkgaGVscGVkIHdpdGggdXNpbmdcbiAgICAgIHRhaWx3aW5kIGZvciB0aGUgZmlyc3QgdGltZSFcbiAgICA8L2Rpdj5cblxuICAgIDxkaXYgY2xhc3M9XCJtdC02XCI+XG4gICAgICBQbGVhc2UgcmVnaXN0ZXIgdG8gZ2FpbiBhY2Nlc3MgdG8gYWRtaW4gcGFnZXMuIFlvdSB3aWxsIGJlIGdpdmVuIG1vZGVyYXRvclxuICAgICAgcm9sZSB3aGVyZSB1IGNhbiBzZWUgcGFnZXMgYnV0IGNhbm5vdCBhY2Nlc3MgY2VydGFpbiBwYWdlcyB0byBhbHRlciBvclxuICAgICAgY3JlYXRlIHVzZXJzIG9yIHBvc3RzLlxuICAgIDwvZGl2PlxuXG4gICAgPGRpdiBjbGFzcz1cIm10LTZcIj5cbiAgICAgIFBsZWFzZSB1bmRlcnN0YW5kIHRoaXMgaXMganVzdCBhIGRlbW8gc2l0ZS4gSSdtIGN1cnJlbnRseSBqdXN0IHRvbyBidXN5IHRvXG4gICAgICBpbXBsZW1lbnQgZXZlcnkgc2luZ2xlIGZlYXR1cmUuIEhhcHB5IHRvIGRpc2N1c3MgdGhpcyB3aXRoIHlvdSBpZiB5b3VyXG4gICAgICBpbnRlcmVzdGVkIGluIGhpcmluZyBtZS4gQXQgdGhlIHRpbWUgb2YgZGVwbG95aW5nIHRoaXMgc2l0ZSBJIHdpbGwgaGF2ZVxuICAgICAgbW92ZWQgb24gdG8gYW5vdGhlciBwcm9qZWN0IGFuZCBiZSBzdGFydGluZyBUREQgY291cnNlIGFtb25nc3Qgb3RoZXJcbiAgICAgIGNvdXJzZXMuXG4gICAgPC9kaXY+XG5cbiAgICA8ZGl2IGNsYXNzPVwibXQtNlwiPlxuICAgICAgSWYgSSdtIG5vdCBhIGdvb2QgZml0IGN1cnJlbnRseSBwbGVhc2Ugc2F2ZSB0aGlzIHNpdGUuIE1vcmUgcHJvamVjdHMgd2lsbFxuICAgICAgYmUgcHVibGlzaGVkIG92ZXIgdGltZSB3aXRoIGRpZmZlcmVudCB0ZWNoIGFuZCB3aWxsIGJlIGxpc3RlZCBpbiBteVxuICAgICAgcHJvamVjdCBzZWN0aW9uIG9mIHRoaXMgcGFnZS4gVGhhbmtzIGZvciB5b3UgdGltZSBhbmQgaG9wZSB0byBoZWFyIGZyb21cbiAgICAgIHlvdSBzb29uIVxuICAgIDwvZGl2PlxuICA8L2Rpdj5cbjwvdGVtcGxhdGU+Il0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Landing/contentOne.vue?vue&type=template&id=1f207de4\n");
 
 /***/ }),
 
@@ -50,20 +26,7 @@ function render(_ctx, _cache) {
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _contentOne_vue_vue_type_template_id_1f207de4__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./contentOne.vue?vue&type=template&id=1f207de4 */ "./resources/js/Pages/Landing/contentOne.vue?vue&type=template&id=1f207de4");
-
-const script = {}
-script.render = _contentOne_vue_vue_type_template_id_1f207de4__WEBPACK_IMPORTED_MODULE_0__.render
-/* hot reload */
-if (false) {}
-
-script.__file = "resources/js/Pages/Landing/contentOne.vue"
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (script);
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _contentOne_vue_vue_type_template_id_1f207de4__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./contentOne.vue?vue&type=template&id=1f207de4 */ \"./resources/js/Pages/Landing/contentOne.vue?vue&type=template&id=1f207de4\");\n\nconst script = {}\nscript.render = _contentOne_vue_vue_type_template_id_1f207de4__WEBPACK_IMPORTED_MODULE_0__.render\n/* hot reload */\nif (false) {}\n\nscript.__file = \"resources/js/Pages/Landing/contentOne.vue\"\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (script);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvanMvUGFnZXMvTGFuZGluZy9jb250ZW50T25lLnZ1ZT85ZjQ4Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7O0FBQXVFO0FBQ3ZFO0FBQ0EsZ0JBQWdCLGlGQUFNO0FBQ3RCO0FBQ0EsSUFBSSxLQUFVLEVBQUUsRUFZZjs7QUFFRDs7QUFFQSxpRUFBZSxNIiwiZmlsZSI6Ii4vcmVzb3VyY2VzL2pzL1BhZ2VzL0xhbmRpbmcvY29udGVudE9uZS52dWUuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyByZW5kZXIgfSBmcm9tIFwiLi9jb250ZW50T25lLnZ1ZT92dWUmdHlwZT10ZW1wbGF0ZSZpZD0xZjIwN2RlNFwiXG5jb25zdCBzY3JpcHQgPSB7fVxuc2NyaXB0LnJlbmRlciA9IHJlbmRlclxuLyogaG90IHJlbG9hZCAqL1xuaWYgKG1vZHVsZS5ob3QpIHtcbiAgc2NyaXB0Ll9faG1ySWQgPSBcIjFmMjA3ZGU0XCJcbiAgY29uc3QgYXBpID0gX19WVUVfSE1SX1JVTlRJTUVfX1xuICBtb2R1bGUuaG90LmFjY2VwdCgpXG4gIGlmICghYXBpLmNyZWF0ZVJlY29yZCgnMWYyMDdkZTQnLCBzY3JpcHQpKSB7XG4gICAgYXBpLnJlbG9hZCgnMWYyMDdkZTQnLCBzY3JpcHQpXG4gIH1cbiAgXG4gIG1vZHVsZS5ob3QuYWNjZXB0KFwiLi9jb250ZW50T25lLnZ1ZT92dWUmdHlwZT10ZW1wbGF0ZSZpZD0xZjIwN2RlNFwiLCAoKSA9PiB7XG4gICAgYXBpLnJlcmVuZGVyKCcxZjIwN2RlNCcsIHJlbmRlcilcbiAgfSlcblxufVxuXG5zY3JpcHQuX19maWxlID0gXCJyZXNvdXJjZXMvanMvUGFnZXMvTGFuZGluZy9jb250ZW50T25lLnZ1ZVwiXG5cbmV4cG9ydCBkZWZhdWx0IHNjcmlwdCJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./resources/js/Pages/Landing/contentOne.vue\n");
 
 /***/ }),
 

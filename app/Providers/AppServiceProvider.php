@@ -25,7 +25,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+
+        // $this->app->bind('path.public', function () {
+        //     return base_path() . '/../public_html';
+        // });
+
+
         Paginator::useBootstrap();
         Schema::defaultStringLength(191);
     }
