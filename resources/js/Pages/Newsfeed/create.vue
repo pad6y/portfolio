@@ -10,7 +10,8 @@
       items-center
       md:mx-auto
       w-full
-      md:w-1/3
+      md:w-4/5
+      lg:w-3/6
       p-4
       md:p-24
       mt-8

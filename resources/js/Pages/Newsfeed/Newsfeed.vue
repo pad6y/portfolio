@@ -1,6 +1,6 @@
 <template>
   <div class="mx-auto max-w-6xl sm:pr-2 sm:pb-6 md:px-6 md:pb-52">
-    <div class="flex flex-col p-2 sm:p-52 sm:py-14 border-2">
+    <div class="flex flex-col p-2 sm:p-24 sm:py-14 border-2">
       <infinite-scroll @loadMore="loadMorePosts">
         <div v-for="(post, index) in allPosts.data" :key="index">
           <newsfeed-item :post="post" :pagination="pagination" />

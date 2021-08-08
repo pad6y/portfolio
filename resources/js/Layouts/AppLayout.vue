@@ -203,6 +203,7 @@
         >
           <div class="pt-2 pb-3 space-y-1">
             <jet-responsive-nav-link
+              v-if="$page.props.auth.can.accessAdmins"
               :href="route('AdminControlPanel.index')"
               :active="route().current('AdminControlPanel.index')"
             >
@@ -211,6 +212,7 @@
             </jet-responsive-nav-link>
 
             <jet-responsive-nav-link
+              v-if="$page.props.auth.can.accessAdmins"
               :href="route('dashboard')"
               :active="route().current('dashboard')"
             >

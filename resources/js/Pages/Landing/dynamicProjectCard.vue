@@ -61,23 +61,26 @@
           >
 
           <!-- Need to add table column for deployed link and the do v-if display -->
-          <div class="flex justify-center p-2" v-if="project.url_link">
-            <blue-button :href="project.url_link">More Info</blue-button>
-          </div>
-          <div
-            class="
-              flex
-              justify-center
-              items-end
-              w-full
-              font-semibold
-              text-red-800
-              mb-6
-              px-2
-              py-2
-            "
-          >
-            Currently not deployed!
+          <div class="flex justify-center p-2">
+            <blue-button v-if="project.url_link" :href="project.url_link"
+              >More Info</blue-button
+            >
+            <div
+              v-else
+              class="
+                flex
+                justify-center
+                items-end
+                w-full
+                font-semibold
+                text-red-800
+                mb-6
+                px-2
+                py-2
+              "
+            >
+              Currently not deployed!
+            </div>
           </div>
         </div>
       </div>

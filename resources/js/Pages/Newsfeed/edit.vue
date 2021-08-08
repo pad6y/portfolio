@@ -4,7 +4,24 @@
   </div> -->
 
   <div
-    class="flex justify-center items-center md:mx-auto w-full md:w-1/3 p-4 md:p-24 mt-8 mb-24 font-serif text-gray-700 md:rounded-xl bg-white shadow-md"
+    class="
+      flex
+      justify-center
+      items-center
+      md:mx-auto
+      w-full
+      md:w-4/5
+      lg:w-3/6
+      p-4
+      md:p-24
+      mt-8
+      mb-24
+      font-serif
+      text-gray-700
+      md:rounded-xl
+      bg-white
+      shadow-md
+    "
   >
     <form @submit.prevent="submitUpdate" class="w-full">
       <div class="flex justify-center text-4xl text-gold pb-10 tracking-widest">
@@ -17,7 +34,16 @@
           id="title"
           type="text"
           placeholder="Enter post title"
-          class="mt-1 block w-full border-2 border-yellow-300 rounded-md shadow-md focus:border-yellow-300 focus:ring-transparent"
+          class="
+            mt-1
+            block
+            w-full
+            border-2 border-yellow-300
+            rounded-md
+            shadow-md
+            focus:border-yellow-300
+            focus:ring-transparent
+          "
           v-model="postUpdateForm.title"
           required
         />
@@ -30,7 +56,16 @@
         <textarea
           id="body"
           placeholder="Enter article content"
-          class="mt-1 block w-full border-2 border-yellow-300 rounded-md shadow-md focus:border-yellow-300 focus:ring-transparent"
+          class="
+            mt-1
+            block
+            w-full
+            border-2 border-yellow-300
+            rounded-md
+            shadow-md
+            focus:border-yellow-300
+            focus:ring-transparent
+          "
           v-model="postUpdateForm.body"
           required
         />
@@ -41,7 +76,14 @@
         <img
           :src="src"
           alt="image unavailable"
-          class="h-52 w-auto mt-8 rounded-md border-2 border-yellow-300 shadow-md"
+          class="
+            h-52
+            w-auto
+            mt-8
+            rounded-md
+            border-2 border-yellow-300
+            shadow-md
+          "
         />
       </div>
       <jet-input-error
@@ -52,7 +94,24 @@
       <div class="flex justify-center mt-6">
         <label
           for="post_image"
-          class="font-serif font-semibold text-xs uppercase tracking-widest text-gray-700 border-2 border-yellow-300 rounded-md shadow-sm h-10 bg-gold-lite flex justify-center items-center cursor-pointer w-2/3 hover:bg-gold-md"
+          class="
+            font-serif font-semibold
+            text-xs
+            uppercase
+            tracking-widest
+            text-gray-700
+            border-2 border-yellow-300
+            rounded-md
+            shadow-sm
+            h-10
+            bg-gold-lite
+            flex
+            justify-center
+            items-center
+            cursor-pointer
+            w-2/3
+            hover:bg-gold-md
+          "
           >edit image</label
         >
         <input
@@ -66,7 +125,20 @@
 
       <div class="flex justify-center mt-4">
         <jet-button
-          class="font-serif text-gray-700 border-2 border-yellow-300 rounded-md shadow-sm h-10 bg-gold-lite flex justify-center items-center cursor-pointer w-2/3"
+          class="
+            font-serif
+            text-gray-700
+            border-2 border-yellow-300
+            rounded-md
+            shadow-sm
+            h-10
+            bg-gold-lite
+            flex
+            justify-center
+            items-center
+            cursor-pointer
+            w-2/3
+          "
           :class="{ 'opacity-25': postUpdateForm.processing }"
           :disabled="postUpdateForm.processing"
         >
